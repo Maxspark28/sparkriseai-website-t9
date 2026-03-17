@@ -1,4 +1,3 @@
-import Image from "next/image"
 import {
   Clock,
   DollarSign,
@@ -63,64 +62,40 @@ export default function SparkRiseAI() {
       <SiteNav />
 
       {/* Hero Section */}
-      <section className="relative overflow-hidden px-4 pt-28 pb-20 sm:px-6 lg:px-8">
+      <section className="relative overflow-hidden px-4 pt-32 pb-24 sm:px-6 lg:px-8">
         <div className="absolute inset-0 -z-10">
-          <div className="absolute top-1/4 left-1/4 h-96 w-96 rounded-full bg-primary/10 blur-3xl" />
-          <div className="absolute bottom-1/4 right-1/4 h-96 w-96 rounded-full bg-[var(--orange)]/5 blur-3xl" />
+          <div className="absolute top-1/3 left-1/3 h-[500px] w-[500px] rounded-full bg-primary/10 blur-3xl" />
+          <div className="absolute bottom-1/4 right-1/3 h-[400px] w-[400px] rounded-full bg-[var(--orange)]/5 blur-3xl" />
         </div>
-        <div className="mx-auto max-w-6xl">
-          <div className="grid items-center gap-12 lg:grid-cols-2">
-            {/* Left: Copy */}
-            <div>
-              <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-[var(--orange)]/30 bg-[var(--orange)]/10 px-4 py-1.5 text-sm font-medium text-[var(--orange)]">
-                <span className="h-2 w-2 rounded-full bg-[var(--orange)]" />
-                AI Automation for Northern Virginia Service Businesses
-              </div>
-              <h1 className="text-4xl font-bold tracking-tight text-balance sm:text-5xl lg:text-6xl">
-                We Build AI Systems That Book Appointments{" "}
-                <span className="text-[var(--orange)]">While You Sleep</span>
-              </h1>
-              <p className="mt-6 text-lg text-muted-foreground sm:text-xl">
-                Your leads get followed up in under 5 minutes, 24/7 — so you never lose another
-                potential customer to slow response times.
-              </p>
-              <div className="mt-8">
-                <CalButton className="inline-flex items-center justify-center gap-2 rounded-md bg-[var(--orange)] px-8 py-4 text-lg font-semibold text-white transition-colors hover:bg-[var(--orange)]/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring">
-                  Book Your Free Revenue Leak Audit
-                  <ArrowRight className="h-5 w-5" />
-                </CalButton>
-              </div>
-              <div className="mt-6 flex flex-wrap gap-x-6 gap-y-2 text-sm text-muted-foreground">
-                <span className="flex items-center gap-1.5">
-                  <CheckCircle2 className="h-4 w-4 text-[var(--orange)]" /> Live in 5 business days
-                </span>
-                <span className="flex items-center gap-1.5">
-                  <CheckCircle2 className="h-4 w-4 text-[var(--orange)]" /> 30-day results guarantee
-                </span>
-                <span className="flex items-center gap-1.5">
-                  <CheckCircle2 className="h-4 w-4 text-[var(--orange)]" /> No long-term contracts
-                </span>
-              </div>
-            </div>
-            {/* Right: Founder Photo */}
-            <div className="flex flex-col items-center lg:items-end">
-              <div className="relative pb-8">
-                <div className="h-72 w-72 overflow-hidden rounded-full border-4 border-[var(--orange)]/30 ring-4 ring-primary/20 sm:h-80 sm:w-80">
-                  <Image
-                    src="/founder.jpg"
-                    alt="Cristian González Rivera — Founder, SparkRise AI"
-                    width={320}
-                    height={320}
-                    className="h-full w-full object-cover"
-                    priority
-                  />
-                </div>
-                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full border border-border bg-card px-5 py-2 text-center shadow-lg">
-                  <p className="text-sm font-semibold text-card-foreground">Cristian González Rivera</p>
-                  <p className="text-xs text-muted-foreground">Founder, SparkRise AI</p>
-                </div>
-              </div>
-            </div>
+        <div className="mx-auto max-w-4xl text-center">
+          <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-[var(--orange)]/30 bg-[var(--orange)]/10 px-4 py-1.5 text-sm font-medium text-[var(--orange)]">
+            <span className="h-2 w-2 rounded-full bg-[var(--orange)]" />
+            AI Automation for Northern Virginia Service Businesses
+          </div>
+          <h1 className="text-4xl font-bold tracking-tight text-balance sm:text-5xl lg:text-6xl xl:text-7xl">
+            We Build AI Systems That Book Appointments{" "}
+            <span className="text-[var(--orange)]">While You Sleep</span>
+          </h1>
+          <p className="mx-auto mt-6 max-w-2xl text-lg text-muted-foreground sm:text-xl">
+            Your leads get followed up in under 5 minutes, 24/7 — so you never lose another
+            potential customer to slow response times.
+          </p>
+          <div className="mt-10">
+            <CalButton className="inline-flex items-center justify-center gap-2 rounded-md bg-[var(--orange)] px-8 py-4 text-lg font-semibold text-white transition-colors hover:bg-[var(--orange)]/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring">
+              Book Your Free Revenue Leak Audit
+              <ArrowRight className="h-5 w-5" />
+            </CalButton>
+          </div>
+          <div className="mt-6 flex flex-wrap justify-center gap-x-8 gap-y-2 text-sm text-muted-foreground">
+            <span className="flex items-center gap-1.5">
+              <CheckCircle2 className="h-4 w-4 text-[var(--orange)]" /> Live in 5 business days
+            </span>
+            <span className="flex items-center gap-1.5">
+              <CheckCircle2 className="h-4 w-4 text-[var(--orange)]" /> 30-day results guarantee
+            </span>
+            <span className="flex items-center gap-1.5">
+              <CheckCircle2 className="h-4 w-4 text-[var(--orange)]" /> No long-term contracts
+            </span>
           </div>
         </div>
       </section>
