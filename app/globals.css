@@ -16,13 +16,14 @@
   --secondary-foreground: oklch(0.98 0 0);
   --muted: oklch(0.25 0.02 250);
   --muted-foreground: oklch(0.65 0 0);
-  --accent: oklch(0.62 0.19 250);
+  --accent: oklch(0.70 0.196 47.4);
   --accent-foreground: oklch(1 0 0);
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: oklch(0.577 0.245 27.325);
   --border: oklch(0.28 0.02 250);
   --input: oklch(0.2 0.02 250);
   --ring: oklch(0.62 0.19 250);
+  --orange: oklch(0.70 0.196 47.4);
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
   --chart-3: oklch(0.398 0.07 227.392);
@@ -61,6 +62,7 @@
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
+  --color-orange: var(--orange);
   --color-chart-1: var(--chart-1);
   --color-chart-2: var(--chart-2);
   --color-chart-3: var(--chart-3);
@@ -87,4 +89,45 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+/* Dot pattern background for alternating sections */
+.bg-dot-pattern {
+  background-image: radial-gradient(circle, oklch(0.35 0.02 250) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+/* Premium card gradient border on hover */
+.card-premium {
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.card-premium::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: var(--radius);
+  padding: 1px;
+  background: linear-gradient(135deg, transparent, transparent);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  transition: background 0.3s ease;
+}
+
+.card-premium:hover::before {
+  background: linear-gradient(135deg, oklch(0.70 0.196 47.4), transparent 60%);
+}
+
+/* Orange glow button */
+.btn-orange-glow {
+  box-shadow: 0 0 20px oklch(0.70 0.196 47.4 / 0.3), 0 0 40px oklch(0.70 0.196 47.4 / 0.1);
+}
+
+/* Radial gradient for CTA banner */
+.cta-radial-gradient {
+  background: radial-gradient(ellipse at center, oklch(0.70 0.196 47.4 / 0.2) 0%, oklch(0.62 0.19 250 / 0.15) 50%, transparent 70%);
 }
