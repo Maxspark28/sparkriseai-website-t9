@@ -133,3 +133,21 @@
 .cta-radial-gradient {
   background: radial-gradient(ellipse at center, rgba(99, 132, 255, 0.15) 0%, rgba(249, 115, 22, 0.08) 50%, rgba(99, 132, 255, 0.1) 100%);
 }
+
+/* Infinite scroll animation for integrations carousel */
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-scroll {
+  animation: scroll 30s linear infinite;
+}
+
+.animate-scroll:hover {
+  animation-play-state: paused;
+}

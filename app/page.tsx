@@ -85,7 +85,7 @@ export default function SparkRiseAI() {
           <div className="text-center max-w-4xl mx-auto">
             <div className="inline-flex items-center gap-2 bg-white/5 border border-white/10 rounded-full px-4 py-2 text-sm font-medium text-muted-foreground mb-8 backdrop-blur-sm">
               <Sparkles className="h-4 w-4 text-accent" />
-              AI Lead Automation for Northern Virginia
+              AI Automation Systems
             </div>
             
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.1] tracking-tight mb-6">
@@ -131,6 +131,45 @@ export default function SparkRiseAI() {
                 <div className="text-sm text-muted-foreground">{stat.label}</div>
               </div>
             ))}
+          </div>
+          
+          {/* Integrations Carousel */}
+          <div className="mt-20">
+            <p className="text-center text-sm font-medium text-muted-foreground mb-8">
+              Easily integrates with your existing platforms
+            </p>
+            <div className="relative overflow-hidden">
+              <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-background to-transparent z-10" />
+              <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-background to-transparent z-10" />
+              <div className="flex animate-scroll gap-8">
+                {[...Array(2)].map((_, setIndex) => (
+                  <div key={setIndex} className="flex gap-8 shrink-0">
+                    {[
+                      { name: "GoHighLevel", icon: "GHL" },
+                      { name: "HubSpot", icon: "HS" },
+                      { name: "Google Sheets", icon: "GS" },
+                      { name: "Salesforce", icon: "SF" },
+                      { name: "Yelp", icon: "Y" },
+                      { name: "Google Reviews", icon: "GR" },
+                      { name: "Ramp", icon: "R" },
+                      { name: "Zapier", icon: "Z" },
+                      { name: "Calendly", icon: "C" },
+                      { name: "Stripe", icon: "S" },
+                    ].map((integration) => (
+                      <div
+                        key={`${setIndex}-${integration.name}`}
+                        className="flex items-center gap-3 px-5 py-3 rounded-xl bg-white/[0.03] border border-white/[0.06] hover:border-white/[0.12] transition-colors shrink-0"
+                      >
+                        <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-primary/30 to-accent/20 flex items-center justify-center text-xs font-bold text-foreground">
+                          {integration.icon}
+                        </div>
+                        <span className="text-sm font-medium text-muted-foreground whitespace-nowrap">{integration.name}</span>
+                      </div>
+                    ))}
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </section>
