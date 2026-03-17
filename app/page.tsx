@@ -1,6 +1,3 @@
-"use client"
-
-import { useState } from "react"
 import {
   Zap,
   Clock,
@@ -16,32 +13,46 @@ import {
   CheckCircle2,
   ArrowRight,
   Shield,
-  Phone,
-  Mail,
-  Building2,
-  User,
-  Send,
+  ChevronDown,
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Input } from "@/components/ui/input"
-import { Textarea } from "@/components/ui/textarea"
+import { ContactForm } from "@/components/contact-form"
+
+const faqs = [
+  {
+    question: "How fast does the AI follow up with new leads?",
+    answer:
+      "Our AI responds to new leads in under 5 minutes, 24 hours a day, 7 days a week — including weekends and holidays. Studies show leads go cold after just 5 minutes, so speed is everything.",
+  },
+  {
+    question: "What types of businesses do you work with?",
+    answer:
+      "We work with service-based businesses in Northern Virginia and the DMV area — including HVAC, dental practices, real estate agents, home services, law firms, and more. If you rely on appointments to generate revenue, we can help.",
+  },
+  {
+    question: "How long does it take to go live?",
+    answer:
+      "Most clients are fully live within 5 business days. We handle the entire setup — AI configuration, CRM integration, and calendar connection — so you can focus on running your business.",
+  },
+  {
+    question: "What happens if I don't get results?",
+    answer:
+      "We back every engagement with a 30-day guarantee. If you don't book a single appointment in the first 30 days, we keep working for free until you do. We only win when you win.",
+  },
+  {
+    question: "Do I need to change my existing software or CRM?",
+    answer:
+      "No. Our system integrates with the tools you already use — GoHighLevel, HubSpot, Salesforce, and most major CRMs. We connect to your existing workflow rather than replacing it.",
+  },
+  {
+    question: "Does the AI work in Spanish?",
+    answer:
+      "Yes. Our AI is fully bilingual in English and Spanish, allowing you to serve a wider customer base in the Northern Virginia and DMV market without any extra effort.",
+  },
+]
 
 export default function SparkRiseAI() {
-  const [formData, setFormData] = useState({
-    name: "",
-    business: "",
-    phone: "",
-    email: "",
-    message: "",
-  })
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    // Form submission logic would go here
-    console.log("Form submitted:", formData)
-  }
-
   return (
     <div className="min-h-screen bg-background text-foreground">
       {/* Navigation */}
@@ -51,8 +62,8 @@ export default function SparkRiseAI() {
             <Zap className="h-8 w-8 text-primary" />
             <span className="text-xl font-bold">SparkRise AI</span>
           </div>
-          <Button className="bg-primary text-primary-foreground hover:bg-primary/90">
-            Book a Call
+          <Button asChild className="bg-primary text-primary-foreground hover:bg-primary/90">
+            <a href={process.env.NEXT_PUBLIC_CAL_LINK ?? "#contact"}>Book a Call</a>
           </Button>
         </div>
       </nav>
@@ -74,10 +85,13 @@ export default function SparkRiseAI() {
           <div className="mt-10">
             <Button
               size="lg"
+              asChild
               className="bg-primary px-8 py-6 text-lg text-primary-foreground hover:bg-primary/90"
             >
-              Book Your Free Revenue Leak Audit
-              <ArrowRight className="ml-2 h-5 w-5" />
+              <a href={process.env.NEXT_PUBLIC_CAL_LINK ?? "#contact"}>
+                Book Your Free Revenue Leak Audit
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </a>
             </Button>
           </div>
         </div>
@@ -132,14 +146,33 @@ export default function SparkRiseAI() {
         </div>
       </section>
 
+      {/* Who We Work With */}
+      <section className="px-4 py-16 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-6xl text-center">
+          <p className="text-sm font-semibold uppercase tracking-widest text-muted-foreground">
+            Trusted by service-based businesses across Northern Virginia
+          </p>
+          <div className="mt-6 flex flex-wrap justify-center gap-4 text-muted-foreground">
+            {["HVAC & Plumbing", "Dental Practices", "Real Estate", "Home Services", "Law Firms", "Med Spas"].map(
+              (industry) => (
+                <span
+                  key={industry}
+                  className="rounded-full border border-border px-4 py-1.5 text-sm font-medium"
+                >
+                  {industry}
+                </span>
+              )
+            )}
+          </div>
+        </div>
+      </section>
+
       {/* How It Works Section */}
       <section className="bg-secondary/30 px-4 py-20 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-6xl">
           <div className="text-center">
             <h2 className="text-3xl font-bold sm:text-4xl">How It Works</h2>
-            <p className="mt-4 text-lg text-muted-foreground">
-              Live in 5 business days.
-            </p>
+            <p className="mt-4 text-lg text-muted-foreground">Live in 5 business days.</p>
           </div>
           <div className="mt-12 grid gap-8 md:grid-cols-3">
             <div className="flex flex-col items-center text-center">
@@ -153,7 +186,7 @@ export default function SparkRiseAI() {
               </div>
               <h3 className="text-xl font-semibold">Capture</h3>
               <p className="mt-2 text-muted-foreground">
-                AI captures leads from all your channels—web forms, social media, and ads.
+                AI captures leads from all your channels — web forms, social media, and ads.
               </p>
             </div>
             <div className="flex flex-col items-center text-center">
@@ -307,8 +340,8 @@ export default function SparkRiseAI() {
                     </li>
                   ))}
                 </ul>
-                <Button className="mt-8 w-full bg-primary text-primary-foreground hover:bg-primary/90">
-                  Get Started
+                <Button asChild className="mt-8 w-full bg-primary text-primary-foreground hover:bg-primary/90">
+                  <a href={process.env.NEXT_PUBLIC_CAL_LINK ?? "#contact"}>Get Started</a>
                 </Button>
               </CardContent>
             </Card>
@@ -345,8 +378,8 @@ export default function SparkRiseAI() {
                     </li>
                   ))}
                 </ul>
-                <Button className="mt-8 w-full bg-primary text-primary-foreground hover:bg-primary/90">
-                  Contact Sales
+                <Button asChild className="mt-8 w-full bg-primary text-primary-foreground hover:bg-primary/90">
+                  <a href={process.env.NEXT_PUBLIC_CAL_LINK ?? "#contact"}>Contact Sales</a>
                 </Button>
               </CardContent>
             </Card>
@@ -366,106 +399,51 @@ export default function SparkRiseAI() {
         </div>
       </section>
 
+      {/* FAQ Section */}
+      <section className="bg-secondary/30 px-4 py-20 sm:px-6 lg:px-8" id="faq">
+        <div className="mx-auto max-w-3xl">
+          <div className="text-center">
+            <h2 className="text-3xl font-bold sm:text-4xl">Frequently Asked Questions</h2>
+            <p className="mt-4 text-lg text-muted-foreground">
+              Everything you need to know about SparkRise AI.
+            </p>
+          </div>
+          <div className="mt-12 space-y-4">
+            {faqs.map((faq, index) => (
+              <details
+                key={index}
+                className="group rounded-xl border border-border bg-card px-6 py-4 open:pb-6"
+              >
+                <summary className="flex cursor-pointer list-none items-center justify-between gap-4 font-semibold text-card-foreground">
+                  {faq.question}
+                  <ChevronDown className="h-5 w-5 shrink-0 text-muted-foreground transition-transform group-open:rotate-180" />
+                </summary>
+                <p className="mt-4 text-muted-foreground leading-relaxed">{faq.answer}</p>
+              </details>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Contact Form Section */}
-      <section className="bg-secondary/30 px-4 py-20 sm:px-6 lg:px-8">
+      <section className="px-4 py-20 sm:px-6 lg:px-8" id="contact">
         <div className="mx-auto max-w-2xl">
           <div className="text-center">
             <h2 className="text-3xl font-bold sm:text-4xl">Get In Touch</h2>
             <p className="mt-4 text-lg text-muted-foreground">
-              {"Ready to stop losing leads? Fill out the form below and we'll be in touch."}
+              {"Ready to stop losing leads? Fill out the form below and we'll be in touch within 5 minutes."}
             </p>
           </div>
           <Card className="mt-12 border-border bg-card">
             <CardContent className="p-6 sm:p-8">
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid gap-6 sm:grid-cols-2">
-                  <div className="space-y-2">
-                    <label htmlFor="name" className="flex items-center gap-2 text-sm font-medium text-card-foreground">
-                      <User className="h-4 w-4 text-primary" />
-                      Name
-                    </label>
-                    <Input
-                      id="name"
-                      placeholder="John Smith"
-                      value={formData.name}
-                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      className="border-border bg-input text-foreground placeholder:text-muted-foreground"
-                    />
-                  </div>
-                  <div className="space-y-2">
-                    <label htmlFor="business" className="flex items-center gap-2 text-sm font-medium text-card-foreground">
-                      <Building2 className="h-4 w-4 text-primary" />
-                      Business
-                    </label>
-                    <Input
-                      id="business"
-                      placeholder="ABC Company"
-                      value={formData.business}
-                      onChange={(e) => setFormData({ ...formData, business: e.target.value })}
-                      className="border-border bg-input text-foreground placeholder:text-muted-foreground"
-                    />
-                  </div>
-                </div>
-                <div className="grid gap-6 sm:grid-cols-2">
-                  <div className="space-y-2">
-                    <label htmlFor="phone" className="flex items-center gap-2 text-sm font-medium text-card-foreground">
-                      <Phone className="h-4 w-4 text-primary" />
-                      Phone
-                    </label>
-                    <Input
-                      id="phone"
-                      type="tel"
-                      placeholder="(555) 123-4567"
-                      value={formData.phone}
-                      onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                      className="border-border bg-input text-foreground placeholder:text-muted-foreground"
-                    />
-                  </div>
-                  <div className="space-y-2">
-                    <label htmlFor="email" className="flex items-center gap-2 text-sm font-medium text-card-foreground">
-                      <Mail className="h-4 w-4 text-primary" />
-                      Email
-                    </label>
-                    <Input
-                      id="email"
-                      type="email"
-                      placeholder="john@example.com"
-                      value={formData.email}
-                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      className="border-border bg-input text-foreground placeholder:text-muted-foreground"
-                    />
-                  </div>
-                </div>
-                <div className="space-y-2">
-                  <label htmlFor="message" className="flex items-center gap-2 text-sm font-medium text-card-foreground">
-                    <MessageSquare className="h-4 w-4 text-primary" />
-                    Message
-                  </label>
-                  <Textarea
-                    id="message"
-                    placeholder="Tell us about your business and how we can help..."
-                    rows={4}
-                    value={formData.message}
-                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    className="border-border bg-input text-foreground placeholder:text-muted-foreground"
-                  />
-                </div>
-                <Button
-                  type="submit"
-                  className="w-full bg-primary text-primary-foreground hover:bg-primary/90"
-                  size="lg"
-                >
-                  <Send className="mr-2 h-5 w-5" />
-                  Send Message
-                </Button>
-              </form>
+              <ContactForm />
             </CardContent>
           </Card>
         </div>
       </section>
 
       {/* CTA Banner */}
-      <section className="px-4 py-20 sm:px-6 lg:px-8">
+      <section className="bg-secondary/30 px-4 py-20 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-4xl">
           <div className="rounded-2xl bg-primary/10 p-8 text-center sm:p-12">
             <h2 className="text-3xl font-bold sm:text-4xl">Ready to Stop Losing Leads?</h2>
@@ -474,10 +452,13 @@ export default function SparkRiseAI() {
             </p>
             <Button
               size="lg"
+              asChild
               className="mt-8 bg-primary px-8 py-6 text-lg text-primary-foreground hover:bg-primary/90"
             >
-              Book Your Free Audit Now
-              <ArrowRight className="ml-2 h-5 w-5" />
+              <a href={process.env.NEXT_PUBLIC_CAL_LINK ?? "#contact"}>
+                Book Your Free Audit Now
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </a>
             </Button>
           </div>
         </div>
@@ -493,7 +474,7 @@ export default function SparkRiseAI() {
             </div>
             <div className="text-center text-muted-foreground sm:text-right">
               <p>sparkriseai.com</p>
-              <p className="mt-1">Northern Virginia DMV</p>
+              <p className="mt-1">Serving Northern Virginia — Fairfax, Arlington, Alexandria, Loudoun, Prince William</p>
             </div>
           </div>
           <div className="mt-8 border-t border-border pt-8 text-center text-sm text-muted-foreground">
