@@ -4,26 +4,27 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  --background: oklch(0.12 0.02 250);
-  --foreground: oklch(0.98 0 0);
-  --card: oklch(0.15 0.02 250);
-  --card-foreground: oklch(0.98 0 0);
-  --popover: oklch(0.15 0.02 250);
-  --popover-foreground: oklch(0.98 0 0);
-  --primary: oklch(0.62 0.19 250);
-  --primary-foreground: oklch(1 0 0);
-  --secondary: oklch(0.2 0.02 250);
-  --secondary-foreground: oklch(0.98 0 0);
-  --muted: oklch(0.25 0.02 250);
-  --muted-foreground: oklch(0.65 0 0);
-  --accent: oklch(0.70 0.196 47.4);
-  --accent-foreground: oklch(1 0 0);
+  --background: #0a0d1a;
+  --foreground: #f1f5f9;
+  --card: #111827;
+  --card-foreground: #f1f5f9;
+  --popover: #111827;
+  --popover-foreground: #f1f5f9;
+  --primary: #6384FF;
+  --primary-foreground: #ffffff;
+  --secondary: #1e293b;
+  --secondary-foreground: #f1f5f9;
+  --muted: #1e293b;
+  --muted-foreground: #94a3b8;
+  --accent: #f97316;
+  --accent-foreground: #ffffff;
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: oklch(0.577 0.245 27.325);
-  --border: oklch(0.28 0.02 250);
-  --input: oklch(0.2 0.02 250);
-  --ring: oklch(0.62 0.19 250);
-  --orange: oklch(0.70 0.196 47.4);
+  --border: rgba(255,255,255,0.08);
+  --input: #0e1120;
+  --ring: #6384FF;
+  --orange: #f97316;
+  --blue: #6384FF;
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
   --chart-3: oklch(0.398 0.07 227.392);
@@ -63,6 +64,7 @@
   --color-input: var(--input);
   --color-ring: var(--ring);
   --color-orange: var(--orange);
+  --color-blue: var(--blue);
   --color-chart-1: var(--chart-1);
   --color-chart-2: var(--chart-2);
   --color-chart-3: var(--chart-3);
@@ -119,15 +121,15 @@
 }
 
 .card-premium:hover::before {
-  background: linear-gradient(135deg, oklch(0.70 0.196 47.4), transparent 60%);
+  background: linear-gradient(135deg, #f97316, transparent 60%);
 }
 
 /* Orange glow button */
 .btn-orange-glow {
-  box-shadow: 0 0 20px oklch(0.70 0.196 47.4 / 0.3), 0 0 40px oklch(0.70 0.196 47.4 / 0.1);
+  box-shadow: 0 0 20px rgba(249, 115, 22, 0.3), 0 0 40px rgba(249, 115, 22, 0.1);
 }
 
 /* Radial gradient for CTA banner */
 .cta-radial-gradient {
-  background: radial-gradient(ellipse at center, oklch(0.70 0.196 47.4 / 0.2) 0%, oklch(0.62 0.19 250 / 0.15) 50%, transparent 70%);
+  background: radial-gradient(ellipse at center, rgba(99, 132, 255, 0.15) 0%, rgba(249, 115, 22, 0.08) 50%, rgba(99, 132, 255, 0.1) 100%);
 }
