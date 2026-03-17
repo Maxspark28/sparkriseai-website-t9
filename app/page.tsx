@@ -20,6 +20,8 @@ import {
   TrendingUp,
   FileText,
   ChevronDown,
+  Play,
+  Sparkles,
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
@@ -33,127 +35,188 @@ const faqs = [
   { question: "Does the AI work in Spanish?", answer: "Yes. Our AI is fully bilingual in English and Spanish, allowing you to serve a wider customer base in the Northern Virginia and DMV market without any extra effort." },
 ]
 
+const stats = [
+  { value: "5min", label: "Average Response Time" },
+  { value: "47+", label: "Leads Reactivated" },
+  { value: "5 Days", label: "To Go Live" },
+  { value: "24/7", label: "AI Availability" },
+]
+
 export default function SparkRiseAI() {
   const [openFaq, setOpenFaq] = useState<number | null>(null)
 
   return (
-    <div className="min-h-screen bg-background text-foreground font-sans">
+    <div className="min-h-screen bg-background text-foreground font-sans overflow-x-hidden">
       {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-50 border-b border-border bg-background/85 backdrop-blur-xl">
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-3">
-          <div className="flex items-center gap-6">
-            <a href="/" className="flex items-center gap-2.5 no-underline">
-              <div className="flex h-10 w-10 items-center justify-center rounded-lg border border-accent bg-input text-accent text-sm font-extrabold">
-                SR
+      <nav className="fixed top-0 left-0 right-0 z-50 border-b border-white/5 bg-background/80 backdrop-blur-2xl">
+        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
+          <div className="flex items-center gap-8">
+            <a href="/" className="flex items-center gap-3 no-underline group">
+              <div className="relative flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-accent to-primary">
+                <Zap className="h-5 w-5 text-white" />
+                <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-accent to-primary opacity-0 blur-xl transition-opacity group-hover:opacity-50" />
               </div>
               <span className="text-xl font-bold text-foreground">SparkRise AI</span>
             </a>
-            <a href="/about" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">About</a>
+            <div className="hidden md:flex items-center gap-6">
+              <a href="#how-it-works" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">How It Works</a>
+              <a href="#features" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">Features</a>
+              <a href="#faq" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">FAQ</a>
+            </div>
           </div>
-          <Button className="bg-accent text-accent-foreground hover:bg-accent/90 btn-orange-glow font-semibold">
+          <Button className="bg-accent hover:bg-accent/90 text-white font-semibold rounded-full px-6 shadow-[0_0_20px_rgba(249,115,22,0.3)]">
             Book a Call
+            <ArrowRight className="ml-2 h-4 w-4" />
           </Button>
         </div>
       </nav>
 
       {/* Hero Section */}
-      <section className="px-6 pt-32 pb-20 max-w-7xl mx-auto">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          <div>
-            <div className="inline-flex items-center gap-2 bg-accent/10 border border-accent/30 rounded-full px-4 py-1.5 text-sm font-semibold text-accent mb-6">
-              <span className="w-2 h-2 rounded-full bg-accent" />
-              AI Automation for Northern Virginia Service Businesses
+      <section className="relative px-6 pt-32 pb-24 overflow-hidden">
+        {/* Background Effects */}
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute top-0 left-1/4 w-[600px] h-[600px] bg-primary/20 rounded-full blur-[128px]" />
+          <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-accent/15 rounded-full blur-[128px]" />
+          <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:64px_64px]" />
+        </div>
+        
+        <div className="relative max-w-7xl mx-auto">
+          <div className="text-center max-w-4xl mx-auto">
+            <div className="inline-flex items-center gap-2 bg-white/5 border border-white/10 rounded-full px-4 py-2 text-sm font-medium text-muted-foreground mb-8 backdrop-blur-sm">
+              <Sparkles className="h-4 w-4 text-accent" />
+              AI Lead Automation for Northern Virginia
             </div>
-            <h1 className="text-5xl lg:text-6xl font-extrabold leading-[1.1] tracking-tight mb-6">
-              We Build AI Systems That Book Appointments{" "}
-              <span className="text-accent">While You Sleep</span>
+            
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.1] tracking-tight mb-6">
+              AI Systems That Book
+              <br />
+              <span className="bg-gradient-to-r from-accent via-orange-400 to-accent bg-clip-text text-transparent">
+                Appointments 24/7
+              </span>
             </h1>
-            <p className="text-xl text-muted-foreground leading-relaxed mb-8">
-              Your leads get followed up in under 5 minutes, 24/7 — so you never lose another potential customer to slow response times.
+            
+            <p className="text-xl text-muted-foreground leading-relaxed mb-10 max-w-2xl mx-auto">
+              Your leads get followed up in under 5 minutes, around the clock — so you never lose another customer to slow response times.
             </p>
-            <Button size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90 btn-orange-glow text-lg px-8 py-6 font-bold rounded-xl mb-6">
-              Book Your Free Revenue Leak Audit
-              <ArrowRight className="ml-2 h-5 w-5" />
-            </Button>
-            <div className="flex flex-wrap gap-4 text-sm text-muted-foreground">
-              <span className="flex items-center gap-1"><CheckCircle2 className="h-4 w-4 text-accent" /> Live in 5 business days</span>
-              <span className="flex items-center gap-1"><CheckCircle2 className="h-4 w-4 text-accent" /> 30-day results guarantee</span>
-              <span className="flex items-center gap-1"><CheckCircle2 className="h-4 w-4 text-accent" /> No long-term contracts</span>
+            
+            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+              <Button size="lg" className="bg-accent hover:bg-accent/90 text-white text-lg px-8 py-6 font-semibold rounded-full shadow-[0_0_30px_rgba(249,115,22,0.4)] transition-all hover:shadow-[0_0_40px_rgba(249,115,22,0.5)]">
+                Book Your Free Audit
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </Button>
+              <Button size="lg" variant="outline" className="border-white/10 bg-white/5 backdrop-blur-sm text-foreground hover:bg-white/10 text-lg px-8 py-6 font-semibold rounded-full">
+                <Play className="mr-2 h-5 w-5" />
+                Watch Demo
+              </Button>
+            </div>
+            
+            <div className="flex flex-wrap justify-center gap-6 text-sm text-muted-foreground">
+              {["Live in 5 days", "30-day guarantee", "No contracts"].map((item) => (
+                <span key={item} className="flex items-center gap-2">
+                  <CheckCircle2 className="h-4 w-4 text-accent" />
+                  {item}
+                </span>
+              ))}
             </div>
           </div>
-          <div className="flex flex-col items-center">
-            <div className="relative">
-              {/* Founder Photo Placeholder */}
-              <div className="w-80 h-80 rounded-full border-4 border-accent/30 overflow-hidden bg-secondary flex items-center justify-center text-sm text-muted-foreground">
-                FOUNDER PHOTO
+          
+          {/* Stats Bar */}
+          <div className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-6">
+            {stats.map((stat) => (
+              <div key={stat.label} className="text-center p-6 rounded-2xl bg-white/[0.03] border border-white/[0.06] backdrop-blur-sm">
+                <div className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-foreground to-muted-foreground bg-clip-text text-transparent mb-2">
+                  {stat.value}
+                </div>
+                <div className="text-sm text-muted-foreground">{stat.label}</div>
               </div>
-              <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 whitespace-nowrap bg-card border border-border rounded-full px-5 py-2 text-center">
-                <div className="text-sm font-semibold">Cristian González Rivera</div>
-                <div className="text-xs text-muted-foreground">Founder, SparkRise AI</div>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
 
       {/* Problem Section */}
-      <section className="px-6 py-20 max-w-7xl mx-auto">
-        <h2 className="text-4xl font-bold text-center mb-4">Leads Are Slipping Through the Cracks</h2>
-        <p className="text-center text-muted-foreground text-lg mb-12">Every hour of delay is lost revenue.</p>
-        <div className="grid md:grid-cols-3 gap-6">
-          {[
-            { icon: Clock, title: "Slow Response Times", desc: "Studies show leads go cold after just 5 minutes. Can you respond that fast, every time?" },
-            { icon: DollarSign, title: "Missed Revenue", desc: "Every unanswered lead is money walking out the door. How many did you miss this week?" },
-            { icon: RotateCcw, title: "Dead Lead Database", desc: "You're sitting on thousands of old leads. They're not dead — they're just waiting to be reactivated." },
-          ].map((card) => (
-            <Card key={card.title} className="card-premium border-border bg-card text-center hover:border-accent/30 transition-all">
-              <CardContent className="p-8">
-                <div className="mb-4 mx-auto w-16 h-16 rounded-full bg-primary/20 flex items-center justify-center">
-                  <card.icon className="h-8 w-8 text-primary" />
-                </div>
-                <h3 className="text-xl font-semibold mb-2">{card.title}</h3>
-                <p className="text-muted-foreground leading-relaxed">{card.desc}</p>
-              </CardContent>
-            </Card>
-          ))}
+      <section className="px-6 py-24 relative">
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/5 to-transparent" />
+        <div className="relative max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <span className="inline-block text-accent text-sm font-semibold tracking-wider uppercase mb-4">The Problem</span>
+            <h2 className="text-4xl md:text-5xl font-bold mb-4">Leads Are Slipping Through the Cracks</h2>
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">Every hour of delay is lost revenue.</p>
+          </div>
+          
+          <div className="grid md:grid-cols-3 gap-6">
+            {[
+              { icon: Clock, title: "Slow Response Times", desc: "Studies show leads go cold after just 5 minutes. Can you respond that fast, every time?", gradient: "from-blue-500/20 to-primary/20" },
+              { icon: DollarSign, title: "Missed Revenue", desc: "Every unanswered lead is money walking out the door. How many did you miss this week?", gradient: "from-accent/20 to-orange-500/20" },
+              { icon: RotateCcw, title: "Dead Lead Database", desc: "You're sitting on thousands of old leads. They're not dead — they're just waiting to be reactivated.", gradient: "from-primary/20 to-blue-500/20" },
+            ].map((card) => (
+              <Card key={card.title} className="group relative border-white/[0.06] bg-white/[0.02] backdrop-blur-sm overflow-hidden transition-all hover:border-white/[0.1] hover:bg-white/[0.04]">
+                <div className={`absolute inset-0 bg-gradient-to-br ${card.gradient} opacity-0 group-hover:opacity-100 transition-opacity`} />
+                <CardContent className="relative p-8 text-center">
+                  <div className="mb-6 mx-auto w-16 h-16 rounded-2xl bg-gradient-to-br from-primary/20 to-primary/10 flex items-center justify-center border border-primary/20">
+                    <card.icon className="h-8 w-8 text-primary" />
+                  </div>
+                  <h3 className="text-xl font-semibold mb-3">{card.title}</h3>
+                  <p className="text-muted-foreground leading-relaxed">{card.desc}</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
         </div>
       </section>
 
       {/* Industries */}
-      <section className="px-6 py-10 text-center">
-        <p className="text-xs font-semibold uppercase tracking-widest text-muted-foreground mb-5">
-          Serving service-based businesses across Northern Virginia & the DMV
-        </p>
-        <div className="flex flex-wrap justify-center gap-3">
-          {["HVAC & Plumbing", "Dental Practices", "Real Estate", "Home Services", "Law Firms", "Med Spas"].map((i) => (
-            <span key={i} className="border border-border rounded-full px-4 py-1.5 text-sm text-muted-foreground">{i}</span>
-          ))}
+      <section className="px-6 py-12">
+        <div className="max-w-7xl mx-auto text-center">
+          <p className="text-xs font-semibold uppercase tracking-widest text-muted-foreground mb-6">
+            Trusted by service businesses across Northern Virginia & the DMV
+          </p>
+          <div className="flex flex-wrap justify-center gap-3">
+            {["HVAC & Plumbing", "Dental Practices", "Real Estate", "Home Services", "Law Firms", "Med Spas"].map((industry) => (
+              <span key={industry} className="border border-white/[0.08] bg-white/[0.02] rounded-full px-5 py-2 text-sm text-muted-foreground hover:border-white/[0.15] hover:bg-white/[0.04] transition-all cursor-default">
+                {industry}
+              </span>
+            ))}
+          </div>
         </div>
       </section>
 
       {/* How It Works */}
-      <section className="relative bg-secondary/30 py-20 px-6">
-        <div className="absolute inset-0 bg-dot-pattern opacity-30" />
+      <section id="how-it-works" className="relative py-24 px-6">
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute top-1/2 left-0 w-[400px] h-[400px] bg-primary/10 rounded-full blur-[128px]" />
+          <div className="absolute top-1/2 right-0 w-[400px] h-[400px] bg-accent/10 rounded-full blur-[128px]" />
+        </div>
+        
         <div className="relative max-w-7xl mx-auto">
-          <h2 className="text-4xl font-bold text-center mb-4">How It Works</h2>
-          <p className="text-center text-muted-foreground text-lg mb-12">Live in 5 business days. Zero disruption to your workflow.</p>
-          <div className="grid md:grid-cols-3 gap-12 text-center">
+          <div className="text-center mb-16">
+            <span className="inline-block text-accent text-sm font-semibold tracking-wider uppercase mb-4">How It Works</span>
+            <h2 className="text-4xl md:text-5xl font-bold mb-4">Three Steps to Automated Growth</h2>
+            <p className="text-xl text-muted-foreground">Live in 5 business days. Zero disruption to your workflow.</p>
+          </div>
+          
+          <div className="grid md:grid-cols-3 gap-8">
             {[
               { step: 1, icon: MessageSquare, title: "Capture", desc: "AI captures leads from all your channels — web forms, social media, and ads." },
               { step: 2, icon: Bot, title: "Follow Up", desc: "Instant AI-powered SMS and email follow-up within minutes, not hours." },
               { step: 3, icon: Calendar, title: "Book", desc: "Qualified leads automatically booked on your calendar. You just show up." },
-            ].map((item) => (
-              <div key={item.step}>
-                <div className="relative inline-block mb-6">
-                  <div className="w-20 h-20 rounded-full bg-primary/30 flex items-center justify-center">
-                    <item.icon className="h-8 w-8 text-primary" />
+            ].map((item, index) => (
+              <div key={item.step} className="relative">
+                {index < 2 && (
+                  <div className="hidden md:block absolute top-16 left-[60%] w-[80%] h-[2px] bg-gradient-to-r from-white/10 to-transparent" />
+                )}
+                <div className="text-center">
+                  <div className="relative inline-block mb-6">
+                    <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-primary/30 to-primary/10 flex items-center justify-center border border-primary/20">
+                      <item.icon className="h-9 w-9 text-primary" />
+                    </div>
+                    <span className="absolute -top-2 -right-2 w-8 h-8 rounded-full bg-accent text-white font-bold text-sm flex items-center justify-center shadow-[0_0_15px_rgba(249,115,22,0.4)]">
+                      {item.step}
+                    </span>
                   </div>
-                  <span className="absolute -top-2 -right-2 w-7 h-7 rounded-full bg-accent text-accent-foreground font-bold text-sm flex items-center justify-center">
-                    {item.step}
-                  </span>
+                  <h3 className="text-xl font-semibold mb-3">{item.title}</h3>
+                  <p className="text-muted-foreground leading-relaxed">{item.desc}</p>
                 </div>
-                <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
-                <p className="text-muted-foreground">{item.desc}</p>
               </div>
             ))}
           </div>
@@ -161,106 +224,131 @@ export default function SparkRiseAI() {
       </section>
 
       {/* What's Included */}
-      <section className="px-6 py-20 max-w-7xl mx-auto">
-        <h2 className="text-4xl font-bold text-center mb-4">{"What's Included"}</h2>
-        <p className="text-center text-muted-foreground text-lg mb-12">Everything you need to automate your lead follow-up and book more appointments.</p>
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
-          {[
-            { icon: MessageSquare, title: "AI SMS + Email Follow-up", desc: "Instant multi-channel outreach" },
-            { icon: Bot, title: "Lead Qualification Chatbot", desc: "Pre-qualify leads automatically" },
-            { icon: Calendar, title: "Appointment Booking Automation", desc: "Seamless calendar integration" },
-            { icon: RotateCcw, title: "Dead Lead Reactivation", desc: "Revive your old lead database" },
-            { icon: Star, title: "Google Review Automation", desc: "Boost your online reputation" },
-            { icon: BarChart3, title: "Weekly Revenue Report", desc: "Track ROI and performance" },
-            { icon: Globe, title: "Bilingual English/Spanish AI", desc: "Serve more customers" },
-            { icon: Link2, title: "CRM Integration", desc: "Works with your existing tools" },
-          ].map((f) => (
-            <Card key={f.title} className="card-premium border-border bg-card hover:border-accent/30 transition-all">
-              <CardContent className="p-6">
-                <f.icon className="h-7 w-7 text-primary mb-3" />
-                <div className="font-semibold mb-1">{f.title}</div>
-                <div className="text-sm text-muted-foreground">{f.desc}</div>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
-      </section>
-
-      {/* What to Expect on the Call */}
-      <section className="relative bg-secondary/30 py-20 px-6">
-        <div className="absolute inset-0 bg-dot-pattern opacity-30" />
-        <div className="relative max-w-5xl mx-auto text-center">
-          <h2 className="text-4xl font-bold mb-4">What Happens on Your Free Audit Call</h2>
-          <p className="text-muted-foreground text-lg mb-12">30 minutes. No pressure. Real, actionable insights.</p>
-          <div className="grid md:grid-cols-3 gap-6 mb-10 text-left">
+      <section id="features" className="px-6 py-24 relative">
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-accent/5 to-transparent" />
+        <div className="relative max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <span className="inline-block text-accent text-sm font-semibold tracking-wider uppercase mb-4">Features</span>
+            <h2 className="text-4xl md:text-5xl font-bold mb-4">{"Everything You Need"}</h2>
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">Complete automation suite to capture, nurture, and convert leads.</p>
+          </div>
+          
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
             {[
-              { step: "01", icon: Search, title: "We Map Your Lead Flow", desc: "We look at where leads come in and exactly where they fall off — your form, calls, social, or ads." },
-              { step: "02", icon: TrendingUp, title: "We Find the Revenue Leak", desc: "We put a real number on what slow follow-up is costing your business every single month." },
-              { step: "03", icon: FileText, title: "You Leave with a Plan", desc: "Whether you work with us or not, you walk away with a clear action plan you can use immediately." },
-            ].map((item) => (
-              <Card key={item.step} className="border-border bg-card">
-                <CardContent className="p-7">
-                  <div className="flex items-center gap-3 mb-4">
-                    <div className="w-10 h-10 rounded-full bg-accent/10 flex items-center justify-center">
-                      <item.icon className="h-5 w-5 text-accent" />
-                    </div>
-                    <span className="text-3xl font-extrabold text-accent/25">{item.step}</span>
+              { icon: MessageSquare, title: "AI SMS + Email", desc: "Instant multi-channel outreach" },
+              { icon: Bot, title: "Lead Qualification", desc: "Pre-qualify leads automatically" },
+              { icon: Calendar, title: "Auto Booking", desc: "Seamless calendar integration" },
+              { icon: RotateCcw, title: "Lead Reactivation", desc: "Revive your old database" },
+              { icon: Star, title: "Review Automation", desc: "Boost your online reputation" },
+              { icon: BarChart3, title: "Revenue Reports", desc: "Track ROI and performance" },
+              { icon: Globe, title: "Bilingual AI", desc: "English and Spanish support" },
+              { icon: Link2, title: "CRM Integration", desc: "Works with your tools" },
+            ].map((feature) => (
+              <Card key={feature.title} className="group border-white/[0.06] bg-white/[0.02] hover:border-accent/30 hover:bg-white/[0.04] transition-all">
+                <CardContent className="p-6">
+                  <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
+                    <feature.icon className="h-6 w-6 text-primary" />
                   </div>
-                  <div className="font-semibold mb-2">{item.title}</div>
-                  <div className="text-sm text-muted-foreground leading-relaxed">{item.desc}</div>
+                  <h3 className="font-semibold mb-1">{feature.title}</h3>
+                  <p className="text-sm text-muted-foreground">{feature.desc}</p>
                 </CardContent>
               </Card>
             ))}
           </div>
-          <Button size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90 btn-orange-glow text-lg px-8 py-6 font-bold rounded-xl">
+        </div>
+      </section>
+
+      {/* What to Expect on the Call */}
+      <section className="relative py-24 px-6">
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.01)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.01)_1px,transparent_1px)] bg-[size:48px_48px]" />
+        </div>
+        
+        <div className="relative max-w-5xl mx-auto text-center">
+          <span className="inline-block text-accent text-sm font-semibold tracking-wider uppercase mb-4">Free Audit</span>
+          <h2 className="text-4xl md:text-5xl font-bold mb-4">What Happens on Your Call</h2>
+          <p className="text-xl text-muted-foreground mb-16">30 minutes. No pressure. Real, actionable insights.</p>
+          
+          <div className="grid md:grid-cols-3 gap-6 mb-12 text-left">
+            {[
+              { step: "01", icon: Search, title: "We Map Your Lead Flow", desc: "We look at where leads come in and exactly where they fall off." },
+              { step: "02", icon: TrendingUp, title: "We Find the Revenue Leak", desc: "We put a real number on what slow follow-up is costing you." },
+              { step: "03", icon: FileText, title: "You Leave with a Plan", desc: "Walk away with a clear action plan you can use immediately." },
+            ].map((item) => (
+              <Card key={item.step} className="border-white/[0.06] bg-white/[0.02] backdrop-blur-sm overflow-hidden">
+                <CardContent className="p-8">
+                  <div className="flex items-center gap-4 mb-4">
+                    <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center">
+                      <item.icon className="h-6 w-6 text-accent" />
+                    </div>
+                    <span className="text-4xl font-bold text-white/10">{item.step}</span>
+                  </div>
+                  <h3 className="font-semibold mb-2 text-lg">{item.title}</h3>
+                  <p className="text-muted-foreground leading-relaxed">{item.desc}</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+          
+          <Button size="lg" className="bg-accent hover:bg-accent/90 text-white text-lg px-10 py-6 font-semibold rounded-full shadow-[0_0_30px_rgba(249,115,22,0.4)]">
             Book Your Free 30-Min Audit
             <ArrowRight className="ml-2 h-5 w-5" />
           </Button>
-          <p className="mt-3 text-sm text-muted-foreground">Free. No commitment. No pitch deck.</p>
+          <p className="mt-4 text-sm text-muted-foreground">Free. No commitment. No pitch deck.</p>
         </div>
       </section>
 
       {/* Guarantee */}
       <section className="px-6 py-16 max-w-5xl mx-auto">
-        <div className="border border-accent/30 bg-accent/5 rounded-2xl p-10 flex gap-8 items-start">
-          <div className="w-16 h-16 rounded-full bg-accent/10 flex items-center justify-center flex-shrink-0">
-            <Shield className="h-8 w-8 text-accent" />
-          </div>
-          <div>
-            <h3 className="text-xl font-bold mb-3">Our 30-Day Results Guarantee</h3>
-            <p className="text-muted-foreground leading-relaxed mb-4">
-              {"We're so confident in our system that we put our time on the line. "}
-              <strong className="text-foreground">{"If you don't book at least one appointment in your first 30 days, we keep working for free — no questions asked — until you do."}</strong>
-            </p>
-            <div className="flex flex-wrap gap-5">
-              {["No long-term contracts", "Cancel anytime", "Setup in 5 business days"].map((item) => (
-                <span key={item} className="text-accent text-sm font-semibold flex items-center gap-1">
-                  <CheckCircle2 className="h-4 w-4" /> {item}
-                </span>
-              ))}
+        <div className="relative overflow-hidden border border-accent/20 bg-gradient-to-br from-accent/10 via-transparent to-primary/10 rounded-3xl p-10 md:p-12">
+          <div className="absolute top-0 right-0 w-64 h-64 bg-accent/10 rounded-full blur-[80px]" />
+          <div className="relative flex flex-col md:flex-row gap-8 items-start">
+            <div className="w-20 h-20 rounded-2xl bg-accent/10 flex items-center justify-center flex-shrink-0 border border-accent/20">
+              <Shield className="h-10 w-10 text-accent" />
+            </div>
+            <div>
+              <h3 className="text-2xl font-bold mb-4">Our 30-Day Results Guarantee</h3>
+              <p className="text-muted-foreground leading-relaxed mb-6 text-lg">
+                {"We're so confident in our system that we put our time on the line. "}
+                <strong className="text-foreground">{"If you don't book at least one appointment in your first 30 days, we keep working for free until you do."}</strong>
+              </p>
+              <div className="flex flex-wrap gap-6">
+                {["No long-term contracts", "Cancel anytime", "Live in 5 days"].map((item) => (
+                  <span key={item} className="text-accent text-sm font-semibold flex items-center gap-2">
+                    <CheckCircle2 className="h-4 w-4" /> {item}
+                  </span>
+                ))}
+              </div>
             </div>
           </div>
         </div>
       </section>
 
       {/* FAQ */}
-      <section className="relative bg-secondary/30 py-20 px-6">
-        <div className="absolute inset-0 bg-dot-pattern opacity-30" />
+      <section id="faq" className="relative py-24 px-6">
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute bottom-0 left-1/4 w-[500px] h-[500px] bg-primary/10 rounded-full blur-[128px]" />
+        </div>
+        
         <div className="relative max-w-3xl mx-auto">
-          <h2 className="text-4xl font-bold text-center mb-4">Frequently Asked Questions</h2>
-          <p className="text-center text-muted-foreground text-lg mb-12">Everything you need to know before booking a call.</p>
-          <div className="flex flex-col gap-3">
+          <div className="text-center mb-16">
+            <span className="inline-block text-accent text-sm font-semibold tracking-wider uppercase mb-4">FAQ</span>
+            <h2 className="text-4xl md:text-5xl font-bold mb-4">Common Questions</h2>
+            <p className="text-xl text-muted-foreground">Everything you need to know before booking.</p>
+          </div>
+          
+          <div className="flex flex-col gap-4">
             {faqs.map((faq, i) => (
-              <div key={i} className="bg-card border border-border rounded-xl overflow-hidden">
+              <div key={i} className="bg-white/[0.02] border border-white/[0.06] rounded-2xl overflow-hidden transition-all hover:border-white/[0.1]">
                 <button
                   onClick={() => setOpenFaq(openFaq === i ? null : i)}
-                  className="w-full flex justify-between items-center p-5 text-left font-semibold hover:bg-secondary/50 transition-colors"
+                  className="w-full flex justify-between items-center p-6 text-left font-semibold hover:bg-white/[0.02] transition-colors"
                 >
-                  {faq.question}
-                  <ChevronDown className={`h-5 w-5 text-accent transition-transform ${openFaq === i ? 'rotate-180' : ''}`} />
+                  <span className="pr-4">{faq.question}</span>
+                  <ChevronDown className={`h-5 w-5 text-accent flex-shrink-0 transition-transform duration-200 ${openFaq === i ? 'rotate-180' : ''}`} />
                 </button>
                 {openFaq === i && (
-                  <div className="px-5 pb-5 text-muted-foreground leading-relaxed">
+                  <div className="px-6 pb-6 text-muted-foreground leading-relaxed">
                     {faq.answer}
                   </div>
                 )}
@@ -271,40 +359,54 @@ export default function SparkRiseAI() {
       </section>
 
       {/* Final CTA */}
-      <section className="px-6 py-20 max-w-5xl mx-auto text-center">
-        <div className="cta-radial-gradient border border-accent/20 rounded-3xl p-16">
-          <h2 className="text-4xl font-bold mb-4">Ready to Stop Losing Leads?</h2>
-          <p className="text-muted-foreground text-lg max-w-xl mx-auto mb-8">
-            {"Book your free revenue leak audit and find out exactly how many appointments you're leaving on the table."}
-          </p>
-          <Button size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90 btn-orange-glow text-lg px-10 py-6 font-bold rounded-xl">
-            Book Your Free Audit Now
-            <ArrowRight className="ml-2 h-5 w-5" />
-          </Button>
-          <p className="mt-4 text-sm text-muted-foreground">Free. No commitment. 30 minutes.</p>
+      <section className="px-6 py-24">
+        <div className="max-w-5xl mx-auto">
+          <div className="relative overflow-hidden rounded-[32px] p-12 md:p-16 text-center">
+            {/* Background */}
+            <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-accent/10 to-primary/20" />
+            <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:32px_32px]" />
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-accent/20 rounded-full blur-[100px]" />
+            
+            <div className="relative">
+              <h2 className="text-4xl md:text-5xl font-bold mb-6">Ready to Stop Losing Leads?</h2>
+              <p className="text-xl text-muted-foreground max-w-xl mx-auto mb-10">
+                {"Book your free audit and discover how many appointments you're leaving on the table."}
+              </p>
+              <Button size="lg" className="bg-accent hover:bg-accent/90 text-white text-lg px-12 py-7 font-semibold rounded-full shadow-[0_0_40px_rgba(249,115,22,0.5)] transition-all hover:shadow-[0_0_50px_rgba(249,115,22,0.6)]">
+                Book Your Free Audit Now
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </Button>
+              <p className="mt-6 text-sm text-muted-foreground">Free. No commitment. 30 minutes.</p>
+            </div>
+          </div>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="border-t border-border px-6 py-10 max-w-7xl mx-auto">
-        <div className="flex justify-between items-center flex-wrap gap-4">
-          <div className="flex items-center gap-2.5">
-            <div className="flex h-9 w-9 items-center justify-center rounded-lg border border-accent bg-input text-accent text-xs font-extrabold">
-              SR
+      <footer className="border-t border-white/[0.06] px-6 py-12">
+        <div className="max-w-7xl mx-auto">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-6">
+            <div className="flex items-center gap-3">
+              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-accent to-primary">
+                <Zap className="h-5 w-5 text-white" />
+              </div>
+              <span className="text-xl font-bold">SparkRise AI</span>
             </div>
-            <span className="text-lg font-bold">SparkRise AI</span>
+            <div className="flex gap-8 text-sm text-muted-foreground">
+              <a href="#how-it-works" className="hover:text-foreground transition-colors">How It Works</a>
+              <a href="#features" className="hover:text-foreground transition-colors">Features</a>
+              <a href="#faq" className="hover:text-foreground transition-colors">FAQ</a>
+            </div>
           </div>
-          <div className="flex gap-6 text-sm text-muted-foreground">
-            <a href="/about" className="hover:text-foreground transition-colors">About</a>
-            <span>sparkriseai.com</span>
+          <div className="mt-8 pt-8 border-t border-white/[0.06] text-center">
+            <p className="text-sm text-muted-foreground mb-2">
+              Serving Northern Virginia — Fairfax, Arlington, Alexandria, Loudoun, Prince William
+            </p>
+            <p className="text-sm text-muted-foreground">
+              © 2025 SparkRise AI. All rights reserved.
+            </p>
           </div>
         </div>
-        <p className="mt-4 text-sm text-muted-foreground text-center">
-          Serving Northern Virginia — Fairfax, Arlington, Alexandria, Loudoun, Prince William
-        </p>
-        <p className="mt-2 text-sm text-muted-foreground text-center">
-          © 2025 SparkRise AI. All rights reserved.
-        </p>
       </footer>
     </div>
   )
