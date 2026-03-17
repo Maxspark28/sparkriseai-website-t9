@@ -2,7 +2,6 @@
 
 import { useState } from "react"
 import {
-  Zap,
   Clock,
   DollarSign,
   MessageSquare,
@@ -48,8 +47,7 @@ export default function SparkRiseAI() {
       <nav className="fixed top-0 left-0 right-0 z-50 border-b border-border bg-background/80 backdrop-blur-md">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
           <div className="flex items-center gap-2">
-            <Zap className="h-8 w-8 text-primary" />
-            <span className="text-xl font-bold">SparkRise AI</span>
+            <img src="/logo.jpg" alt="SparkRise AI Logo" className="h-10 w-auto" />
           </div>
           <Button className="bg-accent text-accent-foreground hover:bg-accent/90 btn-orange-glow">
             Book a Call
@@ -66,7 +64,7 @@ export default function SparkRiseAI() {
         <div className="mx-auto max-w-4xl text-center">
           <h1 className="text-4xl font-bold tracking-tight text-balance sm:text-5xl lg:text-6xl">
             We Build AI Systems That Book Appointments{" "}
-            <span className="text-primary">While You Sleep</span>
+            <span className="text-accent">While You Sleep</span>
           </h1>
           <p className="mx-auto mt-6 max-w-2xl text-lg text-muted-foreground sm:text-xl">
             {"Northern Virginia's #1 AI lead automation agency. Your leads get followed up in under 5 minutes, 24/7."}
