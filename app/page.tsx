@@ -62,6 +62,7 @@ export default function SparkRiseAI() {
               <a href="#how-it-works" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">How It Works</a>
               <a href="#features" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">Features</a>
               <a href="#faq" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">FAQ</a>
+              <a href="/about" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">About</a>
             </div>
           </div>
           <Button className="bg-accent hover:bg-accent/90 text-white font-semibold rounded-full px-6 shadow-[0_0_20px_rgba(249,115,22,0.3)]">
