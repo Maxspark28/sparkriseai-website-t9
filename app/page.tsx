@@ -1,4 +1,3 @@
-import dynamic from "next/dynamic"
 import {
   Zap,
   Clock,
@@ -17,15 +16,9 @@ import {
   ChevronDown,
   BadgeCheck,
 } from "lucide-react"
-import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { CalButton } from "@/components/cal-button"
-
-// Lazy-load below-fold sections to improve LCP / TTI
-const ContactForm = dynamic(
-  () => import("@/components/contact-form").then((m) => ({ default: m.ContactForm })),
-  { ssr: false }
-)
+import { ContactForm } from "@/components/contact-form"
 
 const faqs = [
   {
