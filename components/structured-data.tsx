@@ -11,7 +11,7 @@ const organizationSchema = {
     url: `${siteUrl}/icon.svg`,
   },
   description:
-    "Northern Virginia's #1 AI lead automation agency. We build AI systems that book appointments while you sleep.",
+    "SparkRise AI builds AI systems that book appointments while you sleep. Founded by Cristian González Rivera.",
   areaServed: {
     "@type": "AdministrativeArea",
     name: "Northern Virginia",
@@ -41,35 +41,6 @@ const localBusinessSchema = {
     addressRegion: "VA",
     addressCountry: "US",
   },
-  aggregateRating: {
-    "@type": "AggregateRating",
-    ratingValue: "5",
-    reviewCount: "3",
-    bestRating: "5",
-  },
-  review: [
-    {
-      "@type": "Review",
-      author: { "@type": "Person", name: "Sarah M." },
-      reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" },
-      reviewBody:
-        "SparkRise AI transformed our follow-up process. We're booking 3x more appointments.",
-    },
-    {
-      "@type": "Review",
-      author: { "@type": "Person", name: "Michael R." },
-      reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" },
-      reviewBody:
-        "The ROI was immediate. Within the first month, we recovered leads we thought were lost forever.",
-    },
-    {
-      "@type": "Review",
-      author: { "@type": "Person", name: "Jennifer L." },
-      reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" },
-      reviewBody:
-        "Finally, a system that works 24/7. Our response time went from hours to minutes.",
-    },
-  ],
 }
 
 const servicesSchema = {
@@ -214,7 +185,7 @@ const webPageSchema = {
   url: siteUrl,
   name: "SparkRise AI | AI Lead Automation Agency | Northern Virginia",
   description:
-    "Northern Virginia's #1 AI lead automation agency. We build AI systems that book appointments while you sleep.",
+    "SparkRise AI builds AI systems that book appointments while you sleep. Founded by Cristian González Rivera.",
   isPartOf: { "@id": `${siteUrl}/#website` },
   about: { "@id": `${siteUrl}/#organization` },
   inLanguage: "en-US",

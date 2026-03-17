@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     template: '%s | SparkRise AI',
   },
   description:
-    "Northern Virginia's #1 AI lead automation agency. We build AI systems that book appointments while you sleep. Your leads get followed up in under 5 minutes, 24/7. Serving Fairfax, Arlington, Alexandria, Loudoun & Prince William.",
+    "SparkRise AI builds AI systems that book appointments while you sleep. Your leads get followed up in under 5 minutes, 24/7. Serving service businesses in Fairfax, Arlington, Alexandria, Loudoun & Prince William.",
   keywords: [
     "AI lead automation Northern Virginia",
     "AI appointment booking agency",
@@ -26,8 +26,8 @@ export const metadata: Metadata = {
     "DMV AI agency",
     "dead lead reactivation",
   ],
-  authors: [{ name: "SparkRise AI", url: siteUrl }],
-  creator: "SparkRise AI",
+  authors: [{ name: "Cristian González Rivera", url: siteUrl }],
+  creator: "Cristian González Rivera",
   publisher: "SparkRise AI",
   alternates: {
     canonical: siteUrl,
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     siteName: "SparkRise AI",
     title: "SparkRise AI | AI Lead Automation Agency | Northern Virginia",
     description:
-      "We build AI systems that book appointments while you sleep. Leads followed up in under 5 minutes, 24/7. Northern Virginia's #1 AI lead automation agency.",
+      "We build AI systems that book appointments while you sleep. Leads followed up in under 5 minutes, 24/7. Serving service businesses across Northern Virginia.",
     images: [
       {
         url: "/og-image.jpg",
@@ -69,20 +69,6 @@ export const metadata: Metadata = {
     },
   },
   icons: {
-    icon: [
-      {
-        url: '/icon-light-32x32.png',
-        media: '(prefers-color-scheme: light)',
-      },
-      {
-        url: '/icon-dark-32x32.png',
-        media: '(prefers-color-scheme: dark)',
-      },
-      {
-        url: '/icon.svg',
-        type: 'image/svg+xml',
-      },
-    ],
     apple: '/apple-icon.png',
   },
 }
