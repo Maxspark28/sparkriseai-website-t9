@@ -49,7 +49,7 @@ export default function SparkRiseAI() {
         <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
           <div className="flex items-center gap-2">
             <Zap className="h-8 w-8 text-primary" />
-            <img src="/logo.jpg" alt="SparkRise AI" style={{height: '40px'}} />
+            <span className="text-xl font-bold">SparkRise AI</span>
           </div>
           <Button className="bg-primary text-primary-foreground hover:bg-primary/90">
             Book a Call
