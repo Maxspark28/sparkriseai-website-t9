@@ -493,8 +493,7 @@ export default function SparkRiseAI() {
         <div className="mx-auto max-w-6xl">
           <div className="flex flex-col items-center justify-between gap-6 sm:flex-row">
             <div className="flex items-center gap-2">
-              <Zap className="h-6 w-6 text-primary" />
-              <span className="text-lg font-bold">SparkRise AI</span>
+              <img src="/logo.jpg" alt="SparkRise AI Logo" className="h-8 w-auto" />
             </div>
             <div className="text-center text-muted-foreground sm:text-right">
               <p>sparkriseai.com</p>
