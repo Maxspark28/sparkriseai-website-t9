@@ -20,14 +20,12 @@ export function ContactForm() {
     e.preventDefault()
     setStatus("submitting")
     try {
-      const webhookUrl = process.env.NEXT_PUBLIC_N8N_WEBHOOK_URL
-      if (webhookUrl) {
-        await fetch(webhookUrl, {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(formData),
-        })
-      }
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      })
+      if (!res.ok) throw new Error("Submission failed")
       setStatus("success")
       setFormData({ name: "", business: "", phone: "", email: "", message: "" })
     } catch {

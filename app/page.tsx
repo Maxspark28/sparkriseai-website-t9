@@ -1,3 +1,4 @@
+import dynamic from "next/dynamic"
 import {
   Zap,
   Clock,
@@ -14,10 +15,17 @@ import {
   ArrowRight,
   Shield,
   ChevronDown,
+  BadgeCheck,
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { ContactForm } from "@/components/contact-form"
+import { CalButton } from "@/components/cal-button"
+
+// Lazy-load below-fold sections to improve LCP / TTI
+const ContactForm = dynamic(
+  () => import("@/components/contact-form").then((m) => ({ default: m.ContactForm })),
+  { ssr: false }
+)
 
 const faqs = [
   {
@@ -62,9 +70,9 @@ export default function SparkRiseAI() {
             <Zap className="h-8 w-8 text-primary" />
             <span className="text-xl font-bold">SparkRise AI</span>
           </div>
-          <Button asChild className="bg-primary text-primary-foreground hover:bg-primary/90">
-            <a href={process.env.NEXT_PUBLIC_CAL_LINK ?? "#contact"}>Book a Call</a>
-          </Button>
+          <CalButton className="inline-flex items-center justify-center gap-2 rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring">
+            Book a Call
+          </CalButton>
         </div>
       </nav>
 
@@ -82,17 +90,29 @@ export default function SparkRiseAI() {
           <p className="mx-auto mt-6 max-w-2xl text-lg text-muted-foreground sm:text-xl">
             {"Northern Virginia's #1 AI lead automation agency. Your leads get followed up in under 5 minutes, 24/7."}
           </p>
-          <div className="mt-10">
-            <Button
-              size="lg"
-              asChild
-              className="bg-primary px-8 py-6 text-lg text-primary-foreground hover:bg-primary/90"
+          <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
+            <CalButton className="inline-flex items-center justify-center gap-2 rounded-md bg-primary px-8 py-4 text-lg font-semibold text-primary-foreground transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring">
+              Book Your Free Revenue Leak Audit
+              <ArrowRight className="h-5 w-5" />
+            </CalButton>
+            <a
+              href="#contact"
+              className="text-sm font-medium text-muted-foreground underline-offset-4 hover:text-foreground hover:underline"
             >
-              <a href={process.env.NEXT_PUBLIC_CAL_LINK ?? "#contact"}>
-                Book Your Free Revenue Leak Audit
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </a>
-            </Button>
+              Or send us a message
+            </a>
+          </div>
+          {/* Trust signals below hero CTA */}
+          <div className="mt-8 flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm text-muted-foreground">
+            <span className="flex items-center gap-1.5">
+              <CheckCircle2 className="h-4 w-4 text-primary" /> Live in 5 business days
+            </span>
+            <span className="flex items-center gap-1.5">
+              <CheckCircle2 className="h-4 w-4 text-primary" /> 30-day results guarantee
+            </span>
+            <span className="flex items-center gap-1.5">
+              <CheckCircle2 className="h-4 w-4 text-primary" /> No long-term contracts
+            </span>
           </div>
         </div>
       </section>
@@ -175,48 +195,39 @@ export default function SparkRiseAI() {
             <p className="mt-4 text-lg text-muted-foreground">Live in 5 business days.</p>
           </div>
           <div className="mt-12 grid gap-8 md:grid-cols-3">
-            <div className="flex flex-col items-center text-center">
-              <div className="relative mb-6">
-                <div className="flex h-20 w-20 items-center justify-center rounded-full bg-primary text-primary-foreground">
-                  <MessageSquare className="h-10 w-10" />
+            {[
+              {
+                icon: MessageSquare,
+                step: 1,
+                title: "Capture",
+                desc: "AI captures leads from all your channels — web forms, social media, and ads.",
+              },
+              {
+                icon: Bot,
+                step: 2,
+                title: "Follow Up",
+                desc: "Instant AI-powered SMS and email follow-up within minutes, not hours.",
+              },
+              {
+                icon: Calendar,
+                step: 3,
+                title: "Book",
+                desc: "Qualified leads automatically booked on your calendar. You just show up.",
+              },
+            ].map(({ icon: Icon, step, title, desc }) => (
+              <div key={step} className="flex flex-col items-center text-center">
+                <div className="relative mb-6">
+                  <div className="flex h-20 w-20 items-center justify-center rounded-full bg-primary text-primary-foreground">
+                    <Icon className="h-10 w-10" />
+                  </div>
+                  <span className="absolute -right-2 -top-2 flex h-8 w-8 items-center justify-center rounded-full bg-card text-sm font-bold text-card-foreground">
+                    {step}
+                  </span>
                 </div>
-                <span className="absolute -right-2 -top-2 flex h-8 w-8 items-center justify-center rounded-full bg-card text-sm font-bold text-card-foreground">
-                  1
-                </span>
+                <h3 className="text-xl font-semibold">{title}</h3>
+                <p className="mt-2 text-muted-foreground">{desc}</p>
               </div>
-              <h3 className="text-xl font-semibold">Capture</h3>
-              <p className="mt-2 text-muted-foreground">
-                AI captures leads from all your channels — web forms, social media, and ads.
-              </p>
-            </div>
-            <div className="flex flex-col items-center text-center">
-              <div className="relative mb-6">
-                <div className="flex h-20 w-20 items-center justify-center rounded-full bg-primary text-primary-foreground">
-                  <Bot className="h-10 w-10" />
-                </div>
-                <span className="absolute -right-2 -top-2 flex h-8 w-8 items-center justify-center rounded-full bg-card text-sm font-bold text-card-foreground">
-                  2
-                </span>
-              </div>
-              <h3 className="text-xl font-semibold">Follow Up</h3>
-              <p className="mt-2 text-muted-foreground">
-                Instant AI-powered SMS and email follow-up within minutes, not hours.
-              </p>
-            </div>
-            <div className="flex flex-col items-center text-center">
-              <div className="relative mb-6">
-                <div className="flex h-20 w-20 items-center justify-center rounded-full bg-primary text-primary-foreground">
-                  <Calendar className="h-10 w-10" />
-                </div>
-                <span className="absolute -right-2 -top-2 flex h-8 w-8 items-center justify-center rounded-full bg-card text-sm font-bold text-card-foreground">
-                  3
-                </span>
-              </div>
-              <h3 className="text-xl font-semibold">Book</h3>
-              <p className="mt-2 text-muted-foreground">
-                Qualified leads automatically booked on your calendar. You just show up.
-              </p>
-            </div>
+            ))}
           </div>
         </div>
       </section>
@@ -340,9 +351,9 @@ export default function SparkRiseAI() {
                     </li>
                   ))}
                 </ul>
-                <Button asChild className="mt-8 w-full bg-primary text-primary-foreground hover:bg-primary/90">
-                  <a href={process.env.NEXT_PUBLIC_CAL_LINK ?? "#contact"}>Get Started</a>
-                </Button>
+                <CalButton className="mt-8 inline-flex w-full items-center justify-center rounded-md bg-primary px-4 py-2.5 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90">
+                  Get Started
+                </CalButton>
               </CardContent>
             </Card>
             <Card className="relative border-primary bg-card">
@@ -378,21 +389,40 @@ export default function SparkRiseAI() {
                     </li>
                   ))}
                 </ul>
-                <Button asChild className="mt-8 w-full bg-primary text-primary-foreground hover:bg-primary/90">
-                  <a href={process.env.NEXT_PUBLIC_CAL_LINK ?? "#contact"}>Contact Sales</a>
-                </Button>
+                <CalButton className="mt-8 inline-flex w-full items-center justify-center rounded-md bg-primary px-4 py-2.5 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90">
+                  Contact Sales
+                </CalButton>
               </CardContent>
             </Card>
           </div>
-          {/* Guarantee Badge */}
-          <div className="mt-12 flex justify-center">
-            <div className="inline-flex items-center gap-3 rounded-lg border border-primary/30 bg-primary/10 px-6 py-4">
-              <Shield className="h-8 w-8 text-primary" />
+
+          {/* Expanded Guarantee Section */}
+          <div className="mt-16 rounded-2xl border border-primary/30 bg-primary/5 p-8 sm:p-10">
+            <div className="flex flex-col items-center gap-6 text-center sm:flex-row sm:text-left">
+              <div className="shrink-0 rounded-full bg-primary/10 p-5">
+                <Shield className="h-10 w-10 text-primary" />
+              </div>
               <div>
-                <p className="font-semibold text-foreground">30-Day Guarantee</p>
-                <p className="text-sm text-muted-foreground">
-                  {"No appointment in 30 days? We work free until you get results."}
+                <h3 className="text-xl font-bold text-foreground">Our 30-Day Results Guarantee</h3>
+                <p className="mt-2 text-muted-foreground leading-relaxed">
+                  We&apos;re so confident in our system that we put our time on the line.{" "}
+                  <strong className="text-foreground">
+                    If you don&apos;t book at least one appointment in your first 30 days, we keep
+                    working for free — no questions asked — until you do.
+                  </strong>{" "}
+                  We only win when you win.
                 </p>
+                <div className="mt-4 flex flex-wrap gap-3">
+                  {["No long-term contracts", "Cancel anytime", "Setup in 5 business days"].map((item) => (
+                    <span
+                      key={item}
+                      className="flex items-center gap-1.5 text-sm font-medium text-primary"
+                    >
+                      <BadgeCheck className="h-4 w-4" />
+                      {item}
+                    </span>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
@@ -425,8 +455,27 @@ export default function SparkRiseAI() {
         </div>
       </section>
 
+      {/* About / Founder Credibility */}
+      <section className="px-4 py-20 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-3xl text-center">
+          <h2 className="text-3xl font-bold sm:text-4xl">Built by People Who Get It</h2>
+          <p className="mx-auto mt-6 max-w-2xl text-lg text-muted-foreground leading-relaxed">
+            SparkRise AI was founded in Northern Virginia with one goal: help local service businesses
+            compete like enterprise companies — without the enterprise headcount. We combine battle-tested
+            AI automation with deep knowledge of how service businesses actually operate, so every system
+            we build is practical, fast to deploy, and built to generate real revenue from day one.
+          </p>
+          <div className="mt-8 inline-flex items-center gap-3 rounded-full border border-border bg-card px-5 py-3 text-sm">
+            <span className="flex h-9 w-9 items-center justify-center rounded-full bg-primary/20 text-base font-bold text-primary">
+              S
+            </span>
+            <span className="text-card-foreground font-medium">SparkRise AI — Northern Virginia DMV</span>
+          </div>
+        </div>
+      </section>
+
       {/* Contact Form Section */}
-      <section className="px-4 py-20 sm:px-6 lg:px-8" id="contact">
+      <section className="bg-secondary/30 px-4 py-20 sm:px-6 lg:px-8" id="contact">
         <div className="mx-auto max-w-2xl">
           <div className="text-center">
             <h2 className="text-3xl font-bold sm:text-4xl">Get In Touch</h2>
@@ -443,23 +492,17 @@ export default function SparkRiseAI() {
       </section>
 
       {/* CTA Banner */}
-      <section className="bg-secondary/30 px-4 py-20 sm:px-6 lg:px-8">
+      <section className="px-4 py-20 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-4xl">
           <div className="rounded-2xl bg-primary/10 p-8 text-center sm:p-12">
             <h2 className="text-3xl font-bold sm:text-4xl">Ready to Stop Losing Leads?</h2>
             <p className="mx-auto mt-4 max-w-xl text-lg text-muted-foreground">
               {"Book your free revenue leak audit and discover how much money you're leaving on the table."}
             </p>
-            <Button
-              size="lg"
-              asChild
-              className="mt-8 bg-primary px-8 py-6 text-lg text-primary-foreground hover:bg-primary/90"
-            >
-              <a href={process.env.NEXT_PUBLIC_CAL_LINK ?? "#contact"}>
-                Book Your Free Audit Now
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </a>
-            </Button>
+            <CalButton className="mt-8 inline-flex items-center justify-center gap-2 rounded-md bg-primary px-8 py-4 text-lg font-semibold text-primary-foreground transition-colors hover:bg-primary/90">
+              Book Your Free Audit Now
+              <ArrowRight className="h-5 w-5" />
+            </CalButton>
           </div>
         </div>
       </section>
