@@ -11,21 +11,8 @@ export const metadata: Metadata = {
   description: 'Northern Virginia\'s #1 AI lead automation agency. We build AI systems that book appointments while you sleep. Your leads get followed up in under 5 minutes, 24/7.',
   generator: 'v0.app',
   icons: {
-    icon: [
-      {
-        url: '/icon-light-32x32.png',
-        media: '(prefers-color-scheme: light)',
-      },
-      {
-        url: '/icon-dark-32x32.png',
-        media: '(prefers-color-scheme: dark)',
-      },
-      {
-        url: '/icon.svg',
-        type: 'image/svg+xml',
-      },
-    ],
-    apple: '/apple-icon.png',
+    icon: '/logo.jpg',
+    apple: '/logo.jpg',
   },
 }
 

@@ -2,7 +2,6 @@
 
 import { useState } from "react"
 import {
-  Zap,
   Clock,
   DollarSign,
   MessageSquare,
@@ -48,10 +47,9 @@ export default function SparkRiseAI() {
       <nav className="fixed top-0 left-0 right-0 z-50 border-b border-border bg-background/80 backdrop-blur-md">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
           <div className="flex items-center gap-2">
-            <Zap className="h-8 w-8 text-primary" />
-            <span className="text-xl font-bold">SparkRise AI</span>
+            <img src="/logo.jpg" alt="SparkRise AI Logo" className="h-10 w-auto" />
           </div>
-          <Button className="bg-primary text-primary-foreground hover:bg-primary/90">
+          <Button className="bg-accent text-accent-foreground hover:bg-accent/90 btn-orange-glow">
             Book a Call
           </Button>
         </div>
@@ -66,7 +64,7 @@ export default function SparkRiseAI() {
         <div className="mx-auto max-w-4xl text-center">
           <h1 className="text-4xl font-bold tracking-tight text-balance sm:text-5xl lg:text-6xl">
             We Build AI Systems That Book Appointments{" "}
-            <span className="text-primary">While You Sleep</span>
+            <span className="text-accent">While You Sleep</span>
           </h1>
           <p className="mx-auto mt-6 max-w-2xl text-lg text-muted-foreground sm:text-xl">
             {"Northern Virginia's #1 AI lead automation agency. Your leads get followed up in under 5 minutes, 24/7."}
@@ -74,11 +72,18 @@ export default function SparkRiseAI() {
           <div className="mt-10">
             <Button
               size="lg"
-              className="bg-primary px-8 py-6 text-lg text-primary-foreground hover:bg-primary/90"
+              className="bg-accent px-8 py-6 text-lg text-accent-foreground hover:bg-accent/90 btn-orange-glow"
             >
               Book Your Free Revenue Leak Audit
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
+          </div>
+          {/* Floating social proof badge */}
+          <div className="mt-8 inline-flex items-center gap-2 rounded-full border border-accent/30 bg-accent/10 px-4 py-2 text-sm font-medium text-foreground">
+            <Shield className="h-4 w-4 text-accent" />
+            <span>Live in 5 Days</span>
+            <span className="mx-1 text-muted-foreground">|</span>
+            <span>30-Day Guarantee</span>
           </div>
         </div>
       </section>
@@ -133,8 +138,9 @@ export default function SparkRiseAI() {
       </section>
 
       {/* How It Works Section */}
-      <section className="bg-secondary/30 px-4 py-20 sm:px-6 lg:px-8">
-        <div className="mx-auto max-w-6xl">
+      <section className="relative bg-secondary/30 px-4 py-20 sm:px-6 lg:px-8">
+        <div className="absolute inset-0 bg-dot-pattern opacity-30" />
+        <div className="relative mx-auto max-w-6xl">
           <div className="text-center">
             <h2 className="text-3xl font-bold sm:text-4xl">How It Works</h2>
             <p className="mt-4 text-lg text-muted-foreground">
@@ -142,42 +148,36 @@ export default function SparkRiseAI() {
             </p>
           </div>
           <div className="mt-12 grid gap-8 md:grid-cols-3">
-            <div className="flex flex-col items-center text-center">
+            <div className="relative flex flex-col items-center text-center">
+              <span className="absolute -top-4 left-1/2 -translate-x-1/2 text-[120px] font-black text-accent/10 select-none">01</span>
               <div className="relative mb-6">
                 <div className="flex h-20 w-20 items-center justify-center rounded-full bg-primary text-primary-foreground">
                   <MessageSquare className="h-10 w-10" />
                 </div>
-                <span className="absolute -right-2 -top-2 flex h-8 w-8 items-center justify-center rounded-full bg-card text-sm font-bold text-card-foreground">
-                  1
-                </span>
               </div>
               <h3 className="text-xl font-semibold">Capture</h3>
               <p className="mt-2 text-muted-foreground">
                 AI captures leads from all your channels—web forms, social media, and ads.
               </p>
             </div>
-            <div className="flex flex-col items-center text-center">
+            <div className="relative flex flex-col items-center text-center">
+              <span className="absolute -top-4 left-1/2 -translate-x-1/2 text-[120px] font-black text-accent/10 select-none">02</span>
               <div className="relative mb-6">
                 <div className="flex h-20 w-20 items-center justify-center rounded-full bg-primary text-primary-foreground">
                   <Bot className="h-10 w-10" />
                 </div>
-                <span className="absolute -right-2 -top-2 flex h-8 w-8 items-center justify-center rounded-full bg-card text-sm font-bold text-card-foreground">
-                  2
-                </span>
               </div>
               <h3 className="text-xl font-semibold">Follow Up</h3>
               <p className="mt-2 text-muted-foreground">
                 Instant AI-powered SMS and email follow-up within minutes, not hours.
               </p>
             </div>
-            <div className="flex flex-col items-center text-center">
+            <div className="relative flex flex-col items-center text-center">
+              <span className="absolute -top-4 left-1/2 -translate-x-1/2 text-[120px] font-black text-accent/10 select-none">03</span>
               <div className="relative mb-6">
                 <div className="flex h-20 w-20 items-center justify-center rounded-full bg-primary text-primary-foreground">
                   <Calendar className="h-10 w-10" />
                 </div>
-                <span className="absolute -right-2 -top-2 flex h-8 w-8 items-center justify-center rounded-full bg-card text-sm font-bold text-card-foreground">
-                  3
-                </span>
               </div>
               <h3 className="text-xl font-semibold">Book</h3>
               <p className="mt-2 text-muted-foreground">
@@ -208,7 +208,7 @@ export default function SparkRiseAI() {
               { icon: Globe, title: "Bilingual English/Spanish AI", desc: "Serve more customers" },
               { icon: Link2, title: "CRM Integration", desc: "Works with your existing tools" },
             ].map((feature, index) => (
-              <Card key={index} className="border-border bg-card transition-all hover:border-primary/50">
+              <Card key={index} className="card-premium border-border bg-card transition-all hover:border-accent/40">
                 <CardContent className="p-6">
                   <feature.icon className="mb-4 h-8 w-8 text-primary" />
                   <h3 className="font-semibold text-card-foreground">{feature.title}</h3>
@@ -221,11 +221,12 @@ export default function SparkRiseAI() {
       </section>
 
       {/* Social Proof Section */}
-      <section className="bg-secondary/30 px-4 py-20 sm:px-6 lg:px-8">
+      <section className="relative bg-secondary/30 px-4 py-20 sm:px-6 lg:px-8">
+        <div className="absolute inset-0 bg-dot-pattern opacity-30" />
         <div className="mx-auto max-w-6xl">
           <div className="text-center">
             <h2 className="text-3xl font-bold sm:text-4xl">Real Results</h2>
-            <div className="mx-auto mt-6 inline-flex items-center gap-2 rounded-full bg-primary/10 px-6 py-3 text-primary">
+            <div className="mx-auto mt-6 inline-flex items-center gap-2 rounded-full border border-accent/30 bg-accent/10 px-6 py-3 text-accent">
               <CheckCircle2 className="h-5 w-5" />
               <span className="font-semibold">47 leads reactivated in week 1</span>
             </div>
@@ -307,14 +308,14 @@ export default function SparkRiseAI() {
                     </li>
                   ))}
                 </ul>
-                <Button className="mt-8 w-full bg-primary text-primary-foreground hover:bg-primary/90">
+                <Button className="mt-8 w-full bg-accent text-accent-foreground hover:bg-accent/90 btn-orange-glow">
                   Get Started
                 </Button>
               </CardContent>
             </Card>
-            <Card className="relative border-primary bg-card">
+            <Card className="relative border-accent bg-card">
               <div className="absolute -top-4 left-1/2 -translate-x-1/2">
-                <span className="rounded-full bg-primary px-4 py-1 text-sm font-semibold text-primary-foreground">
+                <span className="rounded-full bg-accent px-4 py-1 text-sm font-semibold text-accent-foreground shadow-[0_0_15px_rgba(249,115,22,0.4)]">
                   Most Popular
                 </span>
               </div>
@@ -345,7 +346,7 @@ export default function SparkRiseAI() {
                     </li>
                   ))}
                 </ul>
-                <Button className="mt-8 w-full bg-primary text-primary-foreground hover:bg-primary/90">
+                <Button className="mt-8 w-full bg-accent text-accent-foreground hover:bg-accent/90 btn-orange-glow">
                   Contact Sales
                 </Button>
               </CardContent>
@@ -353,8 +354,8 @@ export default function SparkRiseAI() {
           </div>
           {/* Guarantee Badge */}
           <div className="mt-12 flex justify-center">
-            <div className="inline-flex items-center gap-3 rounded-lg border border-primary/30 bg-primary/10 px-6 py-4">
-              <Shield className="h-8 w-8 text-primary" />
+            <div className="inline-flex items-center gap-3 rounded-lg border border-accent/30 bg-accent/10 px-6 py-4">
+              <Shield className="h-8 w-8 text-accent" />
               <div>
                 <p className="font-semibold text-foreground">30-Day Guarantee</p>
                 <p className="text-sm text-muted-foreground">
@@ -367,7 +368,8 @@ export default function SparkRiseAI() {
       </section>
 
       {/* Contact Form Section */}
-      <section className="bg-secondary/30 px-4 py-20 sm:px-6 lg:px-8">
+      <section className="relative bg-secondary/30 px-4 py-20 sm:px-6 lg:px-8">
+        <div className="absolute inset-0 bg-dot-pattern opacity-30" />
         <div className="mx-auto max-w-2xl">
           <div className="text-center">
             <h2 className="text-3xl font-bold sm:text-4xl">Get In Touch</h2>
@@ -452,7 +454,7 @@ export default function SparkRiseAI() {
                 </div>
                 <Button
                   type="submit"
-                  className="w-full bg-primary text-primary-foreground hover:bg-primary/90"
+                  className="w-full bg-accent text-accent-foreground hover:bg-accent/90 btn-orange-glow"
                   size="lg"
                 >
                   <Send className="mr-2 h-5 w-5" />
@@ -467,18 +469,21 @@ export default function SparkRiseAI() {
       {/* CTA Banner */}
       <section className="px-4 py-20 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-4xl">
-          <div className="rounded-2xl bg-primary/10 p-8 text-center sm:p-12">
-            <h2 className="text-3xl font-bold sm:text-4xl">Ready to Stop Losing Leads?</h2>
-            <p className="mx-auto mt-4 max-w-xl text-lg text-muted-foreground">
-              {"Book your free revenue leak audit and discover how much money you're leaving on the table."}
-            </p>
-            <Button
-              size="lg"
-              className="mt-8 bg-primary px-8 py-6 text-lg text-primary-foreground hover:bg-primary/90"
-            >
-              Book Your Free Audit Now
-              <ArrowRight className="ml-2 h-5 w-5" />
-            </Button>
+          <div className="relative overflow-hidden rounded-2xl border border-accent/20 bg-secondary/50 p-8 text-center sm:p-12">
+            <div className="absolute inset-0 cta-radial-gradient" />
+            <div className="relative">
+              <h2 className="text-3xl font-bold sm:text-4xl">Ready to Stop Losing Leads?</h2>
+              <p className="mx-auto mt-4 max-w-xl text-lg text-muted-foreground">
+                {"Book your free revenue leak audit and discover how much money you're leaving on the table."}
+              </p>
+              <Button
+                size="lg"
+                className="mt-8 bg-accent px-8 py-6 text-lg text-accent-foreground hover:bg-accent/90 btn-orange-glow"
+              >
+                Book Your Free Audit Now
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </Button>
+            </div>
           </div>
         </div>
       </section>
@@ -488,8 +493,7 @@ export default function SparkRiseAI() {
         <div className="mx-auto max-w-6xl">
           <div className="flex flex-col items-center justify-between gap-6 sm:flex-row">
             <div className="flex items-center gap-2">
-              <Zap className="h-6 w-6 text-primary" />
-              <span className="text-lg font-bold">SparkRise AI</span>
+              <img src="/logo.jpg" alt="SparkRise AI Logo" className="h-8 w-auto" />
             </div>
             <div className="text-center text-muted-foreground sm:text-right">
               <p>sparkriseai.com</p>
