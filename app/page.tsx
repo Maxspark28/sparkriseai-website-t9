@@ -16,205 +16,188 @@ import {
   CheckCircle2,
   ArrowRight,
   Shield,
-  Phone,
-  Mail,
-  Building2,
-  User,
-  Send,
+  Search,
+  TrendingUp,
+  FileText,
+  ChevronDown,
+  Play,
+  Sparkles,
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Input } from "@/components/ui/input"
-import { Textarea } from "@/components/ui/textarea"
+import { Card, CardContent } from "@/components/ui/card"
+
+const faqs = [
+  { question: "How fast does the AI follow up with new leads?", answer: "Our AI responds to new leads in under 5 minutes, 24 hours a day, 7 days a week — including weekends and holidays. Studies show leads go cold after just 5 minutes, so speed is everything." },
+  { question: "What types of businesses do you work with?", answer: "We work with service-based businesses in Northern Virginia and the DMV area — including HVAC, dental practices, real estate agents, home services, law firms, and more. If you rely on appointments to generate revenue, we can help." },
+  { question: "How long does it take to go live?", answer: "Most clients are fully live within 5 business days. We handle the entire setup — AI configuration, CRM integration, and calendar connection — so you can focus on running your business." },
+  { question: "What happens if I don't get results?", answer: "We back every engagement with a 30-day guarantee. If you don't book a single appointment in the first 30 days, we keep working for free until you do. We only win when you win." },
+  { question: "Do I need to change my existing software or CRM?", answer: "No. Our system integrates with the tools you already use — GoHighLevel, HubSpot, Salesforce, and most major CRMs. We connect to your existing workflow rather than replacing it." },
+  { question: "Does the AI work in Spanish?", answer: "Yes. Our AI is fully bilingual in English and Spanish, allowing you to serve a wider customer base in the Northern Virginia and DMV market without any extra effort." },
+]
+
+const stats = [
+  { value: "5min", label: "Average Response Time" },
+  { value: "47+", label: "Leads Reactivated" },
+  { value: "5 Days", label: "To Go Live" },
+  { value: "24/7", label: "AI Availability" },
+]
 
 export default function SparkRiseAI() {
-  const [formData, setFormData] = useState({
-    name: "",
-    business: "",
-    phone: "",
-    email: "",
-    message: "",
-  })
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    // Form submission logic would go here
-    console.log("Form submitted:", formData)
-  }
+  const [openFaq, setOpenFaq] = useState<number | null>(null)
 
   return (
-    <div className="min-h-screen bg-background text-foreground">
+    <div className="min-h-screen bg-background text-foreground font-sans overflow-x-hidden">
       {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-50 border-b border-border bg-background/80 backdrop-blur-md">
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
-          <div className="flex items-center gap-2">
-            <Zap className="h-8 w-8 text-accent" />
-            <span className="text-xl font-bold">SparkRise AI</span>
+      <nav className="fixed top-0 left-0 right-0 z-50 border-b border-white/5 bg-background/80 backdrop-blur-2xl">
+        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
+          <div className="flex items-center gap-8">
+            <a href="/" className="flex items-center gap-3 no-underline group">
+              <div className="relative flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-accent to-primary">
+                <Zap className="h-5 w-5 text-white" />
+                <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-accent to-primary opacity-0 blur-xl transition-opacity group-hover:opacity-50" />
+              </div>
+              <span className="text-xl font-bold text-foreground">SparkRise AI</span>
+            </a>
+            <div className="hidden md:flex items-center gap-6">
+              <a href="#how-it-works" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">How It Works</a>
+              <a href="#features" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">Features</a>
+              <a href="#faq" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">FAQ</a>
+              <a href="/about" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">About</a>
+            </div>
           </div>
-          <Button className="bg-accent text-accent-foreground hover:bg-accent/90 btn-orange-glow">
+          <Button className="bg-accent hover:bg-accent/90 text-white font-semibold rounded-full px-6 shadow-[0_0_20px_rgba(249,115,22,0.3)]">
             Book a Call
+            <ArrowRight className="ml-2 h-4 w-4" />
           </Button>
         </div>
       </nav>
 
       {/* Hero Section */}
-      <section className="relative overflow-hidden px-4 pt-32 pb-20 sm:px-6 lg:px-8">
-        <div className="absolute inset-0 -z-10">
-          <div className="absolute top-1/4 left-1/4 h-96 w-96 rounded-full bg-primary/10 blur-3xl" />
-          <div className="absolute bottom-1/4 right-1/4 h-96 w-96 rounded-full bg-primary/5 blur-3xl" />
+      <section className="relative px-6 pt-32 pb-24 overflow-hidden">
+        {/* Background Effects */}
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute top-0 left-1/4 w-[600px] h-[600px] bg-primary/20 rounded-full blur-[128px]" />
+          <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-accent/15 rounded-full blur-[128px]" />
+          <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:64px_64px]" />
         </div>
-        <div className="mx-auto max-w-4xl text-center">
-          <h1 className="text-4xl font-bold tracking-tight text-balance sm:text-5xl lg:text-6xl">
-            We Build AI Systems That Book Appointments{" "}
-            <span className="text-accent">While You Sleep</span>
-          </h1>
-          <p className="mx-auto mt-6 max-w-2xl text-lg text-muted-foreground sm:text-xl">
-            {"Northern Virginia's #1 AI lead automation agency. Your leads get followed up in under 5 minutes, 24/7."}
-          </p>
-          <div className="mt-10">
-            <Button
-              size="lg"
-              className="bg-accent px-8 py-6 text-lg text-accent-foreground hover:bg-accent/90 btn-orange-glow"
-            >
-              Book Your Free Revenue Leak Audit
-              <ArrowRight className="ml-2 h-5 w-5" />
-            </Button>
+        
+        <div className="relative max-w-7xl mx-auto">
+          <div className="text-center max-w-4xl mx-auto">
+            <div className="inline-flex items-center gap-2 bg-white/5 border border-white/10 rounded-full px-4 py-2 text-sm font-medium text-muted-foreground mb-8 backdrop-blur-sm">
+              <Sparkles className="h-4 w-4 text-accent" />
+              AI Automation Systems
+            </div>
+            
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.1] tracking-tight mb-6">
+              AI Systems That Book
+              <br />
+              <span className="bg-gradient-to-r from-accent via-orange-400 to-accent bg-clip-text text-transparent">
+                Appointments 24/7
+              </span>
+            </h1>
+            
+            <p className="text-xl text-muted-foreground leading-relaxed mb-10 max-w-2xl mx-auto">
+              Your leads get followed up in under 5 minutes, around the clock — so you never lose another customer to slow response times.
+            </p>
+            
+            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+              <Button size="lg" className="bg-accent hover:bg-accent/90 text-white text-lg px-8 py-6 font-semibold rounded-full shadow-[0_0_30px_rgba(249,115,22,0.4)] transition-all hover:shadow-[0_0_40px_rgba(249,115,22,0.5)]">
+                Book Your Free Audit
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </Button>
+              <Button size="lg" variant="outline" className="border-white/10 bg-white/5 backdrop-blur-sm text-foreground hover:bg-white/10 text-lg px-8 py-6 font-semibold rounded-full">
+                <Play className="mr-2 h-5 w-5" />
+                Watch Demo
+              </Button>
+            </div>
+            
+            <div className="flex flex-wrap justify-center gap-6 text-sm text-muted-foreground">
+              {["Live in 5 days", "30-day guarantee", "No contracts"].map((item) => (
+                <span key={item} className="flex items-center gap-2">
+                  <CheckCircle2 className="h-4 w-4 text-accent" />
+                  {item}
+                </span>
+              ))}
+            </div>
           </div>
-          {/* Floating social proof badge */}
-          <div className="mt-8 inline-flex items-center gap-2 rounded-full border border-accent/30 bg-accent/10 px-4 py-2 text-sm font-medium text-foreground">
-            <Shield className="h-4 w-4 text-accent" />
-            <span>Live in 5 Days</span>
-            <span className="mx-1 text-muted-foreground">|</span>
-            <span>30-Day Guarantee</span>
+          
+          {/* Stats Bar */}
+          <div className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-6">
+            {stats.map((stat) => (
+              <div key={stat.label} className="text-center p-6 rounded-2xl bg-white/[0.03] border border-white/[0.06] backdrop-blur-sm">
+                <div className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-foreground to-muted-foreground bg-clip-text text-transparent mb-2">
+                  {stat.value}
+                </div>
+                <div className="text-sm text-muted-foreground">{stat.label}</div>
+              </div>
+            ))}
+          </div>
+          
+          {/* Integrations Carousel */}
+          <div className="mt-20">
+            <p className="text-center text-sm font-medium text-muted-foreground mb-8">
+              Easily integrates with your existing platforms
+            </p>
+            <div className="relative overflow-hidden">
+              <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-background to-transparent z-10" />
+              <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-background to-transparent z-10" />
+              <div className="flex animate-scroll gap-8">
+                {[...Array(2)].map((_, setIndex) => (
+                  <div key={setIndex} className="flex gap-8 shrink-0">
+                    {[
+                      { name: "GoHighLevel", icon: "GHL" },
+                      { name: "HubSpot", icon: "HS" },
+                      { name: "Google Sheets", icon: "GS" },
+                      { name: "Salesforce", icon: "SF" },
+                      { name: "Yelp", icon: "Y" },
+                      { name: "Google Reviews", icon: "GR" },
+                      { name: "Ramp", icon: "R" },
+                      { name: "Zapier", icon: "Z" },
+                      { name: "Calendly", icon: "C" },
+                      { name: "Stripe", icon: "S" },
+                    ].map((integration) => (
+                      <div
+                        key={`${setIndex}-${integration.name}`}
+                        className="flex items-center gap-3 px-5 py-3 rounded-xl bg-white/[0.03] border border-white/[0.06] hover:border-white/[0.12] transition-colors shrink-0"
+                      >
+                        <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-primary/30 to-accent/20 flex items-center justify-center text-xs font-bold text-foreground">
+                          {integration.icon}
+                        </div>
+                        <span className="text-sm font-medium text-muted-foreground whitespace-nowrap">{integration.name}</span>
+                      </div>
+                    ))}
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
       {/* Problem Section */}
-      <section className="px-4 py-20 sm:px-6 lg:px-8">
-        <div className="mx-auto max-w-6xl">
-          <div className="text-center">
-            <h2 className="text-3xl font-bold sm:text-4xl">
-              Leads Are Slipping Through the Cracks
-            </h2>
-            <p className="mt-4 text-lg text-muted-foreground">
-              Every hour of delay is lost revenue.
-            </p>
+      <section className="px-6 py-24 relative">
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/5 to-transparent" />
+        <div className="relative max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <span className="inline-block text-accent text-sm font-semibold tracking-wider uppercase mb-4">The Problem</span>
+            <h2 className="text-4xl md:text-5xl font-bold mb-4">Leads Are Slipping Through the Cracks</h2>
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">Every hour of delay is lost revenue.</p>
           </div>
-          <div className="mt-12 grid gap-6 md:grid-cols-3">
-            <Card className="border-border bg-card">
-              <CardContent className="flex flex-col items-center p-6 text-center">
-                <div className="mb-4 rounded-full bg-primary/10 p-4">
-                  <Clock className="h-8 w-8 text-primary" />
-                </div>
-                <h3 className="text-xl font-semibold text-card-foreground">Slow Response Times</h3>
-                <p className="mt-2 text-muted-foreground">
-                  {"Studies show leads go cold after just 5 minutes. Can you respond that fast, every time?"}
-                </p>
-              </CardContent>
-            </Card>
-            <Card className="border-border bg-card">
-              <CardContent className="flex flex-col items-center p-6 text-center">
-                <div className="mb-4 rounded-full bg-primary/10 p-4">
-                  <DollarSign className="h-8 w-8 text-primary" />
-                </div>
-                <h3 className="text-xl font-semibold text-card-foreground">Missed Revenue</h3>
-                <p className="mt-2 text-muted-foreground">
-                  {"Every unanswered lead is money walking out the door. How many did you miss this week?"}
-                </p>
-              </CardContent>
-            </Card>
-            <Card className="border-border bg-card">
-              <CardContent className="flex flex-col items-center p-6 text-center">
-                <div className="mb-4 rounded-full bg-primary/10 p-4">
-                  <RotateCcw className="h-8 w-8 text-primary" />
-                </div>
-                <h3 className="text-xl font-semibold text-card-foreground">Dead Lead Database</h3>
-                <p className="mt-2 text-muted-foreground">
-                  {"You're sitting on thousands of old leads. They're not dead—they're just waiting to be reactivated."}
-                </p>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-      </section>
-
-      {/* How It Works Section */}
-      <section className="relative bg-secondary/30 px-4 py-20 sm:px-6 lg:px-8">
-        <div className="absolute inset-0 bg-dot-pattern opacity-30" />
-        <div className="relative mx-auto max-w-6xl">
-          <div className="text-center">
-            <h2 className="text-3xl font-bold sm:text-4xl">How It Works</h2>
-            <p className="mt-4 text-lg text-muted-foreground">
-              Live in 5 business days.
-            </p>
-          </div>
-          <div className="mt-12 grid gap-8 md:grid-cols-3">
-            <div className="relative flex flex-col items-center text-center">
-              <span className="absolute -top-4 left-1/2 -translate-x-1/2 text-[120px] font-black text-accent/10 select-none">01</span>
-              <div className="relative mb-6">
-                <div className="flex h-20 w-20 items-center justify-center rounded-full bg-primary text-primary-foreground">
-                  <MessageSquare className="h-10 w-10" />
-                </div>
-              </div>
-              <h3 className="text-xl font-semibold">Capture</h3>
-              <p className="mt-2 text-muted-foreground">
-                AI captures leads from all your channels—web forms, social media, and ads.
-              </p>
-            </div>
-            <div className="relative flex flex-col items-center text-center">
-              <span className="absolute -top-4 left-1/2 -translate-x-1/2 text-[120px] font-black text-accent/10 select-none">02</span>
-              <div className="relative mb-6">
-                <div className="flex h-20 w-20 items-center justify-center rounded-full bg-primary text-primary-foreground">
-                  <Bot className="h-10 w-10" />
-                </div>
-              </div>
-              <h3 className="text-xl font-semibold">Follow Up</h3>
-              <p className="mt-2 text-muted-foreground">
-                Instant AI-powered SMS and email follow-up within minutes, not hours.
-              </p>
-            </div>
-            <div className="relative flex flex-col items-center text-center">
-              <span className="absolute -top-4 left-1/2 -translate-x-1/2 text-[120px] font-black text-accent/10 select-none">03</span>
-              <div className="relative mb-6">
-                <div className="flex h-20 w-20 items-center justify-center rounded-full bg-primary text-primary-foreground">
-                  <Calendar className="h-10 w-10" />
-                </div>
-              </div>
-              <h3 className="text-xl font-semibold">Book</h3>
-              <p className="mt-2 text-muted-foreground">
-                Qualified leads automatically booked on your calendar. You just show up.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* What's Included Section */}
-      <section className="px-4 py-20 sm:px-6 lg:px-8">
-        <div className="mx-auto max-w-6xl">
-          <div className="text-center">
-            <h2 className="text-3xl font-bold sm:text-4xl">{"What's Included"}</h2>
-            <p className="mt-4 text-lg text-muted-foreground">
-              Everything you need to automate your lead follow-up.
-            </p>
-          </div>
-          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          
+          <div className="grid md:grid-cols-3 gap-6">
             {[
-              { icon: MessageSquare, title: "AI SMS + Email Follow-up", desc: "Instant multi-channel outreach" },
-              { icon: Bot, title: "Lead Qualification Chatbot", desc: "Pre-qualify leads automatically" },
-              { icon: Calendar, title: "Appointment Booking Automation", desc: "Seamless calendar integration" },
-              { icon: RotateCcw, title: "Dead Lead Reactivation", desc: "Revive your old lead database" },
-              { icon: Star, title: "Google Review Automation", desc: "Boost your online reputation" },
-              { icon: BarChart3, title: "Weekly Revenue Report", desc: "Track ROI and performance" },
-              { icon: Globe, title: "Bilingual English/Spanish AI", desc: "Serve more customers" },
-              { icon: Link2, title: "CRM Integration", desc: "Works with your existing tools" },
-            ].map((feature, index) => (
-              <Card key={index} className="card-premium border-border bg-card transition-all hover:border-accent/40">
-                <CardContent className="p-6">
-                  <feature.icon className="mb-4 h-8 w-8 text-primary" />
-                  <h3 className="font-semibold text-card-foreground">{feature.title}</h3>
-                  <p className="mt-1 text-sm text-muted-foreground">{feature.desc}</p>
+              { icon: Clock, title: "Slow Response Times", desc: "Studies show leads go cold after just 5 minutes. Can you respond that fast, every time?", gradient: "from-blue-500/20 to-primary/20" },
+              { icon: DollarSign, title: "Missed Revenue", desc: "Every unanswered lead is money walking out the door. How many did you miss this week?", gradient: "from-accent/20 to-orange-500/20" },
+              { icon: RotateCcw, title: "Dead Lead Database", desc: "You're sitting on thousands of old leads. They're not dead — they're just waiting to be reactivated.", gradient: "from-primary/20 to-blue-500/20" },
+            ].map((card) => (
+              <Card key={card.title} className="group relative border-white/[0.06] bg-white/[0.02] backdrop-blur-sm overflow-hidden transition-all hover:border-white/[0.1] hover:bg-white/[0.04]">
+                <div className={`absolute inset-0 bg-gradient-to-br ${card.gradient} opacity-0 group-hover:opacity-100 transition-opacity`} />
+                <CardContent className="relative p-8 text-center">
+                  <div className="mb-6 mx-auto w-16 h-16 rounded-2xl bg-gradient-to-br from-primary/20 to-primary/10 flex items-center justify-center border border-primary/20">
+                    <card.icon className="h-8 w-8 text-primary" />
+                  </div>
+                  <h3 className="text-xl font-semibold mb-3">{card.title}</h3>
+                  <p className="text-muted-foreground leading-relaxed">{card.desc}</p>
                 </CardContent>
               </Card>
             ))}
@@ -222,47 +205,92 @@ export default function SparkRiseAI() {
         </div>
       </section>
 
-      {/* Social Proof Section */}
-      <section className="relative bg-secondary/30 px-4 py-20 sm:px-6 lg:px-8">
-        <div className="absolute inset-0 bg-dot-pattern opacity-30" />
-        <div className="mx-auto max-w-6xl">
-          <div className="text-center">
-            <h2 className="text-3xl font-bold sm:text-4xl">Real Results</h2>
-            <div className="mx-auto mt-6 inline-flex items-center gap-2 rounded-full border border-accent/30 bg-accent/10 px-6 py-3 text-accent">
-              <CheckCircle2 className="h-5 w-5" />
-              <span className="font-semibold">47 leads reactivated in week 1</span>
-            </div>
+      {/* Industries */}
+      <section className="px-6 py-12">
+        <div className="max-w-7xl mx-auto text-center">
+          <p className="text-xs font-semibold uppercase tracking-widest text-muted-foreground mb-6">
+            Trusted by service businesses across Northern Virginia & the DMV
+          </p>
+          <div className="flex flex-wrap justify-center gap-3">
+            {["HVAC & Plumbing", "Dental Practices", "Real Estate", "Home Services", "Law Firms", "Med Spas"].map((industry) => (
+              <span key={industry} className="border border-white/[0.08] bg-white/[0.02] rounded-full px-5 py-2 text-sm text-muted-foreground hover:border-white/[0.15] hover:bg-white/[0.04] transition-all cursor-default">
+                {industry}
+              </span>
+            ))}
           </div>
-          <div className="mt-12 grid gap-6 md:grid-cols-3">
+        </div>
+      </section>
+
+      {/* How It Works */}
+      <section id="how-it-works" className="relative py-24 px-6">
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute top-1/2 left-0 w-[400px] h-[400px] bg-primary/10 rounded-full blur-[128px]" />
+          <div className="absolute top-1/2 right-0 w-[400px] h-[400px] bg-accent/10 rounded-full blur-[128px]" />
+        </div>
+        
+        <div className="relative max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <span className="inline-block text-accent text-sm font-semibold tracking-wider uppercase mb-4">How It Works</span>
+            <h2 className="text-4xl md:text-5xl font-bold mb-4">Three Steps to Automated Growth</h2>
+            <p className="text-xl text-muted-foreground">Live in 5 business days. Zero disruption to your workflow.</p>
+          </div>
+          
+          <div className="grid md:grid-cols-3 gap-8">
             {[
-              {
-                quote: "SparkRise AI transformed our follow-up process. We're booking 3x more appointments.",
-                author: "Sarah M.",
-                role: "Dental Practice Owner",
-              },
-              {
-                quote: "The ROI was immediate. Within the first month, we recovered leads we thought were lost forever.",
-                author: "Michael R.",
-                role: "HVAC Business Owner",
-              },
-              {
-                quote: "Finally, a system that works 24/7. Our response time went from hours to minutes.",
-                author: "Jennifer L.",
-                role: "Real Estate Agent",
-              },
-            ].map((testimonial, index) => (
-              <Card key={index} className="border-border bg-card">
+              { step: 1, icon: MessageSquare, title: "Capture", desc: "AI captures leads from all your channels — web forms, social media, and ads." },
+              { step: 2, icon: Bot, title: "Follow Up", desc: "Instant AI-powered SMS and email follow-up within minutes, not hours." },
+              { step: 3, icon: Calendar, title: "Book", desc: "Qualified leads automatically booked on your calendar. You just show up." },
+            ].map((item, index) => (
+              <div key={item.step} className="relative">
+                {index < 2 && (
+                  <div className="hidden md:block absolute top-16 left-[60%] w-[80%] h-[2px] bg-gradient-to-r from-white/10 to-transparent" />
+                )}
+                <div className="text-center">
+                  <div className="relative inline-block mb-6">
+                    <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-primary/30 to-primary/10 flex items-center justify-center border border-primary/20">
+                      <item.icon className="h-9 w-9 text-primary" />
+                    </div>
+                    <span className="absolute -top-2 -right-2 w-8 h-8 rounded-full bg-accent text-white font-bold text-sm flex items-center justify-center shadow-[0_0_15px_rgba(249,115,22,0.4)]">
+                      {item.step}
+                    </span>
+                  </div>
+                  <h3 className="text-xl font-semibold mb-3">{item.title}</h3>
+                  <p className="text-muted-foreground leading-relaxed">{item.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* What's Included */}
+      <section id="features" className="px-6 py-24 relative">
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-accent/5 to-transparent" />
+        <div className="relative max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <span className="inline-block text-accent text-sm font-semibold tracking-wider uppercase mb-4">Features</span>
+            <h2 className="text-4xl md:text-5xl font-bold mb-4">{"Everything You Need"}</h2>
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">Complete automation suite to capture, nurture, and convert leads.</p>
+          </div>
+          
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+            {[
+              { icon: MessageSquare, title: "AI SMS + Email", desc: "Instant multi-channel outreach" },
+              { icon: Bot, title: "Lead Qualification", desc: "Pre-qualify leads automatically" },
+              { icon: Calendar, title: "Auto Booking", desc: "Seamless calendar integration" },
+              { icon: RotateCcw, title: "Lead Reactivation", desc: "Revive your old database" },
+              { icon: Star, title: "Review Automation", desc: "Boost your online reputation" },
+              { icon: BarChart3, title: "Revenue Reports", desc: "Track ROI and performance" },
+              { icon: Globe, title: "Bilingual AI", desc: "English and Spanish support" },
+              { icon: Link2, title: "CRM Integration", desc: "Works with your tools" },
+            ].map((feature) => (
+              <Card key={feature.title} className="group border-white/[0.06] bg-white/[0.02] hover:border-accent/30 hover:bg-white/[0.04] transition-all">
                 <CardContent className="p-6">
-                  <div className="mb-4 flex gap-1">
-                    {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="h-5 w-5 fill-primary text-primary" />
-                    ))}
+                  <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
+                    <feature.icon className="h-6 w-6 text-primary" />
                   </div>
-                  <p className="text-card-foreground">{`"${testimonial.quote}"`}</p>
-                  <div className="mt-4">
-                    <p className="font-semibold text-card-foreground">{testimonial.author}</p>
-                    <p className="text-sm text-muted-foreground">{testimonial.role}</p>
-                  </div>
+                  <h3 className="font-semibold mb-1">{feature.title}</h3>
+                  <p className="text-sm text-muted-foreground">{feature.desc}</p>
                 </CardContent>
               </Card>
             ))}
@@ -270,241 +298,153 @@ export default function SparkRiseAI() {
         </div>
       </section>
 
-      {/* Pricing Section */}
-      <section className="px-4 py-20 sm:px-6 lg:px-8">
-        <div className="mx-auto max-w-5xl">
-          <div className="text-center">
-            <h2 className="text-3xl font-bold sm:text-4xl">Simple, Transparent Pricing</h2>
-            <p className="mt-4 text-lg text-muted-foreground">
-              Choose the plan that fits your business.
-            </p>
-          </div>
-          <div className="mt-12 grid gap-8 md:grid-cols-2">
-            <Card className="relative border-border bg-card">
-              <CardHeader>
-                <CardTitle className="text-2xl text-card-foreground">Revenue Recovery System</CardTitle>
-                <CardDescription className="text-muted-foreground">
-                  Perfect for businesses ready to stop losing leads
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <div className="mb-6">
-                  <span className="text-4xl font-bold text-card-foreground">$2,997</span>
-                  <span className="text-muted-foreground"> setup</span>
-                  <div className="mt-1">
-                    <span className="text-2xl font-semibold text-card-foreground">+ $2,500</span>
-                    <span className="text-muted-foreground">/month</span>
+      {/* What to Expect on the Call */}
+      <section className="relative py-24 px-6">
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.01)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.01)_1px,transparent_1px)] bg-[size:48px_48px]" />
+        </div>
+        
+        <div className="relative max-w-5xl mx-auto text-center">
+          <span className="inline-block text-accent text-sm font-semibold tracking-wider uppercase mb-4">Free Audit</span>
+          <h2 className="text-4xl md:text-5xl font-bold mb-4">What Happens on Your Call</h2>
+          <p className="text-xl text-muted-foreground mb-16">30 minutes. No pressure. Real, actionable insights.</p>
+          
+          <div className="grid md:grid-cols-3 gap-6 mb-12 text-left">
+            {[
+              { step: "01", icon: Search, title: "We Map Your Lead Flow", desc: "We look at where leads come in and exactly where they fall off." },
+              { step: "02", icon: TrendingUp, title: "We Find the Revenue Leak", desc: "We put a real number on what slow follow-up is costing you." },
+              { step: "03", icon: FileText, title: "You Leave with a Plan", desc: "Walk away with a clear action plan you can use immediately." },
+            ].map((item) => (
+              <Card key={item.step} className="border-white/[0.06] bg-white/[0.02] backdrop-blur-sm overflow-hidden">
+                <CardContent className="p-8">
+                  <div className="flex items-center gap-4 mb-4">
+                    <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center">
+                      <item.icon className="h-6 w-6 text-accent" />
+                    </div>
+                    <span className="text-4xl font-bold text-white/10">{item.step}</span>
                   </div>
-                </div>
-                <ul className="space-y-3">
-                  {[
-                    "AI SMS + Email Follow-up",
-                    "Lead Qualification Chatbot",
-                    "Appointment Booking",
-                    "Dead Lead Reactivation",
-                    "Weekly Revenue Reports",
-                  ].map((feature, i) => (
-                    <li key={i} className="flex items-center gap-2">
-                      <CheckCircle2 className="h-5 w-5 text-primary" />
-                      <span className="text-card-foreground">{feature}</span>
-                    </li>
-                  ))}
-                </ul>
-                <Button className="mt-8 w-full bg-accent text-accent-foreground hover:bg-accent/90 btn-orange-glow">
-                  Get Started
-                </Button>
-              </CardContent>
-            </Card>
-            <Card className="relative border-accent bg-card">
-              <div className="absolute -top-4 left-1/2 -translate-x-1/2">
-                <span className="rounded-full bg-accent px-4 py-1 text-sm font-semibold text-accent-foreground shadow-[0_0_15px_rgba(249,115,22,0.4)]">
-                  Most Popular
-                </span>
-              </div>
-              <CardHeader>
-                <CardTitle className="text-2xl text-card-foreground">Full AI Automation</CardTitle>
-                <CardDescription className="text-muted-foreground">
-                  Complete automation for scaling businesses
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <div className="mb-6">
-                  <span className="text-4xl font-bold text-card-foreground">Custom</span>
-                  <span className="text-muted-foreground"> pricing</span>
-                  <div className="mt-1 text-muted-foreground">Tailored to your needs</div>
-                </div>
-                <ul className="space-y-3">
-                  {[
-                    "Everything in Revenue Recovery",
-                    "Google Review Automation",
-                    "Bilingual English/Spanish AI",
-                    "Full CRM Integration",
-                    "Priority Support",
-                    "Custom Workflows",
-                  ].map((feature, i) => (
-                    <li key={i} className="flex items-center gap-2">
-                      <CheckCircle2 className="h-5 w-5 text-primary" />
-                      <span className="text-card-foreground">{feature}</span>
-                    </li>
-                  ))}
-                </ul>
-                <Button className="mt-8 w-full bg-accent text-accent-foreground hover:bg-accent/90 btn-orange-glow">
-                  Contact Sales
-                </Button>
-              </CardContent>
-            </Card>
+                  <h3 className="font-semibold mb-2 text-lg">{item.title}</h3>
+                  <p className="text-muted-foreground leading-relaxed">{item.desc}</p>
+                </CardContent>
+              </Card>
+            ))}
           </div>
-          {/* Guarantee Badge */}
-          <div className="mt-12 flex justify-center">
-            <div className="inline-flex items-center gap-3 rounded-lg border border-accent/30 bg-accent/10 px-6 py-4">
-              <Shield className="h-8 w-8 text-accent" />
-              <div>
-                <p className="font-semibold text-foreground">30-Day Guarantee</p>
-                <p className="text-sm text-muted-foreground">
-                  {"No appointment in 30 days? We work free until you get results."}
-                </p>
+          
+          <Button size="lg" className="bg-accent hover:bg-accent/90 text-white text-lg px-10 py-6 font-semibold rounded-full shadow-[0_0_30px_rgba(249,115,22,0.4)]">
+            Book Your Free 30-Min Audit
+            <ArrowRight className="ml-2 h-5 w-5" />
+          </Button>
+          <p className="mt-4 text-sm text-muted-foreground">Free. No commitment. No pitch deck.</p>
+        </div>
+      </section>
+
+      {/* Guarantee */}
+      <section className="px-6 py-16 max-w-5xl mx-auto">
+        <div className="relative overflow-hidden border border-accent/20 bg-gradient-to-br from-accent/10 via-transparent to-primary/10 rounded-3xl p-10 md:p-12">
+          <div className="absolute top-0 right-0 w-64 h-64 bg-accent/10 rounded-full blur-[80px]" />
+          <div className="relative flex flex-col md:flex-row gap-8 items-start">
+            <div className="w-20 h-20 rounded-2xl bg-accent/10 flex items-center justify-center flex-shrink-0 border border-accent/20">
+              <Shield className="h-10 w-10 text-accent" />
+            </div>
+            <div>
+              <h3 className="text-2xl font-bold mb-4">Our 30-Day Results Guarantee</h3>
+              <p className="text-muted-foreground leading-relaxed mb-6 text-lg">
+                {"We're so confident in our system that we put our time on the line. "}
+                <strong className="text-foreground">{"If you don't book at least one appointment in your first 30 days, we keep working for free until you do."}</strong>
+              </p>
+              <div className="flex flex-wrap gap-6">
+                {["No long-term contracts", "Cancel anytime", "Live in 5 days"].map((item) => (
+                  <span key={item} className="text-accent text-sm font-semibold flex items-center gap-2">
+                    <CheckCircle2 className="h-4 w-4" /> {item}
+                  </span>
+                ))}
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Contact Form Section */}
-      <section className="relative bg-secondary/30 px-4 py-20 sm:px-6 lg:px-8">
-        <div className="absolute inset-0 bg-dot-pattern opacity-30" />
-        <div className="mx-auto max-w-2xl">
-          <div className="text-center">
-            <h2 className="text-3xl font-bold sm:text-4xl">Get In Touch</h2>
-            <p className="mt-4 text-lg text-muted-foreground">
-              {"Ready to stop losing leads? Fill out the form below and we'll be in touch."}
-            </p>
+      {/* FAQ */}
+      <section id="faq" className="relative py-24 px-6">
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute bottom-0 left-1/4 w-[500px] h-[500px] bg-primary/10 rounded-full blur-[128px]" />
+        </div>
+        
+        <div className="relative max-w-3xl mx-auto">
+          <div className="text-center mb-16">
+            <span className="inline-block text-accent text-sm font-semibold tracking-wider uppercase mb-4">FAQ</span>
+            <h2 className="text-4xl md:text-5xl font-bold mb-4">Common Questions</h2>
+            <p className="text-xl text-muted-foreground">Everything you need to know before booking.</p>
           </div>
-          <Card className="mt-12 border-border bg-card">
-            <CardContent className="p-6 sm:p-8">
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid gap-6 sm:grid-cols-2">
-                  <div className="space-y-2">
-                    <label htmlFor="name" className="flex items-center gap-2 text-sm font-medium text-card-foreground">
-                      <User className="h-4 w-4 text-primary" />
-                      Name
-                    </label>
-                    <Input
-                      id="name"
-                      placeholder="John Smith"
-                      value={formData.name}
-                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      className="border-border bg-input text-foreground placeholder:text-muted-foreground"
-                    />
-                  </div>
-                  <div className="space-y-2">
-                    <label htmlFor="business" className="flex items-center gap-2 text-sm font-medium text-card-foreground">
-                      <Building2 className="h-4 w-4 text-primary" />
-                      Business
-                    </label>
-                    <Input
-                      id="business"
-                      placeholder="ABC Company"
-                      value={formData.business}
-                      onChange={(e) => setFormData({ ...formData, business: e.target.value })}
-                      className="border-border bg-input text-foreground placeholder:text-muted-foreground"
-                    />
-                  </div>
-                </div>
-                <div className="grid gap-6 sm:grid-cols-2">
-                  <div className="space-y-2">
-                    <label htmlFor="phone" className="flex items-center gap-2 text-sm font-medium text-card-foreground">
-                      <Phone className="h-4 w-4 text-primary" />
-                      Phone
-                    </label>
-                    <Input
-                      id="phone"
-                      type="tel"
-                      placeholder="(555) 123-4567"
-                      value={formData.phone}
-                      onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                      className="border-border bg-input text-foreground placeholder:text-muted-foreground"
-                    />
-                  </div>
-                  <div className="space-y-2">
-                    <label htmlFor="email" className="flex items-center gap-2 text-sm font-medium text-card-foreground">
-                      <Mail className="h-4 w-4 text-primary" />
-                      Email
-                    </label>
-                    <Input
-                      id="email"
-                      type="email"
-                      placeholder="john@example.com"
-                      value={formData.email}
-                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      className="border-border bg-input text-foreground placeholder:text-muted-foreground"
-                    />
-                  </div>
-                </div>
-                <div className="space-y-2">
-                  <label htmlFor="message" className="flex items-center gap-2 text-sm font-medium text-card-foreground">
-                    <MessageSquare className="h-4 w-4 text-primary" />
-                    Message
-                  </label>
-                  <Textarea
-                    id="message"
-                    placeholder="Tell us about your business and how we can help..."
-                    rows={4}
-                    value={formData.message}
-                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    className="border-border bg-input text-foreground placeholder:text-muted-foreground"
-                  />
-                </div>
-                <Button
-                  type="submit"
-                  className="w-full bg-accent text-accent-foreground hover:bg-accent/90 btn-orange-glow"
-                  size="lg"
+          
+          <div className="flex flex-col gap-4">
+            {faqs.map((faq, i) => (
+              <div key={i} className="bg-white/[0.02] border border-white/[0.06] rounded-2xl overflow-hidden transition-all hover:border-white/[0.1]">
+                <button
+                  onClick={() => setOpenFaq(openFaq === i ? null : i)}
+                  className="w-full flex justify-between items-center p-6 text-left font-semibold hover:bg-white/[0.02] transition-colors"
                 >
-                  <Send className="mr-2 h-5 w-5" />
-                  Send Message
-                </Button>
-              </form>
-            </CardContent>
-          </Card>
+                  <span className="pr-4">{faq.question}</span>
+                  <ChevronDown className={`h-5 w-5 text-accent flex-shrink-0 transition-transform duration-200 ${openFaq === i ? 'rotate-180' : ''}`} />
+                </button>
+                {openFaq === i && (
+                  <div className="px-6 pb-6 text-muted-foreground leading-relaxed">
+                    {faq.answer}
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
-      {/* CTA Banner */}
-      <section className="px-4 py-20 sm:px-6 lg:px-8">
-        <div className="mx-auto max-w-4xl">
-          <div className="relative overflow-hidden rounded-2xl border border-accent/20 bg-secondary/50 p-8 text-center sm:p-12">
-            <div className="absolute inset-0 cta-radial-gradient" />
+      {/* Final CTA */}
+      <section className="px-6 py-24">
+        <div className="max-w-5xl mx-auto">
+          <div className="relative overflow-hidden rounded-[32px] p-12 md:p-16 text-center">
+            {/* Background */}
+            <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-accent/10 to-primary/20" />
+            <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:32px_32px]" />
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-accent/20 rounded-full blur-[100px]" />
+            
             <div className="relative">
-              <h2 className="text-3xl font-bold sm:text-4xl">Ready to Stop Losing Leads?</h2>
-              <p className="mx-auto mt-4 max-w-xl text-lg text-muted-foreground">
-                {"Book your free revenue leak audit and discover how much money you're leaving on the table."}
+              <h2 className="text-4xl md:text-5xl font-bold mb-6">Ready to Stop Losing Leads?</h2>
+              <p className="text-xl text-muted-foreground max-w-xl mx-auto mb-10">
+                {"Book your free audit and discover how many appointments you're leaving on the table."}
               </p>
-              <Button
-                size="lg"
-                className="mt-8 bg-accent px-8 py-6 text-lg text-accent-foreground hover:bg-accent/90 btn-orange-glow"
-              >
+              <Button size="lg" className="bg-accent hover:bg-accent/90 text-white text-lg px-12 py-7 font-semibold rounded-full shadow-[0_0_40px_rgba(249,115,22,0.5)] transition-all hover:shadow-[0_0_50px_rgba(249,115,22,0.6)]">
                 Book Your Free Audit Now
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
+              <p className="mt-6 text-sm text-muted-foreground">Free. No commitment. 30 minutes.</p>
             </div>
           </div>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="border-t border-border px-4 py-12 sm:px-6 lg:px-8">
-        <div className="mx-auto max-w-6xl">
-          <div className="flex flex-col items-center justify-between gap-6 sm:flex-row">
-            <div className="flex items-center gap-2">
-              <Zap className="h-6 w-6 text-accent" />
-              <span className="text-lg font-bold">SparkRise AI</span>
+      <footer className="border-t border-white/[0.06] px-6 py-12">
+        <div className="max-w-7xl mx-auto">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-6">
+            <div className="flex items-center gap-3">
+              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-accent to-primary">
+                <Zap className="h-5 w-5 text-white" />
+              </div>
+              <span className="text-xl font-bold">SparkRise AI</span>
             </div>
-            <div className="text-center text-muted-foreground sm:text-right">
-              <p>sparkriseai.com</p>
-              <p className="mt-1">Northern Virginia DMV</p>
+            <div className="flex gap-8 text-sm text-muted-foreground">
+              <a href="#how-it-works" className="hover:text-foreground transition-colors">How It Works</a>
+              <a href="#features" className="hover:text-foreground transition-colors">Features</a>
+              <a href="#faq" className="hover:text-foreground transition-colors">FAQ</a>
             </div>
           </div>
-          <div className="mt-8 border-t border-border pt-8 text-center text-sm text-muted-foreground">
-            <p>&copy; {new Date().getFullYear()} SparkRise AI. All rights reserved.</p>
+          <div className="mt-8 pt-8 border-t border-white/[0.06] text-center">
+            <p className="text-sm text-muted-foreground mb-2">
+              Serving Northern Virginia — Fairfax, Arlington, Alexandria, Loudoun, Prince William
+            </p>
+            <p className="text-sm text-muted-foreground">
+              © 2025 SparkRise AI. All rights reserved.
+            </p>
           </div>
         </div>
       </footer>
