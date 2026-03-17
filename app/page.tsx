@@ -1,5 +1,5 @@
+import Image from "next/image"
 import {
-  Zap,
   Clock,
   DollarSign,
   MessageSquare,
@@ -15,6 +15,7 @@ import {
   Shield,
   ChevronDown,
   BadgeCheck,
+  Linkedin,
 } from "lucide-react"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { CalButton } from "@/components/cal-button"
@@ -58,54 +59,82 @@ export default function SparkRiseAI() {
     <div className="min-h-screen bg-background text-foreground">
       {/* Navigation */}
       <nav className="fixed top-0 left-0 right-0 z-50 border-b border-border bg-background/80 backdrop-blur-md">
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
-          <div className="flex items-center gap-2">
-            <Zap className="h-8 w-8 text-primary" />
+        <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
+          <div className="flex items-center gap-3">
+            <Image
+              src="/logoT.jpg"
+              alt="SparkRise AI"
+              width={40}
+              height={40}
+              className="rounded-md"
+            />
             <span className="text-xl font-bold">SparkRise AI</span>
           </div>
-          <CalButton className="inline-flex items-center justify-center gap-2 rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring">
+          <CalButton className="inline-flex items-center justify-center gap-2 rounded-md bg-[var(--orange)] px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-[var(--orange)]/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring">
             Book a Call
           </CalButton>
         </div>
       </nav>
 
       {/* Hero Section */}
-      <section className="relative overflow-hidden px-4 pt-32 pb-20 sm:px-6 lg:px-8">
+      <section className="relative overflow-hidden px-4 pt-28 pb-20 sm:px-6 lg:px-8">
         <div className="absolute inset-0 -z-10">
           <div className="absolute top-1/4 left-1/4 h-96 w-96 rounded-full bg-primary/10 blur-3xl" />
-          <div className="absolute bottom-1/4 right-1/4 h-96 w-96 rounded-full bg-primary/5 blur-3xl" />
+          <div className="absolute bottom-1/4 right-1/4 h-96 w-96 rounded-full bg-[var(--orange)]/5 blur-3xl" />
         </div>
-        <div className="mx-auto max-w-4xl text-center">
-          <h1 className="text-4xl font-bold tracking-tight text-balance sm:text-5xl lg:text-6xl">
-            We Build AI Systems That Book Appointments{" "}
-            <span className="text-primary">While You Sleep</span>
-          </h1>
-          <p className="mx-auto mt-6 max-w-2xl text-lg text-muted-foreground sm:text-xl">
-            {"Northern Virginia's #1 AI lead automation agency. Your leads get followed up in under 5 minutes, 24/7."}
-          </p>
-          <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
-            <CalButton className="inline-flex items-center justify-center gap-2 rounded-md bg-primary px-8 py-4 text-lg font-semibold text-primary-foreground transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring">
-              Book Your Free Revenue Leak Audit
-              <ArrowRight className="h-5 w-5" />
-            </CalButton>
-            <a
-              href="#contact"
-              className="text-sm font-medium text-muted-foreground underline-offset-4 hover:text-foreground hover:underline"
-            >
-              Or send us a message
-            </a>
-          </div>
-          {/* Trust signals below hero CTA */}
-          <div className="mt-8 flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm text-muted-foreground">
-            <span className="flex items-center gap-1.5">
-              <CheckCircle2 className="h-4 w-4 text-primary" /> Live in 5 business days
-            </span>
-            <span className="flex items-center gap-1.5">
-              <CheckCircle2 className="h-4 w-4 text-primary" /> 30-day results guarantee
-            </span>
-            <span className="flex items-center gap-1.5">
-              <CheckCircle2 className="h-4 w-4 text-primary" /> No long-term contracts
-            </span>
+        <div className="mx-auto max-w-6xl">
+          <div className="grid items-center gap-12 lg:grid-cols-2">
+            {/* Left: Copy */}
+            <div>
+              <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-[var(--orange)]/30 bg-[var(--orange)]/10 px-4 py-1.5 text-sm font-medium text-[var(--orange)]">
+                <span className="h-2 w-2 rounded-full bg-[var(--orange)]" />
+                AI Automation for Northern Virginia Service Businesses
+              </div>
+              <h1 className="text-4xl font-bold tracking-tight text-balance sm:text-5xl lg:text-6xl">
+                We Build AI Systems That Book Appointments{" "}
+                <span className="text-[var(--orange)]">While You Sleep</span>
+              </h1>
+              <p className="mt-6 text-lg text-muted-foreground sm:text-xl">
+                Your leads get followed up in under 5 minutes, 24/7 — so you never lose another
+                potential customer to slow response times.
+              </p>
+              <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center">
+                <CalButton className="inline-flex items-center justify-center gap-2 rounded-md bg-[var(--orange)] px-8 py-4 text-lg font-semibold text-white transition-colors hover:bg-[var(--orange)]/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring">
+                  Book Your Free Revenue Leak Audit
+                  <ArrowRight className="h-5 w-5" />
+                </CalButton>
+              </div>
+              <div className="mt-6 flex flex-wrap gap-x-6 gap-y-2 text-sm text-muted-foreground">
+                <span className="flex items-center gap-1.5">
+                  <CheckCircle2 className="h-4 w-4 text-[var(--orange)]" /> Live in 5 business days
+                </span>
+                <span className="flex items-center gap-1.5">
+                  <CheckCircle2 className="h-4 w-4 text-[var(--orange)]" /> 30-day results guarantee
+                </span>
+                <span className="flex items-center gap-1.5">
+                  <CheckCircle2 className="h-4 w-4 text-[var(--orange)]" /> No long-term contracts
+                </span>
+              </div>
+            </div>
+            {/* Right: Founder Photo */}
+            <div className="flex flex-col items-center lg:items-end">
+              <div className="relative">
+                <div className="h-72 w-72 overflow-hidden rounded-full border-4 border-[var(--orange)]/30 ring-4 ring-primary/20 sm:h-80 sm:w-80">
+                  <Image
+                    src="/founder.jpg"
+                    alt="Cristian González Rivera — Founder, SparkRise AI"
+                    width={320}
+                    height={320}
+                    className="h-full w-full object-cover"
+                    priority
+                  />
+                </div>
+                <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full border border-border bg-card px-5 py-2 text-center shadow-lg">
+                  <p className="text-sm font-semibold text-card-foreground">Cristian González Rivera</p>
+                  <p className="text-xs text-muted-foreground">Founder, SparkRise AI</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -114,18 +143,14 @@ export default function SparkRiseAI() {
       <section className="px-4 py-20 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-6xl">
           <div className="text-center">
-            <h2 className="text-3xl font-bold sm:text-4xl">
-              Leads Are Slipping Through the Cracks
-            </h2>
-            <p className="mt-4 text-lg text-muted-foreground">
-              Every hour of delay is lost revenue.
-            </p>
+            <h2 className="text-3xl font-bold sm:text-4xl">Leads Are Slipping Through the Cracks</h2>
+            <p className="mt-4 text-lg text-muted-foreground">Every hour of delay is lost revenue.</p>
           </div>
           <div className="mt-12 grid gap-6 md:grid-cols-3">
             <Card className="border-border bg-card">
               <CardContent className="flex flex-col items-center p-6 text-center">
-                <div className="mb-4 rounded-full bg-primary/10 p-4">
-                  <Clock className="h-8 w-8 text-primary" />
+                <div className="mb-4 rounded-full bg-[var(--orange)]/10 p-4">
+                  <Clock className="h-8 w-8 text-[var(--orange)]" />
                 </div>
                 <h3 className="text-xl font-semibold text-card-foreground">Slow Response Times</h3>
                 <p className="mt-2 text-muted-foreground">
@@ -135,8 +160,8 @@ export default function SparkRiseAI() {
             </Card>
             <Card className="border-border bg-card">
               <CardContent className="flex flex-col items-center p-6 text-center">
-                <div className="mb-4 rounded-full bg-primary/10 p-4">
-                  <DollarSign className="h-8 w-8 text-primary" />
+                <div className="mb-4 rounded-full bg-[var(--orange)]/10 p-4">
+                  <DollarSign className="h-8 w-8 text-[var(--orange)]" />
                 </div>
                 <h3 className="text-xl font-semibold text-card-foreground">Missed Revenue</h3>
                 <p className="mt-2 text-muted-foreground">
@@ -146,12 +171,12 @@ export default function SparkRiseAI() {
             </Card>
             <Card className="border-border bg-card">
               <CardContent className="flex flex-col items-center p-6 text-center">
-                <div className="mb-4 rounded-full bg-primary/10 p-4">
-                  <RotateCcw className="h-8 w-8 text-primary" />
+                <div className="mb-4 rounded-full bg-[var(--orange)]/10 p-4">
+                  <RotateCcw className="h-8 w-8 text-[var(--orange)]" />
                 </div>
                 <h3 className="text-xl font-semibold text-card-foreground">Dead Lead Database</h3>
                 <p className="mt-2 text-muted-foreground">
-                  {"You're sitting on thousands of old leads. They're not dead—they're just waiting to be reactivated."}
+                  {"You're sitting on thousands of old leads. They're not dead — they're just waiting to be reactivated."}
                 </p>
               </CardContent>
             </Card>
@@ -163,7 +188,7 @@ export default function SparkRiseAI() {
       <section className="px-4 py-16 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-6xl text-center">
           <p className="text-sm font-semibold uppercase tracking-widest text-muted-foreground">
-            Trusted by service-based businesses across Northern Virginia
+            Serving service-based businesses across Northern Virginia & the DMV
           </p>
           <div className="mt-6 flex flex-wrap justify-center gap-4 text-muted-foreground">
             {["HVAC & Plumbing", "Dental Practices", "Real Estate", "Home Services", "Law Firms", "Med Spas"].map(
@@ -185,7 +210,7 @@ export default function SparkRiseAI() {
         <div className="mx-auto max-w-6xl">
           <div className="text-center">
             <h2 className="text-3xl font-bold sm:text-4xl">How It Works</h2>
-            <p className="mt-4 text-lg text-muted-foreground">Live in 5 business days.</p>
+            <p className="mt-4 text-lg text-muted-foreground">Live in 5 business days. Zero disruption to your workflow.</p>
           </div>
           <div className="mt-12 grid gap-8 md:grid-cols-3">
             {[
@@ -213,7 +238,7 @@ export default function SparkRiseAI() {
                   <div className="flex h-20 w-20 items-center justify-center rounded-full bg-primary text-primary-foreground">
                     <Icon className="h-10 w-10" />
                   </div>
-                  <span className="absolute -right-2 -top-2 flex h-8 w-8 items-center justify-center rounded-full bg-card text-sm font-bold text-card-foreground">
+                  <span className="absolute -right-2 -top-2 flex h-8 w-8 items-center justify-center rounded-full bg-[var(--orange)] text-sm font-bold text-white">
                     {step}
                   </span>
                 </div>
@@ -231,7 +256,7 @@ export default function SparkRiseAI() {
           <div className="text-center">
             <h2 className="text-3xl font-bold sm:text-4xl">{"What's Included"}</h2>
             <p className="mt-4 text-lg text-muted-foreground">
-              Everything you need to automate your lead follow-up.
+              Everything you need to automate your lead follow-up and book more appointments.
             </p>
           </div>
           <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
@@ -245,7 +270,7 @@ export default function SparkRiseAI() {
               { icon: Globe, title: "Bilingual English/Spanish AI", desc: "Serve more customers" },
               { icon: Link2, title: "CRM Integration", desc: "Works with your existing tools" },
             ].map((feature, index) => (
-              <Card key={index} className="border-border bg-card transition-all hover:border-primary/50">
+              <Card key={index} className="border-border bg-card transition-all hover:border-[var(--orange)]/40">
                 <CardContent className="p-6">
                   <feature.icon className="mb-4 h-8 w-8 text-primary" />
                   <h3 className="font-semibold text-card-foreground">{feature.title}</h3>
@@ -257,60 +282,13 @@ export default function SparkRiseAI() {
         </div>
       </section>
 
-      {/* Social Proof Section */}
-      <section className="bg-secondary/30 px-4 py-20 sm:px-6 lg:px-8">
-        <div className="mx-auto max-w-6xl">
-          <div className="text-center">
-            <h2 className="text-3xl font-bold sm:text-4xl">Real Results</h2>
-            <div className="mx-auto mt-6 inline-flex items-center gap-2 rounded-full bg-primary/10 px-6 py-3 text-primary">
-              <CheckCircle2 className="h-5 w-5" />
-              <span className="font-semibold">47 leads reactivated in week 1</span>
-            </div>
-          </div>
-          <div className="mt-12 grid gap-6 md:grid-cols-3">
-            {[
-              {
-                quote: "SparkRise AI transformed our follow-up process. We're booking 3x more appointments.",
-                author: "Sarah M.",
-                role: "Dental Practice Owner",
-              },
-              {
-                quote: "The ROI was immediate. Within the first month, we recovered leads we thought were lost forever.",
-                author: "Michael R.",
-                role: "HVAC Business Owner",
-              },
-              {
-                quote: "Finally, a system that works 24/7. Our response time went from hours to minutes.",
-                author: "Jennifer L.",
-                role: "Real Estate Agent",
-              },
-            ].map((testimonial, index) => (
-              <Card key={index} className="border-border bg-card">
-                <CardContent className="p-6">
-                  <div className="mb-4 flex gap-1">
-                    {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="h-5 w-5 fill-primary text-primary" />
-                    ))}
-                  </div>
-                  <p className="text-card-foreground">{`"${testimonial.quote}"`}</p>
-                  <div className="mt-4">
-                    <p className="font-semibold text-card-foreground">{testimonial.author}</p>
-                    <p className="text-sm text-muted-foreground">{testimonial.role}</p>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Pricing Section */}
-      <section className="px-4 py-20 sm:px-6 lg:px-8">
+      <section className="bg-secondary/30 px-4 py-20 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-5xl">
           <div className="text-center">
             <h2 className="text-3xl font-bold sm:text-4xl">Simple, Transparent Pricing</h2>
             <p className="mt-4 text-lg text-muted-foreground">
-              Choose the plan that fits your business.
+              Choose the plan that fits your business. No hidden fees.
             </p>
           </div>
           <div className="mt-12 grid gap-8 md:grid-cols-2">
@@ -318,7 +296,7 @@ export default function SparkRiseAI() {
               <CardHeader>
                 <CardTitle className="text-2xl text-card-foreground">Revenue Recovery System</CardTitle>
                 <CardDescription className="text-muted-foreground">
-                  Perfect for businesses ready to stop losing leads
+                  For businesses ready to stop losing leads
                 </CardDescription>
               </CardHeader>
               <CardContent>
@@ -339,7 +317,7 @@ export default function SparkRiseAI() {
                     "Weekly Revenue Reports",
                   ].map((feature, i) => (
                     <li key={i} className="flex items-center gap-2">
-                      <CheckCircle2 className="h-5 w-5 text-primary" />
+                      <CheckCircle2 className="h-5 w-5 text-[var(--orange)]" />
                       <span className="text-card-foreground">{feature}</span>
                     </li>
                   ))}
@@ -349,9 +327,9 @@ export default function SparkRiseAI() {
                 </CalButton>
               </CardContent>
             </Card>
-            <Card className="relative border-primary bg-card">
+            <Card className="relative border-[var(--orange)]/50 bg-card">
               <div className="absolute -top-4 left-1/2 -translate-x-1/2">
-                <span className="rounded-full bg-primary px-4 py-1 text-sm font-semibold text-primary-foreground">
+                <span className="rounded-full bg-[var(--orange)] px-4 py-1 text-sm font-semibold text-white">
                   Most Popular
                 </span>
               </div>
@@ -377,40 +355,36 @@ export default function SparkRiseAI() {
                     "Custom Workflows",
                   ].map((feature, i) => (
                     <li key={i} className="flex items-center gap-2">
-                      <CheckCircle2 className="h-5 w-5 text-primary" />
+                      <CheckCircle2 className="h-5 w-5 text-[var(--orange)]" />
                       <span className="text-card-foreground">{feature}</span>
                     </li>
                   ))}
                 </ul>
-                <CalButton className="mt-8 inline-flex w-full items-center justify-center rounded-md bg-primary px-4 py-2.5 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90">
-                  Contact Sales
+                <CalButton className="mt-8 inline-flex w-full items-center justify-center rounded-md bg-[var(--orange)] px-4 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-[var(--orange)]/90">
+                  Book a Call
                 </CalButton>
               </CardContent>
             </Card>
           </div>
 
-          {/* Expanded Guarantee Section */}
-          <div className="mt-16 rounded-2xl border border-primary/30 bg-primary/5 p-8 sm:p-10">
+          {/* Guarantee */}
+          <div className="mt-16 rounded-2xl border border-[var(--orange)]/30 bg-[var(--orange)]/5 p-8 sm:p-10">
             <div className="flex flex-col items-center gap-6 text-center sm:flex-row sm:text-left">
-              <div className="shrink-0 rounded-full bg-primary/10 p-5">
-                <Shield className="h-10 w-10 text-primary" />
+              <div className="shrink-0 rounded-full bg-[var(--orange)]/10 p-5">
+                <Shield className="h-10 w-10 text-[var(--orange)]" />
               </div>
               <div>
                 <h3 className="text-xl font-bold text-foreground">Our 30-Day Results Guarantee</h3>
                 <p className="mt-2 text-muted-foreground leading-relaxed">
-                  We&apos;re so confident in our system that we put our time on the line.{" "}
+                  {"We're so confident in our system that we put our time on the line. "}
                   <strong className="text-foreground">
-                    If you don&apos;t book at least one appointment in your first 30 days, we keep
-                    working for free — no questions asked — until you do.
-                  </strong>{" "}
-                  We only win when you win.
+                    {"If you don't book at least one appointment in your first 30 days, we keep working for free — no questions asked — until you do."}
+                  </strong>
+                  {" We only win when you win."}
                 </p>
                 <div className="mt-4 flex flex-wrap gap-3">
                   {["No long-term contracts", "Cancel anytime", "Setup in 5 business days"].map((item) => (
-                    <span
-                      key={item}
-                      className="flex items-center gap-1.5 text-sm font-medium text-primary"
-                    >
+                    <span key={item} className="flex items-center gap-1.5 text-sm font-medium text-[var(--orange)]">
                       <BadgeCheck className="h-4 w-4" />
                       {item}
                     </span>
@@ -423,12 +397,12 @@ export default function SparkRiseAI() {
       </section>
 
       {/* FAQ Section */}
-      <section className="bg-secondary/30 px-4 py-20 sm:px-6 lg:px-8" id="faq">
+      <section className="px-4 py-20 sm:px-6 lg:px-8" id="faq">
         <div className="mx-auto max-w-3xl">
           <div className="text-center">
             <h2 className="text-3xl font-bold sm:text-4xl">Frequently Asked Questions</h2>
             <p className="mt-4 text-lg text-muted-foreground">
-              Everything you need to know about SparkRise AI.
+              Everything you need to know before booking a call.
             </p>
           </div>
           <div className="mt-12 space-y-4">
@@ -448,32 +422,75 @@ export default function SparkRiseAI() {
         </div>
       </section>
 
-      {/* About / Founder Credibility */}
-      <section className="px-4 py-20 sm:px-6 lg:px-8">
-        <div className="mx-auto max-w-3xl text-center">
-          <h2 className="text-3xl font-bold sm:text-4xl">Built by People Who Get It</h2>
-          <p className="mx-auto mt-6 max-w-2xl text-lg text-muted-foreground leading-relaxed">
-            SparkRise AI was founded in Northern Virginia with one goal: help local service businesses
-            compete like enterprise companies — without the enterprise headcount. We combine battle-tested
-            AI automation with deep knowledge of how service businesses actually operate, so every system
-            we build is practical, fast to deploy, and built to generate real revenue from day one.
-          </p>
-          <div className="mt-8 inline-flex items-center gap-3 rounded-full border border-border bg-card px-5 py-3 text-sm">
-            <span className="flex h-9 w-9 items-center justify-center rounded-full bg-primary/20 text-base font-bold text-primary">
-              S
-            </span>
-            <span className="text-card-foreground font-medium">SparkRise AI — Northern Virginia DMV</span>
+      {/* About Founder Section */}
+      <section className="bg-secondary/30 px-4 py-20 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-5xl">
+          <div className="grid items-center gap-12 md:grid-cols-2">
+            {/* Photo */}
+            <div className="flex justify-center md:justify-start">
+              <div className="overflow-hidden rounded-2xl border border-border shadow-xl">
+                <Image
+                  src="/founder.jpg"
+                  alt="Cristian González Rivera"
+                  width={400}
+                  height={480}
+                  className="h-auto w-full max-w-sm object-cover"
+                />
+              </div>
+            </div>
+            {/* Bio */}
+            <div>
+              <p className="text-sm font-semibold uppercase tracking-widest text-[var(--orange)]">
+                Meet the Founder
+              </p>
+              <h2 className="mt-2 text-3xl font-bold sm:text-4xl">Cristian González Rivera</h2>
+              <p className="mt-1 text-lg text-muted-foreground">Founder, SparkRise AI</p>
+              <div className="mt-6 space-y-4 text-muted-foreground leading-relaxed">
+                <p>
+                  Born in Puerto Rico and raised in Springfield, Massachusetts, Cristian is a husband,
+                  father, and problem-solver at his core. He built SparkRise AI out of a genuine
+                  obsession with figuring out how things work — and an even stronger drive to make those
+                  things useful for real people running real businesses.
+                </p>
+                <p>
+                  When AI first started gaining traction, Cristian was already in it — experimenting
+                  from the early days of ChatGPT, through automation workflows, and into building voice
+                  agents and backend systems from the ground up. He didn&apos;t wait for it to become
+                  mainstream. He learned it while it was still being figured out.
+                </p>
+                <p>
+                  That depth is what separates SparkRise from the noise. Cristian bridges the gap
+                  between fast-moving technology and the business owners who need it most — translating
+                  complex systems into results that are practical, bilingual, and built to last.
+                </p>
+              </div>
+              <div className="mt-8 flex items-center gap-4">
+                <CalButton className="inline-flex items-center justify-center gap-2 rounded-md bg-[var(--orange)] px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-[var(--orange)]/90">
+                  Book a Call with Cristian
+                  <ArrowRight className="h-4 w-4" />
+                </CalButton>
+                <a
+                  href="https://www.linkedin.com/in/cristian-gonzalez-rivera-4b1632201"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 rounded-md border border-border px-4 py-3 text-sm font-medium text-muted-foreground transition-colors hover:border-primary/50 hover:text-foreground"
+                >
+                  <Linkedin className="h-4 w-4" />
+                  LinkedIn
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
       {/* Contact Form Section */}
-      <section className="bg-secondary/30 px-4 py-20 sm:px-6 lg:px-8" id="contact">
+      <section className="px-4 py-20 sm:px-6 lg:px-8" id="contact">
         <div className="mx-auto max-w-2xl">
           <div className="text-center">
             <h2 className="text-3xl font-bold sm:text-4xl">Get In Touch</h2>
             <p className="mt-4 text-lg text-muted-foreground">
-              {"Ready to stop losing leads? Fill out the form below and we'll be in touch within 5 minutes."}
+              {"Ready to stop losing leads? Fill out the form and we'll get back to you within 5 minutes."}
             </p>
           </div>
           <Card className="mt-12 border-border bg-card">
@@ -487,15 +504,16 @@ export default function SparkRiseAI() {
       {/* CTA Banner */}
       <section className="px-4 py-20 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-4xl">
-          <div className="rounded-2xl bg-primary/10 p-8 text-center sm:p-12">
+          <div className="rounded-2xl bg-gradient-to-br from-primary/20 via-[var(--orange)]/10 to-primary/10 p-8 text-center ring-1 ring-[var(--orange)]/20 sm:p-12">
             <h2 className="text-3xl font-bold sm:text-4xl">Ready to Stop Losing Leads?</h2>
             <p className="mx-auto mt-4 max-w-xl text-lg text-muted-foreground">
-              {"Book your free revenue leak audit and discover how much money you're leaving on the table."}
+              {"Book your free revenue leak audit and discover how many appointments you're leaving on the table."}
             </p>
-            <CalButton className="mt-8 inline-flex items-center justify-center gap-2 rounded-md bg-primary px-8 py-4 text-lg font-semibold text-primary-foreground transition-colors hover:bg-primary/90">
+            <CalButton className="mt-8 inline-flex items-center justify-center gap-2 rounded-md bg-[var(--orange)] px-8 py-4 text-lg font-semibold text-white transition-colors hover:bg-[var(--orange)]/90">
               Book Your Free Audit Now
               <ArrowRight className="h-5 w-5" />
             </CalButton>
+            <p className="mt-4 text-sm text-muted-foreground">Free. No commitment. 30 minutes.</p>
           </div>
         </div>
       </section>
@@ -504,13 +522,15 @@ export default function SparkRiseAI() {
       <footer className="border-t border-border px-4 py-12 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-6xl">
           <div className="flex flex-col items-center justify-between gap-6 sm:flex-row">
-            <div className="flex items-center gap-2">
-              <Zap className="h-6 w-6 text-primary" />
+            <div className="flex items-center gap-3">
+              <Image src="/logoT.jpg" alt="SparkRise AI" width={36} height={36} className="rounded-md" />
               <span className="text-lg font-bold">SparkRise AI</span>
             </div>
             <div className="text-center text-muted-foreground sm:text-right">
               <p>sparkriseai.com</p>
-              <p className="mt-1">Serving Northern Virginia — Fairfax, Arlington, Alexandria, Loudoun, Prince William</p>
+              <p className="mt-1 text-sm">
+                Serving Northern Virginia — Fairfax, Arlington, Alexandria, Loudoun, Prince William
+              </p>
             </div>
           </div>
           <div className="mt-8 border-t border-border pt-8 text-center text-sm text-muted-foreground">
