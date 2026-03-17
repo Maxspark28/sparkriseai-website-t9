@@ -6,13 +6,21 @@ import Link from "next/link"
 import { Menu, X } from "lucide-react"
 import { CalButton } from "@/components/cal-button"
 
+const navLinks = [
+  { label: "How It Works", href: "/#how-it-works" },
+  { label: "Features", href: "/#features" },
+  { label: "FAQ", href: "/#faq" },
+  { label: "About", href: "/about" },
+]
+
 export function SiteNav() {
   const [open, setOpen] = useState(false)
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 border-b border-border bg-background/80 backdrop-blur-md">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
-        <div className="flex items-center gap-6">
+        {/* Logo + desktop links */}
+        <div className="flex items-center gap-8">
           <Link href="/" className="flex items-center gap-3">
             <Image
               src="/logoT.jpg"
@@ -23,14 +31,20 @@ export function SiteNav() {
             />
             <span className="text-xl font-bold">SparkRise AI</span>
           </Link>
-          <Link
-            href="/about"
-            className="hidden text-sm font-medium text-muted-foreground transition-colors hover:text-foreground sm:block"
-          >
-            About
-          </Link>
+          <div className="hidden items-center gap-6 sm:flex">
+            {navLinks.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
+              >
+                {link.label}
+              </Link>
+            ))}
+          </div>
         </div>
 
+        {/* CTA + hamburger */}
         <div className="flex items-center gap-3">
           <CalButton className="inline-flex items-center justify-center gap-2 rounded-md bg-[var(--orange)] px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-[var(--orange)]/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring">
             Book a Call
@@ -48,13 +62,16 @@ export function SiteNav() {
       {/* Mobile menu */}
       {open && (
         <div className="border-t border-border bg-background px-4 pb-4 pt-2 sm:hidden">
-          <Link
-            href="/about"
-            className="block py-3 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
-            onClick={() => setOpen(false)}
-          >
-            About
-          </Link>
+          {navLinks.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              className="block py-3 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
+              onClick={() => setOpen(false)}
+            >
+              {link.label}
+            </Link>
+          ))}
         </div>
       )}
     </nav>

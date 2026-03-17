@@ -64,8 +64,8 @@ export default function SparkRiseAI() {
       {/* Hero Section */}
       <section className="relative overflow-hidden px-4 pt-32 pb-24 sm:px-6 lg:px-8">
         <div className="absolute inset-0 -z-10">
-          <div className="absolute top-1/3 left-1/3 h-[500px] w-[500px] rounded-full bg-primary/10 blur-3xl" />
-          <div className="absolute bottom-1/4 right-1/3 h-[400px] w-[400px] rounded-full bg-[var(--orange)]/5 blur-3xl" />
+          <div className="absolute top-1/2 left-1/2 h-[700px] w-[700px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary/20 blur-3xl" />
+          <div className="absolute top-1/3 right-1/4 h-[400px] w-[400px] rounded-full bg-[var(--orange)]/8 blur-3xl" />
         </div>
         <div className="mx-auto max-w-4xl text-center">
           <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-[var(--orange)]/30 bg-[var(--orange)]/10 px-4 py-1.5 text-sm font-medium text-[var(--orange)]">
@@ -167,7 +167,7 @@ export default function SparkRiseAI() {
       </section>
 
       {/* How It Works */}
-      <section className="bg-secondary/30 px-4 py-20 sm:px-6 lg:px-8">
+      <section id="how-it-works" className="bg-secondary/30 px-4 py-20 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-6xl">
           <div className="text-center">
             <h2 className="text-3xl font-bold sm:text-4xl">How It Works</h2>
@@ -212,7 +212,7 @@ export default function SparkRiseAI() {
       </section>
 
       {/* What's Included */}
-      <section className="px-4 py-20 sm:px-6 lg:px-8">
+      <section id="features" className="px-4 py-20 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-6xl">
           <div className="text-center">
             <h2 className="text-3xl font-bold sm:text-4xl">{"What's Included"}</h2>
