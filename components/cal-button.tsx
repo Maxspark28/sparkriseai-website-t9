@@ -29,7 +29,7 @@ export function CalButton({ children, className, calLink }: CalButtonProps) {
       window.Cal("init", CAL_NAMESPACE, { origin: "https://cal.com" })
       window.Cal(`${CAL_NAMESPACE}:ui`, {
         theme: "dark",
-        styles: { branding: { brandColor: "#7B9EFF" } },
+        styles: { branding: { brandColor: "#f97316" } },
         hideEventTypeDetails: false,
         layout: "month_view",
       })
@@ -73,7 +73,7 @@ export function CalButton({ children, className, calLink }: CalButtonProps) {
   };
 })(window, "https://app.cal.com/embed/embed.js", "init");
 Cal("init", "${CAL_NAMESPACE}", {origin:"https://cal.com"});
-Cal("${CAL_NAMESPACE}:ui", {"theme":"dark","styles":{"branding":{"brandColor":"#7B9EFF"}},"hideEventTypeDetails":false,"layout":"month_view"});
+Cal("${CAL_NAMESPACE}:ui", {"theme":"dark","styles":{"branding":{"brandColor":"#f97316"}},"hideEventTypeDetails":false,"layout":"month_view"});
           `,
         }}
       />

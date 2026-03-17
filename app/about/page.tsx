@@ -11,6 +11,31 @@ export const metadata: Metadata = {
   title: "About Cristian González Rivera",
   description:
     "Meet Cristian González Rivera, founder of SparkRise AI — building AI automation systems that help Northern Virginia service businesses book more appointments.",
+  openGraph: {
+    type: "profile",
+    title: "About Cristian González Rivera | SparkRise AI",
+    description:
+      "Meet Cristian González Rivera, founder of SparkRise AI — building AI automation systems for Northern Virginia service businesses.",
+    url: "https://sparkriseai.com/about",
+    images: [
+      {
+        url: "/founder.jpg",
+        width: 480,
+        height: 560,
+        alt: "Cristian González Rivera — Founder, SparkRise AI",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "About Cristian González Rivera | SparkRise AI",
+    description:
+      "Meet Cristian González Rivera, founder of SparkRise AI — building AI automation systems for Northern Virginia service businesses.",
+    images: ["/founder.jpg"],
+  },
+  alternates: {
+    canonical: "https://sparkriseai.com/about",
+  },
 }
 
 export default function AboutPage() {

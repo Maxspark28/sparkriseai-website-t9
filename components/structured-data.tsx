@@ -16,7 +16,7 @@ const organizationSchema = {
     "@type": "AdministrativeArea",
     name: "Northern Virginia",
   },
-  sameAs: [],
+  sameAs: ["https://www.linkedin.com/in/cristian-gonzalez-rivera-4b1632201"],
 }
 
 const localBusinessSchema = {

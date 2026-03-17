@@ -104,7 +104,7 @@ export default function SparkRiseAI() {
             </div>
             {/* Right: Founder Photo */}
             <div className="flex flex-col items-center lg:items-end">
-              <div className="relative">
+              <div className="relative pb-8">
                 <div className="h-72 w-72 overflow-hidden rounded-full border-4 border-[var(--orange)]/30 ring-4 ring-primary/20 sm:h-80 sm:w-80">
                   <Image
                     src="/founder.jpg"
@@ -115,7 +115,7 @@ export default function SparkRiseAI() {
                     priority
                   />
                 </div>
-                <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full border border-border bg-card px-5 py-2 text-center shadow-lg">
+                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full border border-border bg-card px-5 py-2 text-center shadow-lg">
                   <p className="text-sm font-semibold text-card-foreground">Cristian González Rivera</p>
                   <p className="text-xs text-muted-foreground">Founder, SparkRise AI</p>
                 </div>
