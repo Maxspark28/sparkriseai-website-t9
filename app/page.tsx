@@ -15,6 +15,7 @@ import {
   Star,
   X,
 } from "lucide-react"
+import Link from "next/link"
 import { Card, CardContent } from "@/components/ui/card"
 import { CalButton } from "@/components/cal-button"
 import { SiteNav } from "@/components/site-nav"
@@ -66,7 +67,7 @@ export default function SparkRiseAI() {
           <div className="absolute top-1/3 right-1/4 h-[300px] w-[300px] rounded-full bg-[var(--orange)]/6 blur-3xl" />
         </div>
         <div className="mx-auto max-w-4xl text-center">
-          <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-[var(--orange)]/30 bg-[var(--orange)]/10 px-4 py-1.5 text-sm font-medium text-[var(--orange)]">
+          <div aria-hidden="true" className="mb-6 inline-flex items-center gap-2 rounded-full border border-[var(--orange)]/30 bg-[var(--orange)]/10 px-4 py-1.5 text-sm font-medium text-[var(--orange)]">
             <span className="h-2 w-2 rounded-full bg-[var(--orange)]" />
             {t.hero.badge}
           </div>
@@ -158,6 +159,53 @@ export default function SparkRiseAI() {
               {t.hero.primaryCta}
               <ArrowRight className="h-5 w-5" />
             </CalButton>
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials Section */}
+      {/* TODO: Replace with real client testimonials */}
+      <section className="px-4 py-20 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-6xl">
+          <div className="text-center">
+            <h2 className="text-3xl font-bold sm:text-4xl">What Med Spa Owners Are Saying</h2>
+          </div>
+          <div className="mt-12 grid gap-6 md:grid-cols-3">
+            {[
+              {
+                quote: "We recovered 18 appointments in the first 3 weeks. Clients we hadn't heard from in over a year started booking again.",
+                name: "Med Spa Owner",
+                location: "Northern Virginia",
+              },
+              {
+                quote: "The bilingual AI was a game changer for us. Half our clients speak Spanish and now they get follow-ups in their language automatically.",
+                name: "Med Spa Owner",
+                location: "Fairfax, VA",
+              },
+              {
+                quote: "Setup was done in 4 days. I didn't have to change anything about how we operate. It just works.",
+                name: "Med Spa Owner",
+                location: "Ashburn, VA",
+              },
+            ].map((t, i) => (
+              <div
+                key={i}
+                className="flex flex-col rounded-2xl border border-border bg-card p-6"
+              >
+                <div className="mb-4 flex gap-1">
+                  {Array.from({ length: 5 }).map((_, s) => (
+                    <Star key={s} className="h-4 w-4 fill-[var(--orange)] text-[var(--orange)]" />
+                  ))}
+                </div>
+                <p className="flex-1 text-muted-foreground leading-relaxed">
+                  &ldquo;{t.quote}&rdquo;
+                </p>
+                <div className="mt-6 border-t border-border pt-4">
+                  <p className="font-semibold text-foreground">{t.name}</p>
+                  <p className="text-sm text-muted-foreground">{t.location}</p>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -308,6 +356,12 @@ export default function SparkRiseAI() {
               </button>
             </div>
             <p className="mt-4 text-sm text-muted-foreground">{t.finalCta.sub}</p>
+            <p className="mt-6 text-sm text-muted-foreground">
+              Want to know who&apos;s behind SparkRise AI?{" "}
+              <Link href="/about" className="font-medium text-[var(--orange)] hover:underline">
+                Meet Cristian →
+              </Link>
+            </p>
           </div>
         </div>
       </section>

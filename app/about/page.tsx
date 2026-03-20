@@ -1,5 +1,6 @@
 import type { Metadata } from "next"
 import Image from "next/image"
+import Link from "next/link"
 import { ArrowRight, Linkedin } from "lucide-react"
 import { SiteNav } from "@/components/site-nav"
 import { SiteFooter } from "@/components/site-footer"
@@ -8,7 +9,7 @@ import { Card, CardContent } from "@/components/ui/card"
 import { ContactForm } from "@/components/contact-form"
 
 export const metadata: Metadata = {
-  title: "About Cristian González Rivera | SparkRise AI",
+  title: { absolute: "About Cristian González Rivera | Founder, SparkRise AI" },
   description:
     "Meet Cristian González Rivera, founder of SparkRise AI — based in Northern Virginia (Loudoun County), building AI automation for med spas that recover lost revenue through lead follow-up and reactivation.",
   openGraph: {
@@ -66,7 +67,7 @@ export default function AboutPage() {
               <p className="text-sm font-semibold uppercase tracking-widest text-[var(--orange)]">
                 Meet the Founder
               </p>
-              <h1 className="mt-2 text-3xl font-bold sm:text-4xl">Cristian González Rivera</h1>
+              <h1 className="mt-2 text-3xl font-bold sm:text-4xl">Cristian González Rivera — Founder, SparkRise AI</h1>
               <p className="mt-1 text-lg text-muted-foreground">Founder, SparkRise AI</p>
 
               <div className="mt-8 space-y-4 text-muted-foreground leading-relaxed">
@@ -88,6 +89,16 @@ export default function AboutPage() {
                   the med spa owners who need it most, translating complex systems into results that
                   are practical, bilingual, and built to last.
                 </p>
+              </div>
+
+              <div className="mt-6">
+                <Link
+                  href="/#how-it-works"
+                  className="inline-flex items-center gap-1.5 text-sm font-medium text-[var(--orange)] hover:underline"
+                >
+                  See how our AI systems work for med spas
+                  <ArrowRight className="h-4 w-4" />
+                </Link>
               </div>
 
               <div className="mt-8 flex flex-wrap items-center gap-4">

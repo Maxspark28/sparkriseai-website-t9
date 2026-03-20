@@ -46,6 +46,36 @@ const localBusinessSchema = {
     latitude: 39.0837,
     longitude: -77.6535,
   },
+  hasOfferCatalog: {
+    "@type": "OfferCatalog",
+    name: "AI Automation Services for Med Spas",
+    itemListElement: [
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: "AI Voice Agent",
+          description: "AI answers calls, qualifies leads, and books appointments 24/7",
+        },
+      },
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: "Revenue Recovery System",
+          description: "Full AI follow-up and dead database reactivation for med spas",
+        },
+      },
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: "Full AI Growth System",
+          description: "Complete AI infrastructure built and managed done for you",
+        },
+      },
+    ],
+  },
   areaServed: [
     { "@type": "City", name: "Ashburn" },
     { "@type": "City", name: "Leesburg" },

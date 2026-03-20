@@ -14,7 +14,7 @@ export const translations = {
     hero: {
       badge: 'AI Lead Automation for Med Spas',
       headlinePart1: 'Your Med Spa Is Losing Revenue',
-      headlinePart2: 'Every Hour Leads Wait.',
+      headlinePart2: 'Every Hour Leads Wait',
       sub: 'SparkRise AI builds AI automation for med spas — automated lead follow-up, AI lead reactivation, and med spa booking automation — so no lead goes cold and no past client stays forgotten.',
       primaryCta: 'Book Your Free Revenue Leak Audit',
       secondaryCta: 'Claim Your Free Reactivation Campaign',
@@ -80,7 +80,7 @@ export const translations = {
             'Calendar integration',
             'Live in 5 days',
           ],
-          cta: 'Get Started',
+          cta: 'Start With Voice',
           popular: false,
         },
         {
@@ -97,7 +97,7 @@ export const translations = {
             '30-day results guarantee',
             'Weekly revenue report',
           ],
-          cta: 'Get Started',
+          cta: 'Claim This System',
           popular: true,
         },
         {
@@ -114,7 +114,7 @@ export const translations = {
             'Priority support',
             'Done-for-you management',
           ],
-          cta: 'Get Started',
+          cta: 'Build My AI Stack',
           popular: false,
         },
       ],
@@ -174,6 +174,8 @@ export const translations = {
     },
     footer: {
       tagline: 'Serving med spas in Northern Virginia — Ashburn, Leesburg, Reston, Fairfax, Arlington, Alexandria — and nationwide.',
+      // TODO: Replace with real business phone number
+      phone: '(571) 000-0000',
       rights: `© ${new Date().getFullYear()} SparkRise AI. All rights reserved.`,
       links: {
         howItWorks: 'How It Works',
@@ -201,7 +203,7 @@ export const translations = {
     hero: {
       badge: 'Automatización de Leads con IA para Spas Médicos',
       headlinePart1: 'Tu Spa Médico Está Perdiendo Ingresos',
-      headlinePart2: 'Mientras los Leads Esperan.',
+      headlinePart2: 'Mientras los Leads Esperan',
       sub: 'SparkRise AI construye sistemas automatizados de seguimiento y reactivación para spas médicos — para que ningún lead se enfríe y ningún cliente pasado quede olvidado.',
       primaryCta: 'Reserva tu Auditoría de Fugas de Ingresos',
       secondaryCta: 'Reclama tu Campaña de Reactivación Gratis',
@@ -267,7 +269,7 @@ export const translations = {
             'Integración de calendario',
             'Activo en 5 días',
           ],
-          cta: 'Comenzar',
+          cta: 'Comenzar con Voz',
           popular: false,
         },
         {
@@ -284,7 +286,7 @@ export const translations = {
             'Garantía de resultados 30 días',
             'Informe semanal de ingresos',
           ],
-          cta: 'Comenzar',
+          cta: 'Reclamar Este Sistema',
           popular: true,
         },
         {
@@ -301,7 +303,7 @@ export const translations = {
             'Soporte prioritario',
             'Gestión completamente delegada',
           ],
-          cta: 'Comenzar',
+          cta: 'Construir Mi Stack de IA',
           popular: false,
         },
       ],
@@ -361,6 +363,8 @@ export const translations = {
     },
     footer: {
       tagline: 'Sirviendo spas médicos en el Norte de Virginia — Ashburn, Leesburg, Reston, Fairfax, Arlington, Alexandria — y en todo el país.',
+      // TODO: Replace with real business phone number
+      phone: '(571) 000-0000',
       rights: `© ${new Date().getFullYear()} SparkRise AI. Todos los derechos reservados.`,
       links: {
         howItWorks: 'Cómo Funciona',
