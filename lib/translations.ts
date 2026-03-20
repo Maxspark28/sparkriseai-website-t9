@@ -3,8 +3,6 @@ export type Lang = 'en' | 'es'
 export const translations = {
   en: {
     nav: {
-      scarcityBar: '⚡ Only 3 onboarding spots open this month — ',
-      scarcityLink: "claim yours before they're gone",
       howItWorks: 'How It Works',
       pricing: 'Pricing',
       about: 'About',
@@ -15,7 +13,7 @@ export const translations = {
       badge: 'AI Lead Automation for Med Spas',
       headlinePart1: 'Your Med Spa Is Losing Revenue',
       headlinePart2: 'Every Hour Leads Wait',
-      sub: 'SparkRise AI builds AI automation for med spas — automated lead follow-up, AI lead reactivation, and med spa booking automation — so no lead goes cold and no past client stays forgotten.',
+      sub: "The revenue you're losing isn't showing up on any report. It's leads who went cold and past clients who were never contacted again — and there's a fix for both.",
       primaryCta: 'Book Your Free Revenue Leak Audit',
       secondaryCta: 'Claim Your Free Reactivation Campaign',
       proof: [
@@ -27,7 +25,7 @@ export const translations = {
     },
     problem: {
       heading: 'Every Delay Costs You a Booking',
-      sub: 'Most med spas lose revenue not from bad service — but from gaps in the follow-up process.',
+      sub: 'The service at most med spas is excellent. The system around it isn\'t — and that gap is expensive. Here\'s exactly where the revenue disappears.',
       cards: [
         {
           title: 'No System to Respond in Time',
@@ -120,7 +118,7 @@ export const translations = {
       ],
       freeOffer: {
         heading: 'Not ready to commit? Let us prove it first — free.',
-        body: "We'll run a full Dead Database Reactivation Campaign on your dormant past-client list at zero cost. No strings attached. No pitch. Just results. If it works, we talk.",
+        body: "We'll reach out to your past clients — using your brand, your voice — and bring them back in. You pay nothing unless you decide to continue working with us. Every booking that comes in is yours to keep. The only reason to say no is if you don't want more bookings.",
         cta: 'Claim Your Free Reactivation Campaign',
       },
     },
@@ -133,7 +131,7 @@ export const translations = {
     },
     guarantee: {
       heading: 'Our 30-Day Results Guarantee',
-      body: "If you don't book at least one appointment in your first 30 days, we keep working for free — no questions asked — until you do.",
+      body: "Only a company certain of its results makes this offer. If you don't book at least one appointment in your first 30 days, we keep working for free — no questions asked — until you do.",
       items: ['No long-term contracts', 'Cancel anytime', 'Live in 5 business days'],
     },
     faq: {
@@ -168,14 +166,12 @@ export const translations = {
     },
     finalCta: {
       heading: 'Ready to Stop Losing Med Spa Revenue?',
-      body: "Find out exactly how many leads your med spa is losing to slow follow-up — and what it's costing you — in a free 30-minute audit.",
+      body: "You've seen the gaps. You know what they cost. A free 30-minute audit shows you exactly where your revenue is going — and what it takes to bring it back.",
       cta: 'Book Your Free Revenue Leak Audit',
       sub: 'Free. No commitment. 30 minutes.',
     },
     footer: {
       tagline: 'Serving med spas in Northern Virginia — Ashburn, Leesburg, Reston, Fairfax, Arlington, Alexandria — and nationwide.',
-      // TODO: Replace with real business phone number
-      phone: '(571) 000-0000',
       rights: `© ${new Date().getFullYear()} SparkRise AI. All rights reserved.`,
       links: {
         howItWorks: 'How It Works',
@@ -192,8 +188,6 @@ export const translations = {
 
   es: {
     nav: {
-      scarcityBar: '⚡ Solo 3 cupos de incorporación disponibles este mes — ',
-      scarcityLink: 'reclama el tuyo antes de que se agoten',
       howItWorks: 'Cómo Funciona',
       pricing: 'Precios',
       about: 'Nosotros',
@@ -204,7 +198,7 @@ export const translations = {
       badge: 'Automatización de Leads con IA para Spas Médicos',
       headlinePart1: 'Tu Spa Médico Está Perdiendo Ingresos',
       headlinePart2: 'Mientras los Leads Esperan',
-      sub: 'SparkRise AI construye sistemas automatizados de seguimiento y reactivación para spas médicos — para que ningún lead se enfríe y ningún cliente pasado quede olvidado.',
+      sub: 'Los ingresos que estás perdiendo no aparecen en ningún reporte. Son leads que se enfriaron y clientes pasados que nunca fueron contactados de nuevo — y hay una solución para ambos.',
       primaryCta: 'Reserva tu Auditoría de Fugas de Ingresos',
       secondaryCta: 'Reclama tu Campaña de Reactivación Gratis',
       proof: [
@@ -216,7 +210,7 @@ export const translations = {
     },
     problem: {
       heading: 'Cada Retraso Te Cuesta una Reserva',
-      sub: 'La mayoría de los spas médicos pierden ingresos no por mal servicio — sino por vacíos en el proceso de seguimiento.',
+      sub: 'El servicio en la mayoría de los spas médicos es excelente. El sistema que lo rodea no lo es — y esa brecha cuesta caro. Aquí es exactamente donde desaparece el ingreso.',
       cards: [
         {
           title: 'Sin Sistema para Responder a Tiempo',
@@ -309,7 +303,7 @@ export const translations = {
       ],
       freeOffer: {
         heading: '¿No estás listo para comprometerte? Déjanos probarlo primero — gratis.',
-        body: 'Ejecutaremos una Campaña de Reactivación de Base de Datos Dormida en tu lista de clientes pasados sin costo. Sin condiciones. Sin presión. Solo resultados. Si funciona, hablamos.',
+        body: 'Contactaremos a tus clientes pasados — con tu marca y tu voz — y los traeremos de vuelta. No pagas nada a menos que decidas continuar trabajando con nosotros. Cada reserva que llegue es tuya para quedártela. La única razón para decir no es si no quieres más reservas.',
         cta: 'Reclama tu Campaña de Reactivación Gratis',
       },
     },
@@ -322,7 +316,7 @@ export const translations = {
     },
     guarantee: {
       heading: 'Nuestra Garantía de Resultados de 30 Días',
-      body: 'Si no reservas al menos una cita en tus primeros 30 días, seguimos trabajando gratis — sin preguntas — hasta que lo hagas.',
+      body: 'Solo una empresa segura de sus resultados hace esta oferta. Si no reservas al menos una cita en tus primeros 30 días, seguimos trabajando gratis — sin preguntas — hasta que lo hagas.',
       items: ['Sin contratos a largo plazo', 'Cancela cuando quieras', 'Activo en 5 días hábiles'],
     },
     faq: {
@@ -357,14 +351,12 @@ export const translations = {
     },
     finalCta: {
       heading: '¿Listo para Dejar de Perder Ingresos en tu Spa Médico?',
-      body: 'Descubre exactamente cuántos leads estás perdiendo — y cuánto te está costando — en una auditoría gratuita de 30 minutos.',
+      body: 'Ya viste las brechas. Ya sabes lo que cuestan. Una auditoría gratuita de 30 minutos te muestra exactamente a dónde va tu ingreso — y qué se necesita para recuperarlo.',
       cta: 'Reserva tu Auditoría de Fugas de Ingresos',
       sub: 'Gratis. Sin compromiso. 30 minutos.',
     },
     footer: {
       tagline: 'Sirviendo spas médicos en el Norte de Virginia — Ashburn, Leesburg, Reston, Fairfax, Arlington, Alexandria — y en todo el país.',
-      // TODO: Replace with real business phone number
-      phone: '(571) 000-0000',
       rights: `© ${new Date().getFullYear()} SparkRise AI. Todos los derechos reservados.`,
       links: {
         howItWorks: 'Cómo Funciona',

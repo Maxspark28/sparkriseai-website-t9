@@ -45,13 +45,13 @@ export const metadata: Metadata = {
     siteName: "SparkRise AI",
     title: "SparkRise AI | AI Lead Automation for Med Spas",
     description:
-      "SparkRise AI helps med spas recover lost revenue with AI-powered lead follow-up, reactivation campaigns, and automated booking. Built in Northern Virginia. Serving businesses nationwide.",
+      "AI-powered lead follow-up and client reactivation for med spas. Built in Northern Virginia. Serving businesses nationwide.",
     images: [
       {
-        url: "/og-image.jpg",
+        url: "https://sparkriseai.com/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "SparkRise AI — AI Lead Automation for Med Spas, Northern Virginia",
+        alt: "SparkRise AI — AI Lead Automation for Med Spas",
       },
     ],
   },
@@ -59,8 +59,8 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "SparkRise AI | AI Lead Automation for Med Spas",
     description:
-      "SparkRise AI helps med spas recover lost revenue with AI-powered lead follow-up, reactivation campaigns, and automated booking.",
-    images: ["/og-image.jpg"],
+      "AI-powered lead follow-up and client reactivation for med spas.",
+    images: ["https://sparkriseai.com/og-image.jpg"],
     creator: "@sparkriseai",
   },
   robots: {

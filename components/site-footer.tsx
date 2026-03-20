@@ -19,13 +19,6 @@ export function SiteFooter({ lang = 'en' }: SiteFooterProps) {
               <span className="text-lg font-bold">SparkRise AI</span>
             </Link>
             <p className="mt-2 text-sm text-muted-foreground max-w-xs">{t.tagline}</p>
-            {/* TODO: Replace with real business phone number */}
-            <a
-              href={`tel:${t.phone.replace(/\D/g, '')}`}
-              className="mt-2 flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors"
-            >
-              📞 {t.phone}
-            </a>
           </div>
           <div className="flex items-center gap-6 text-sm text-muted-foreground">
             <Link href="/#how-it-works" className="transition-colors hover:text-foreground">

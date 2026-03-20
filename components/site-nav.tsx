@@ -89,7 +89,7 @@ export function SiteNav({ lang = 'en', setLang, onClaimReactivation }: SiteNavPr
             </CalButton>
 
             <button
-              className="inline-flex h-9 w-9 items-center justify-center rounded-md border border-border text-muted-foreground transition-colors hover:text-foreground md:hidden"
+              className="inline-flex h-11 w-11 items-center justify-center rounded-md border border-border text-muted-foreground transition-colors hover:text-foreground md:hidden"
               onClick={() => setOpen(!open)}
               aria-label="Toggle menu"
             >
