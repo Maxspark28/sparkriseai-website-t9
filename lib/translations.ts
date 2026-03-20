@@ -15,7 +15,7 @@ export const translations = {
       badge: 'AI Lead Automation for Med Spas',
       headlinePart1: 'Your Med Spa Is Losing Revenue',
       headlinePart2: 'Every Hour Leads Wait.',
-      sub: 'SparkRise AI builds automated follow-up and reactivation systems for med spas — so no lead goes cold and no past client stays forgotten.',
+      sub: 'SparkRise AI builds AI automation for med spas — automated lead follow-up, AI lead reactivation, and med spa booking automation — so no lead goes cold and no past client stays forgotten.',
       primaryCta: 'Book Your Free Revenue Leak Audit',
       secondaryCta: 'Claim Your Free Reactivation Campaign',
       proof: [
@@ -45,7 +45,7 @@ export const translations = {
     },
     howItWorks: {
       heading: 'How It Works',
-      sub: 'Live in 5 days. Built around your med spa. Zero disruption to your workflow.',
+      sub: 'Live in 5 days. Built around your med spa. Serving Northern Virginia med spas and businesses nationwide.',
       steps: [
         {
           title: 'Capture',
@@ -128,7 +128,7 @@ export const translations = {
       heading: 'Built by Someone Who Gets It',
       name: 'Cristian González Rivera',
       title: 'Founder, SparkRise AI',
-      bio: 'Born in Puerto Rico, built in Northern Virginia. Cristian founded SparkRise AI after watching small business owners burn hours on manual follow-up while leads went cold and revenue walked out the door. An early AI adopter since the ChatGPT era, he builds systems that give med spa owners their time — and their revenue — back.',
+      bio: 'Born in Puerto Rico, based in Northern Virginia (Loudoun County). Cristian founded SparkRise AI after watching med spa owners burn hours on manual follow-up while leads went cold and revenue walked out the door. An early AI adopter since the ChatGPT era, he builds AI automation for med spas that give owners their time — and their revenue — back.',
       location: 'Loudoun County, VA · Bilingual (English + Spanish) · Husband & Father',
     },
     guarantee: {
@@ -168,12 +168,12 @@ export const translations = {
     },
     finalCta: {
       heading: 'Ready to Stop Losing Med Spa Revenue?',
-      body: "Find out exactly how many leads you're losing — and what it's costing you — in a free 30-minute audit.",
+      body: "Find out exactly how many leads your med spa is losing to slow follow-up — and what it's costing you — in a free 30-minute audit.",
       cta: 'Book Your Free Revenue Leak Audit',
       sub: 'Free. No commitment. 30 minutes.',
     },
     footer: {
-      tagline: 'Serving Northern Virginia and businesses nationwide.',
+      tagline: 'Serving med spas in Northern Virginia — Ashburn, Leesburg, Reston, Fairfax, Arlington, Alexandria — and nationwide.',
       rights: `© ${new Date().getFullYear()} SparkRise AI. All rights reserved.`,
       links: {
         howItWorks: 'How It Works',
@@ -315,7 +315,7 @@ export const translations = {
       heading: 'Construido por Alguien que Entiende el Problema',
       name: 'Cristian González Rivera',
       title: 'Fundador, SparkRise AI',
-      bio: 'Nacido en Puerto Rico, construido en el Norte de Virginia. Cristian fundó SparkRise AI después de ver a dueños de negocios perder horas en seguimientos manuales mientras los leads se enfriaban y los ingresos se iban. Adoptante temprano de IA desde la era de ChatGPT, construye sistemas que devuelven a los dueños de spas médicos su tiempo — y sus ingresos.',
+      bio: 'Nacido en Puerto Rico, radicado en el Norte de Virginia (Loudoun County). Cristian fundó SparkRise AI después de ver a dueños de spas médicos perder horas en seguimientos manuales mientras los leads se enfriaban y los ingresos se iban. Adoptante temprano de IA desde la era de ChatGPT, construye automatización con IA para spas médicos que les devuelve su tiempo — y sus ingresos.',
       location: 'Loudoun County, VA · Bilingüe (Inglés + Español) · Esposo y Padre',
     },
     guarantee: {
@@ -360,7 +360,7 @@ export const translations = {
       sub: 'Gratis. Sin compromiso. 30 minutos.',
     },
     footer: {
-      tagline: 'Sirviendo al Norte de Virginia y negocios en todo el país.',
+      tagline: 'Sirviendo spas médicos en el Norte de Virginia — Ashburn, Leesburg, Reston, Fairfax, Arlington, Alexandria — y en todo el país.',
       rights: `© ${new Date().getFullYear()} SparkRise AI. Todos los derechos reservados.`,
       links: {
         howItWorks: 'Cómo Funciona',

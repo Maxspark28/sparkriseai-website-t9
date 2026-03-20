@@ -11,22 +11,26 @@ const siteUrl = "https://sparkriseai.com"
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: 'SparkRise AI | AI Lead Automation Agency | Northern Virginia',
+    default: 'SparkRise AI | AI Lead Automation for Med Spas',
     template: '%s | SparkRise AI',
   },
   description:
-    "SparkRise AI builds AI systems that book appointments while you sleep. Your leads get followed up in under 5 minutes, 24/7. Serving service businesses in Fairfax, Arlington, Alexandria, Loudoun & Prince William.",
+    "SparkRise AI helps med spas recover lost revenue with AI-powered lead follow-up, reactivation campaigns, and automated booking. Built in Northern Virginia. Serving businesses nationwide.",
   keywords: [
-    "AI lead automation Northern Virginia",
-    "AI appointment booking agency",
-    "automated lead follow-up",
-    "AI SMS follow-up",
-    "HVAC lead automation",
-    "dental AI booking",
-    "real estate lead automation",
-    "Northern Virginia marketing automation",
-    "DMV AI agency",
-    "dead lead reactivation",
+    "ai automation med spa",
+    "med spa lead follow-up",
+    "ai booking system med spa",
+    "lead reactivation med spa",
+    "ai automation northern virginia",
+    "med spa ai agency",
+    "AI lead automation for med spas",
+    "med spa booking automation",
+    "AI lead reactivation",
+    "Northern Virginia med spa",
+    "Loudoun County AI automation",
+    "DMV area med spa",
+    "serving med spas nationwide",
+    "reactivate past clients med spa",
   ],
   authors: [{ name: "Cristian González Rivera", url: siteUrl }],
   creator: "Cristian González Rivera",
@@ -39,23 +43,23 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: siteUrl,
     siteName: "SparkRise AI",
-    title: "SparkRise AI | AI Lead Automation Agency | Northern Virginia",
+    title: "SparkRise AI | AI Lead Automation for Med Spas",
     description:
-      "We build AI systems that book appointments while you sleep. Leads followed up in under 5 minutes, 24/7. Serving service businesses across Northern Virginia.",
+      "SparkRise AI helps med spas recover lost revenue with AI-powered lead follow-up, reactivation campaigns, and automated booking. Built in Northern Virginia. Serving businesses nationwide.",
     images: [
       {
         url: "/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "SparkRise AI — AI Lead Automation Agency, Northern Virginia",
+        alt: "SparkRise AI — AI Lead Automation for Med Spas, Northern Virginia",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "SparkRise AI | AI Lead Automation Agency | Northern Virginia",
+    title: "SparkRise AI | AI Lead Automation for Med Spas",
     description:
-      "We build AI systems that book appointments while you sleep. Leads followed up in under 5 minutes, 24/7.",
+      "SparkRise AI helps med spas recover lost revenue with AI-powered lead follow-up, reactivation campaigns, and automated booking.",
     images: ["/og-image.jpg"],
     creator: "@sparkriseai",
   },
@@ -72,6 +76,12 @@ export const metadata: Metadata = {
   },
   icons: {
     apple: '/apple-icon.png',
+  },
+  other: {
+    "geo.region": "US-VA",
+    "geo.placename": "Loudoun County, Virginia",
+    "geo.position": "39.0837;-77.6535",
+    "ICBM": "39.0837, -77.6535",
   },
 }
 
