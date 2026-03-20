@@ -1,27 +1,42 @@
 import Image from "next/image"
 import Link from "next/link"
+import { translations, type Lang } from "@/lib/translations"
 
-export function SiteFooter() {
+interface SiteFooterProps {
+  lang?: Lang
+}
+
+export function SiteFooter({ lang = 'en' }: SiteFooterProps) {
+  const t = translations[lang].footer
+
   return (
     <footer className="border-t border-border px-4 py-12 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-6xl">
-        <div className="flex flex-col items-center justify-between gap-6 sm:flex-row">
-          <Link href="/" className="flex items-center gap-3">
-            <Image src="/logoT.jpg" alt="SparkRise AI" width={36} height={36} className="rounded-md" />
-            <span className="text-lg font-bold">SparkRise AI</span>
-          </Link>
-          <div className="flex items-center gap-6 text-sm text-muted-foreground">
-            <Link href="/about" className="transition-colors hover:text-foreground">
-              About
+        <div className="flex flex-col items-center justify-between gap-8 sm:flex-row sm:items-start">
+          <div>
+            <Link href="/" className="flex items-center gap-3">
+              <Image src="/logoT.jpg" alt="SparkRise AI" width={36} height={36} className="rounded-md" />
+              <span className="text-lg font-bold">SparkRise AI</span>
             </Link>
-            <span>sparkriseai.com</span>
+            <p className="mt-2 text-sm text-muted-foreground max-w-xs">{t.tagline}</p>
+          </div>
+          <div className="flex items-center gap-6 text-sm text-muted-foreground">
+            <Link href="/#how-it-works" className="transition-colors hover:text-foreground">
+              {t.links.howItWorks}
+            </Link>
+            <Link href="/#pricing" className="transition-colors hover:text-foreground">
+              {t.links.pricing}
+            </Link>
+            <Link href="/about" className="transition-colors hover:text-foreground">
+              {t.links.about}
+            </Link>
+            <Link href="/#faq" className="transition-colors hover:text-foreground">
+              {t.links.faq}
+            </Link>
           </div>
         </div>
-        <div className="mt-6 text-center text-sm text-muted-foreground sm:text-right">
-          Serving Northern Virginia — Fairfax, Arlington, Alexandria, Loudoun, Prince William
-        </div>
-        <div className="mt-6 border-t border-border pt-6 text-center text-sm text-muted-foreground">
-          <p>&copy; {new Date().getFullYear()} SparkRise AI. All rights reserved.</p>
+        <div className="mt-8 border-t border-border pt-6 text-center text-sm text-muted-foreground">
+          <p>{t.rights}</p>
         </div>
       </div>
     </footer>
