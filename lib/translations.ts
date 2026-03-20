@@ -27,19 +27,19 @@ export const translations = {
     },
     problem: {
       heading: 'Every Delay Costs You a Booking',
-      sub: "Here's what's actually happening while you're busy running your med spa.",
+      sub: 'Most med spas lose revenue not from bad service — but from gaps in the follow-up process.',
       cards: [
         {
-          title: 'Leads Go Cold in 5 Minutes',
-          body: "A new lead submits a form or DMs your Instagram. Your front desk is with a client. By the time someone responds, they've already booked somewhere else.",
+          title: 'No System to Respond in Time',
+          body: "A new lead submits a form or messages your practice. Without automated follow-up, the window closes in minutes — and they book with whoever responds first.",
         },
         {
-          title: 'Your Past Clients Are Sitting Idle',
-          body: "You have hundreds — maybe thousands — of past clients who came in once and never returned. They're not gone. They're just waiting to be reminded.",
+          title: 'Past Clients Left Uncontacted',
+          body: "There are hundreds — maybe thousands — of past clients who visited once and never returned. Without a reactivation system, that revenue stays off the table.",
         },
         {
-          title: "You're the Bottleneck",
-          body: "You're managing staff, treatments, inventory, and marketing. Follow-up always falls through because there's no one left to do it consistently.",
+          title: 'Follow-Up Falls Through the Cracks',
+          body: "Med spas run on lean teams. When there's no dedicated automation handling outreach, follow-up gets deprioritized — not because anyone dropped the ball, but because the tools weren't there.",
         },
       ],
     },
@@ -214,19 +214,19 @@ export const translations = {
     },
     problem: {
       heading: 'Cada Retraso Te Cuesta una Reserva',
-      sub: 'Esto es lo que realmente está pasando mientras manejas tu spa médico.',
+      sub: 'La mayoría de los spas médicos pierden ingresos no por mal servicio — sino por vacíos en el proceso de seguimiento.',
       cards: [
         {
-          title: 'Los Leads Se Enfrían en 5 Minutos',
-          body: 'Un nuevo lead llena un formulario o escribe por Instagram. Tu recepcionista está con un cliente. Para cuando alguien responde, ya reservaron en otro lugar.',
+          title: 'Sin Sistema para Responder a Tiempo',
+          body: 'Un nuevo lead envía un formulario o escribe al consultorio. Sin seguimiento automatizado, la ventana se cierra en minutos — y reservan con quien responde primero.',
         },
         {
-          title: 'Tus Clientes Pasados Están Inactivos',
-          body: 'Tienes cientos — tal vez miles — de clientes pasados que vinieron una vez y nunca regresaron. No están perdidos. Solo están esperando ser recordados.',
+          title: 'Clientes Pasados sin Contactar',
+          body: 'Hay cientos — tal vez miles — de clientes pasados que visitaron una vez y nunca regresaron. Sin un sistema de reactivación, esos ingresos se quedan sin aprovechar.',
         },
         {
-          title: 'Tú Eres el Cuello de Botella',
-          body: 'Estás manejando personal, tratamientos, inventario y marketing. El seguimiento siempre falla porque no hay nadie disponible para hacerlo de manera consistente.',
+          title: 'El Seguimiento Se Pierde en el Proceso',
+          body: 'Los spas médicos operan con equipos reducidos. Cuando no hay automatización dedicada al alcance, el seguimiento se posterga — no porque alguien falle, sino porque las herramientas no estaban.',
         },
       ],
     },
