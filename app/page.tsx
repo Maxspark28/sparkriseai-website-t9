@@ -14,7 +14,6 @@ import {
   MessageSquare,
   Star,
   X,
-  MapPin,
 } from "lucide-react"
 import { Card, CardContent } from "@/components/ui/card"
 import { CalButton } from "@/components/cal-button"
@@ -235,30 +234,6 @@ export default function SparkRiseAI() {
               {t.pricing.freeOffer.cta}
               <ArrowRight className="h-4 w-4" />
             </button>
-          </div>
-        </div>
-      </section>
-
-      {/* Founder Section */}
-      <section id="about" className="bg-secondary/30 px-4 py-20 sm:px-6 lg:px-8">
-        <div className="mx-auto max-w-4xl">
-          <h2 className="text-center text-3xl font-bold sm:text-4xl">{t.founder.heading}</h2>
-          <div className="mt-10 flex flex-col items-center gap-8 sm:flex-row sm:items-start">
-            {/* Founder photo placeholder */}
-            <div className="shrink-0">
-              <div className="flex h-32 w-32 items-center justify-center rounded-full bg-[var(--orange)]/20 text-3xl font-bold text-[var(--orange)] sm:h-40 sm:w-40">
-                CG
-              </div>
-            </div>
-            <div>
-              <h3 className="text-xl font-bold text-foreground">{t.founder.name}</h3>
-              <p className="mt-1 text-sm font-medium text-[var(--orange)]">{t.founder.title}</p>
-              <p className="mt-4 text-muted-foreground leading-relaxed">{t.founder.bio}</p>
-              <p className="mt-4 flex items-center gap-2 text-sm text-muted-foreground">
-                <MapPin className="h-4 w-4 text-[var(--orange)] shrink-0" />
-                {t.founder.location}
-              </p>
-            </div>
           </div>
         </div>
       </section>
