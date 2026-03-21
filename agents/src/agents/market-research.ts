@@ -9,7 +9,7 @@
  * - Keyword opportunities for outreach personalization
  */
 
-import Anthropic from "@anthropic-ai/sdk";
+import { buildStream } from "../lib/ai-client.js";
 import { log, printStream, printHeader, timestamp, sendToN8n, saveOutput } from "../utils.js";
 import type { MarketResearch, AgentResult } from "../types.js";
 
@@ -51,7 +51,6 @@ export async function runMarketResearchAgent(
     depth?: "quick" | "deep";
   } = {}
 ): Promise<AgentResult> {
-  const client = new Anthropic();
   printHeader("MARKET RESEARCH AGENT");
 
   const focus = options.focus ?? "all";
@@ -98,22 +97,15 @@ Format each as: "I [pain]" — written in the owner's own words.
 ## 6. 30-DAY OPPORTUNITY WINDOW
 What specific trigger events or seasonal factors in the next 30 days make this the right time to pitch dead database reactivation to NOVA med spas?`;
 
-  let fullOutput = "";
-
-  const stream = client.messages.stream({
-    model: "claude-opus-4-6",
-    max_tokens: 8192,
-    thinking: { type: "adaptive" },
+  const runner = buildStream({
     system: RESEARCH_SYSTEM,
     messages: [{ role: "user", content: prompt }],
+    maxTokens: 8192,
+    tier: "primary",
   });
 
-  stream.on("text", (delta) => {
-    printStream(delta);
-    fullOutput += delta;
-  });
-
-  await stream.finalMessage();
+  runner.onText(printStream);
+  const fullOutput = await runner.complete();
   console.log("\n");
 
   const result: AgentResult = {
@@ -139,7 +131,6 @@ export async function researchProspect(
   location: string,
   additionalContext?: string
 ): Promise<AgentResult> {
-  const client = new Anthropic();
   printHeader("PROSPECT INTELLIGENCE");
   log("market-research", `Researching: ${businessName} — ${location}`);
 
@@ -157,22 +148,15 @@ Deliver:
 5. BEST CHANNEL — LinkedIn, cold email, or Facebook DM? Why?
 6. TIMING — Best time/day to reach out for this type of business`;
 
-  let fullOutput = "";
-
-  const stream = client.messages.stream({
-    model: "claude-opus-4-6",
-    max_tokens: 4096,
-    thinking: { type: "adaptive" },
+  const runner = buildStream({
     system: RESEARCH_SYSTEM,
     messages: [{ role: "user", content: prompt }],
+    maxTokens: 4096,
+    tier: "primary",
   });
 
-  stream.on("text", (delta) => {
-    printStream(delta);
-    fullOutput += delta;
-  });
-
-  await stream.finalMessage();
+  runner.onText(printStream);
+  const fullOutput = await runner.complete();
   console.log("\n");
 
   const result: AgentResult = {

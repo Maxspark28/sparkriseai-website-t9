@@ -9,7 +9,7 @@
  * Passes research context to content + outreach agents for better output.
  */
 
-import Anthropic from "@anthropic-ai/sdk";
+import { chat } from "../lib/ai-client.js";
 import { log, printHeader, timestamp, sendToN8n, saveOutput } from "../utils.js";
 import { runMarketResearchAgent } from "./market-research.js";
 import { runContentIdeasAgent } from "./content-ideas.js";
@@ -81,7 +81,7 @@ async function runWeeklyBrandSprint(
 
   // Step 2: Content ideas informed by research context
   log("coordinator", "Step 2: Content ideas (informed by research)...");
-  const researchSummary = research.output.slice(0, 2000); // pass top of research as context
+  const researchSummary = research.output.slice(0, 2000);
   const content = await runContentIdeasAgent({
     weekTheme: options.weekTheme ?? `Based on research insights: ${researchSummary}`,
     platform: "all",
@@ -89,7 +89,7 @@ async function runWeeklyBrandSprint(
   });
   results.push(content);
 
-  // Step 3: LinkedIn outreach sequence (parallel would be ideal but keeping sequential for clarity)
+  // Step 3: LinkedIn outreach sequence
   log("coordinator", "Step 3: LinkedIn outreach sequence...");
   const outreach = await runOutreachWriterAgent({
     channel: "linkedin",
@@ -120,7 +120,6 @@ async function runOutreachCampaign(
   const channel = options.channel ?? "linkedin";
   const language = options.language ?? "en";
 
-  // Research → Outreach (sequential for quality)
   log("coordinator", "Researching target...");
   const research = await runMarketResearchAgent({ focus: "prospect-intel", depth: "deep" });
   results.push(research);
@@ -141,13 +140,11 @@ async function runFullPipeline(
 ): Promise<void> {
   log("coordinator", "Running FULL pipeline (all agents)...");
 
-  // Research first
   const research = await runMarketResearchAgent({ focus: "all", depth: "deep" });
   results.push(research);
 
   const researchContext = research.output.slice(0, 3000);
 
-  // Content + Outreach (both informed by research)
   log("coordinator", "Running content + outreach agents...");
 
   const [content, outreach, outreachEs] = await Promise.all([
@@ -170,7 +167,6 @@ async function runFullPipeline(
 
   results.push(content, outreach, outreachEs);
 
-  // Brand voice check on content
   log("coordinator", "Brand voice review...");
   const brandCheck = await runBrandVoiceAgent(
     `Review and strengthen the top 3 hooks from this content batch:\n\n${content.output.slice(0, 2000)}`,
@@ -180,16 +176,14 @@ async function runFullPipeline(
 }
 
 async function buildSummaryReport(results: AgentResult[], task: string): Promise<void> {
-  const client = new Anthropic();
   log("coordinator", "Building summary report...");
 
   const outputSummaries = results
     .map((r) => `### ${r.agent}\n${r.output.slice(0, 500)}...`)
     .join("\n\n");
 
-  const response = await client.messages.create({
-    model: "claude-opus-4-6",
-    max_tokens: 2048,
+  const summary = await chat({
+    system: "You are a concise operations coordinator. Summarize agent pipeline results in bullet points.",
     messages: [
       {
         role: "user",
@@ -204,10 +198,9 @@ Write a brief coordinator summary (bullet points):
 4. Any gaps or follow-up research needed`,
       },
     ],
+    maxTokens: 2048,
+    tier: "fast",
   });
-
-  const textBlock = response.content.find((b) => b.type === "text");
-  const summary = textBlock?.type === "text" ? textBlock.text : "No summary generated";
 
   const summaryResult: AgentResult = {
     agent: "coordinator-summary",

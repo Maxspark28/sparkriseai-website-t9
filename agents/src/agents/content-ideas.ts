@@ -9,7 +9,7 @@
  * Built on "what works" principle — content that gets engagement + leads
  */
 
-import Anthropic from "@anthropic-ai/sdk";
+import { buildStream } from "../lib/ai-client.js";
 import { log, printStream, printHeader, timestamp, sendToN8n, saveOutput } from "../utils.js";
 import type { ContentBatch, AgentResult } from "../types.js";
 
@@ -79,7 +79,6 @@ export async function runContentIdeasAgent(
     postsCount?: number;
   } = {}
 ): Promise<AgentResult> {
-  const client = new Anthropic();
   printHeader("CONTENT IDEAS AGENT");
 
   const platform = options.platform ?? "all";
@@ -117,22 +116,15 @@ Body:
 CTA: ...
 Tags: ...`;
 
-  let fullOutput = "";
-
-  const stream = client.messages.stream({
-    model: "claude-opus-4-6",
-    max_tokens: 8192,
-    thinking: { type: "adaptive" },
+  const runner = buildStream({
     system: CONTENT_SYSTEM,
     messages: [{ role: "user", content: prompt }],
+    maxTokens: 8192,
+    tier: "primary",
   });
 
-  stream.on("text", (delta) => {
-    printStream(delta);
-    fullOutput += delta;
-  });
-
-  await stream.finalMessage();
+  runner.onText(printStream);
+  const fullOutput = await runner.complete();
   console.log("\n");
 
   const result: AgentResult = {
@@ -157,14 +149,9 @@ export async function generateSinglePost(
   brief: string,
   platform: "linkedin" | "facebook" | "facebook_es"
 ): Promise<string> {
-  const client = new Anthropic();
   log("content-ideas", `Generating single ${platform} post...`);
 
-  let output = "";
-
-  const stream = client.messages.stream({
-    model: "claude-opus-4-6",
-    max_tokens: 2048,
+  const runner = buildStream({
     system: CONTENT_SYSTEM,
     messages: [
       {
@@ -172,14 +159,12 @@ export async function generateSinglePost(
         content: `Write a single ${platform} post based on this brief. Make it complete and ready to publish.\n\nBrief: ${brief}`,
       },
     ],
+    maxTokens: 2048,
+    tier: "fast",
   });
 
-  stream.on("text", (delta) => {
-    printStream(delta);
-    output += delta;
-  });
-
-  await stream.finalMessage();
+  runner.onText(printStream);
+  const output = await runner.complete();
   console.log("\n");
   return output;
 }

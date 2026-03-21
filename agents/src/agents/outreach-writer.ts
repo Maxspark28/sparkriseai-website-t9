@@ -11,7 +11,7 @@
  * Also handles personal brand DM responses and follow-ups.
  */
 
-import Anthropic from "@anthropic-ai/sdk";
+import { buildStream, chat } from "../lib/ai-client.js";
 import { log, printStream, printHeader, timestamp, sendToN8n, saveOutput } from "../utils.js";
 import type { OutreachSequence, AgentResult } from "../types.js";
 
@@ -85,7 +85,6 @@ export async function runOutreachWriterAgent(
     context?: string;
   } = {}
 ): Promise<AgentResult> {
-  const client = new Anthropic();
   printHeader("OUTREACH WRITER AGENT");
 
   const channel = options.channel ?? "linkedin";
@@ -118,22 +117,15 @@ Write 3 response scripts:
 2. "We already use [tool/system]"
 3. "Not a good time right now"`;
 
-  let fullOutput = "";
-
-  const stream = client.messages.stream({
-    model: "claude-opus-4-6",
-    max_tokens: 8192,
-    thinking: { type: "adaptive" },
+  const runner = buildStream({
     system: OUTREACH_SYSTEM,
     messages: [{ role: "user", content: prompt }],
+    maxTokens: 8192,
+    tier: "primary",
   });
 
-  stream.on("text", (delta) => {
-    printStream(delta);
-    fullOutput += delta;
-  });
-
-  await stream.finalMessage();
+  runner.onText(printStream);
+  const fullOutput = await runner.complete();
   console.log("\n");
 
   const result: AgentResult = {
@@ -159,14 +151,9 @@ export async function writeSingleOutreach(
   context: string,
   language: "en" | "es" = "en"
 ): Promise<string> {
-  const client = new Anthropic();
   log("outreach-writer", `Writing single ${channel} message (${language})...`);
 
-  let output = "";
-
-  const stream = client.messages.stream({
-    model: "claude-opus-4-6",
-    max_tokens: 2048,
+  const runner = buildStream({
     system: OUTREACH_SYSTEM,
     messages: [
       {
@@ -174,14 +161,12 @@ export async function writeSingleOutreach(
         content: `Write a single cold ${channel} message in ${language}.\n\nContext: ${context}\n\nMake it human, specific, and short. Include personalization placeholders.`,
       },
     ],
+    maxTokens: 2048,
+    tier: "fast",
   });
 
-  stream.on("text", (delta) => {
-    printStream(delta);
-    output += delta;
-  });
-
-  await stream.finalMessage();
+  runner.onText(printStream);
+  const output = await runner.complete();
   console.log("\n");
   return output;
 }
@@ -195,7 +180,6 @@ export async function writeReactivationMessage(
     language: "en" | "es";
   }
 ): Promise<string> {
-  const client = new Anthropic();
   log("outreach-writer", `Writing reactivation for ${leadInfo.name} @ ${leadInfo.businessName}...`);
 
   const prompt = `Write a dead-lead reactivation message for:
@@ -208,13 +192,10 @@ Language: ${leadInfo.language}
 
 This is a past lead who showed interest but went cold. The goal is to get them back into a conversation — not to pitch immediately. Reference the time gap naturally. Be warm, not salesy. Give them a reason to respond.`;
 
-  const response = await client.messages.create({
-    model: "claude-opus-4-6",
-    max_tokens: 1024,
+  return await chat({
     system: OUTREACH_SYSTEM,
     messages: [{ role: "user", content: prompt }],
+    maxTokens: 1024,
+    tier: "fast",
   });
-
-  const textBlock = response.content.find((b) => b.type === "text");
-  return textBlock?.type === "text" ? textBlock.text : "";
 }

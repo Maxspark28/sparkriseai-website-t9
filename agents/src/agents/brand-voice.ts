@@ -8,7 +8,7 @@
  * - Human-sounding, not AI-sounding
  */
 
-import Anthropic from "@anthropic-ai/sdk";
+import { buildStream, chat } from "../lib/ai-client.js";
 import { log, printStream, printHeader, timestamp, sendToN8n, saveOutput } from "../utils.js";
 import type { BrandVoiceOutput, AgentResult } from "../types.js";
 
@@ -55,7 +55,6 @@ export async function runBrandVoiceAgent(
   input: string,
   options: { rewrite?: boolean; language?: "en" | "es" } = {}
 ): Promise<AgentResult> {
-  const client = new Anthropic();
   printHeader("BRAND VOICE AGENT");
 
   const task = options.rewrite
@@ -64,27 +63,15 @@ export async function runBrandVoiceAgent(
 
   log("brand-voice", `Running... (rewrite mode: ${options.rewrite ?? false})`);
 
-  let fullOutput = "";
-
-  const stream = client.messages.stream({
-    model: "claude-opus-4-6",
-    max_tokens: 4096,
-    thinking: { type: "adaptive" },
+  const runner = buildStream({
     system: BRAND_VOICE_SYSTEM,
-    messages: [
-      {
-        role: "user",
-        content: task,
-      },
-    ],
+    messages: [{ role: "user", content: task }],
+    maxTokens: 4096,
+    tier: "primary",
   });
 
-  stream.on("text", (delta) => {
-    printStream(delta);
-    fullOutput += delta;
-  });
-
-  await stream.finalMessage();
+  runner.onText(printStream);
+  const fullOutput = await runner.complete();
   console.log("\n");
 
   const result: AgentResult = {
@@ -106,13 +93,9 @@ export async function runBrandVoiceAgent(
 }
 
 export async function checkBrandVoice(content: string): Promise<BrandVoiceOutput> {
-  const client = new Anthropic();
   log("brand-voice", "Scoring content against brand voice...");
 
-  const response = await client.messages.create({
-    model: "claude-opus-4-6",
-    max_tokens: 2048,
-    thinking: { type: "adaptive" },
+  const text = await chat({
     system: BRAND_VOICE_SYSTEM,
     messages: [
       {
@@ -131,14 +114,11 @@ Content to evaluate:
 ${content}`,
       },
     ],
+    maxTokens: 2048,
+    tier: "fast",
   });
 
-  const textBlock = response.content.find((b) => b.type === "text");
-  if (!textBlock || textBlock.type !== "text") {
-    throw new Error("No text response from brand voice check");
-  }
-
-  const jsonMatch = textBlock.text.match(/\{[\s\S]*\}/);
+  const jsonMatch = text.match(/\{[\s\S]*\}/);
   if (!jsonMatch) throw new Error("Could not parse JSON from brand voice response");
 
   return JSON.parse(jsonMatch[0]) as BrandVoiceOutput;
