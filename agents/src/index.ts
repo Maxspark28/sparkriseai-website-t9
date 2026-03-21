@@ -40,8 +40,8 @@ function hasFlag(flag: string): boolean {
 }
 
 async function main(): Promise<void> {
-  if (!process.env.ANTHROPIC_API_KEY) {
-    console.error("ERROR: ANTHROPIC_API_KEY is not set. Copy .env.example to .env and add your key.");
+  if (!process.env.OPENAI_API_KEY && !process.env.ANTHROPIC_API_KEY) {
+    console.error("ERROR: No AI key found. Add OPENAI_API_KEY (or ANTHROPIC_API_KEY) to agents/.env");
     process.exit(1);
   }
 
