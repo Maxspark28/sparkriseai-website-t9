@@ -1,0 +1,27 @@
+{
+  "name": "sparkrise-agents",
+  "version": "1.0.0",
+  "description": "SparkRise AI - Personal Brand & Lead Automation Agents",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "tsx src/index.ts",
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "brand": "tsx src/index.ts brand-voice",
+    "content": "tsx src/index.ts content-ideas",
+    "research": "tsx src/index.ts market-research",
+    "outreach": "tsx src/index.ts outreach-writer",
+    "run-all": "tsx src/index.ts run-all"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.39.0",
+    "dotenv": "^16.4.5",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "tsx": "^4.19.0",
+    "typescript": "^5.6.0"
+  }
+}
