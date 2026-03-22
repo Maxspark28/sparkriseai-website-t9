@@ -1,6 +1,5 @@
 import type { Metadata } from 'next'
 import { GeistSans } from 'geist/font/sans'
-import { GeistMono } from 'geist/font/mono'
 import { Analytics } from '@vercel/analytics/next'
 import { GoogleAnalytics } from '@next/third-parties/google'
 import { StructuredData } from '@/components/structured-data'
@@ -11,26 +10,26 @@ const siteUrl = "https://sparkriseai.com"
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: 'SparkRise AI | AI Lead Automation for Med Spas',
+    default: 'SparkRise AI | AI Lead Automation for DMV Contractors',
     template: '%s | SparkRise AI',
   },
   description:
-    "SparkRise AI helps med spas recover lost revenue with AI-powered lead follow-up, reactivation campaigns, and automated booking. Built in Northern Virginia. Serving businesses nationwide.",
+    "SparkRise AI helps DMV contractors — HVAC, plumbing, landscaping, concrete, fencing & remodeling — stop losing jobs to unanswered calls. AI lead follow-up and voice automation. Built in Northern Virginia. Bilingual (EN+ES).",
   keywords: [
-    "ai automation med spa",
-    "med spa lead follow-up",
-    "ai booking system med spa",
-    "lead reactivation med spa",
-    "ai automation northern virginia",
-    "med spa ai agency",
-    "AI lead automation for med spas",
-    "med spa booking automation",
-    "AI lead reactivation",
-    "Northern Virginia med spa",
-    "Loudoun County AI automation",
-    "DMV area med spa",
-    "serving med spas nationwide",
-    "reactivate past clients med spa",
+    "ai automation for contractors",
+    "contractor lead follow-up AI",
+    "HVAC AI automation DMV",
+    "landscaping AI lead follow-up",
+    "contractor voice agent",
+    "AI for Latino contractors",
+    "bilingual AI contractor",
+    "Northern Virginia contractor AI",
+    "DMV area contractor automation",
+    "ai booking system contractors",
+    "contractor lead reactivation",
+    "SparkRise AI",
+    "Loudoun County contractor automation",
+    "automated lead follow-up HVAC",
   ],
   authors: [{ name: "Cristian González Rivera", url: siteUrl }],
   creator: "Cristian González Rivera",
@@ -43,23 +42,23 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: siteUrl,
     siteName: "SparkRise AI",
-    title: "SparkRise AI | AI Lead Automation for Med Spas",
+    title: "SparkRise AI | AI Lead Automation for DMV Contractors",
     description:
-      "AI-powered lead follow-up and client reactivation for med spas. Built in Northern Virginia. Serving businesses nationwide.",
+      "Stop losing jobs to unanswered calls. AI-powered lead follow-up and voice automation for DMV contractors. Built in Northern Virginia. Bilingual EN+ES.",
     images: [
       {
         url: "https://sparkriseai.com/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "SparkRise AI — AI Lead Automation for Med Spas",
+        alt: "SparkRise AI — AI Lead Automation for Contractors",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "SparkRise AI | AI Lead Automation for Med Spas",
+    title: "SparkRise AI | AI Lead Automation for DMV Contractors",
     description:
-      "AI-powered lead follow-up and client reactivation for med spas.",
+      "AI-powered lead follow-up and voice automation for DMV contractors.",
     images: ["https://sparkriseai.com/og-image.jpg"],
     creator: "@sparkriseai",
   },
@@ -99,10 +98,17 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className={`${GeistSans.variable} ${GeistMono.variable}`}>
+    <html lang="en" className={GeistSans.variable}>
       <head>
         <link rel="icon" href="/favicon.ico" />
         <link rel="shortcut icon" href="/favicon.ico" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        {/* eslint-disable-next-line @next/next/no-page-custom-font */}
+        <link
+          href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet"
+        />
       </head>
       <body className="font-sans antialiased">
         <StructuredData />
