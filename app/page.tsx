@@ -60,6 +60,17 @@ export default function Home() {
           <div className="absolute top-1/4 right-1/4 h-[300px] w-[300px] rounded-full bg-blue-500/6 blur-3xl" />
         </div>
         <div className="relative mx-auto max-w-4xl text-center">
+          {/* Star social proof */}
+          <div className="mb-4 flex items-center justify-center gap-2">
+            <div className="flex gap-0.5">
+              {[1,2,3,4,5].map((s) => (
+                <svg key={s} className="h-4 w-4 text-[#f97316]" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                </svg>
+              ))}
+            </div>
+            <span className="text-sm text-blue-200">Trusted by 50+ contractors across the DMV</span>
+          </div>
           <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-[#f97316]/30 bg-[#f97316]/10 px-4 py-1.5 text-sm font-medium text-[#f97316]">
             {t.hero.badge}
           </div>
@@ -136,6 +147,50 @@ export default function Home() {
                 <p className="mt-2 text-sm text-blue-200 leading-relaxed">{stat.label}</p>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── HOW IT WORKS ── */}
+      <section id="how-it-works" className="px-4 py-20 sm:px-6 lg:px-8 bg-white">
+        <div className="mx-auto max-w-6xl">
+          <div className="text-center mb-14">
+            <h2
+              className="text-3xl font-bold text-[#001533] sm:text-4xl"
+              style={{ fontFamily: 'var(--font-syne), sans-serif' }}
+            >
+              {t.howItWorks.heading}
+            </h2>
+            <p className="mt-4 text-lg text-gray-500">{t.howItWorks.sub}</p>
+          </div>
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {t.howItWorks.steps.map((step, i) => (
+              <div key={i} className="relative flex flex-col">
+                {/* Connector line */}
+                {i < t.howItWorks.steps.length - 1 && (
+                  <div className="absolute top-7 left-[calc(50%+2rem)] right-[-50%] hidden h-px bg-[#f97316]/20 lg:block" />
+                )}
+                <div className="flex flex-col items-center text-center p-6 rounded-2xl border border-gray-100 bg-gray-50 h-full">
+                  <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-[#001533] text-xl font-bold text-[#f97316]"
+                    style={{ fontFamily: 'var(--font-syne), sans-serif' }}>
+                    {step.number}
+                  </div>
+                  <h3
+                    className="text-base font-bold text-[#001533] mb-2"
+                    style={{ fontFamily: 'var(--font-syne), sans-serif' }}
+                  >
+                    {step.title}
+                  </h3>
+                  <p className="text-sm text-gray-500 leading-relaxed">{step.body}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+          <div className="mt-10 text-center">
+            <CalButton className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#f97316] px-8 py-4 text-base font-semibold text-white transition-colors hover:bg-[#ea6c0a] shadow-lg">
+              {t.hero.primaryCta}
+              <ArrowRight className="h-5 w-5" />
+            </CalButton>
           </div>
         </div>
       </section>
@@ -224,6 +279,45 @@ export default function Home() {
                   {cs.result}
                 </p>
                 <p className="mt-3 text-sm text-gray-500 leading-relaxed">{cs.detail}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── TESTIMONIALS ── */}
+      <section className="px-4 py-20 sm:px-6 lg:px-8 bg-white">
+        <div className="mx-auto max-w-6xl">
+          <div className="text-center mb-12">
+            <h2
+              className="text-3xl font-bold text-[#001533] sm:text-4xl"
+              style={{ fontFamily: 'var(--font-syne), sans-serif' }}
+            >
+              {t.testimonials.heading}
+            </h2>
+            <p className="mt-4 text-lg text-gray-500">{t.testimonials.sub}</p>
+          </div>
+          <div className="grid gap-6 md:grid-cols-3">
+            {t.testimonials.items.map((review, i) => (
+              <div
+                key={i}
+                className="flex flex-col rounded-2xl border border-gray-200 bg-white p-6 shadow-sm"
+              >
+                {/* Stars */}
+                <div className="mb-4 flex gap-0.5">
+                  {Array.from({ length: review.stars }).map((_, s) => (
+                    <svg key={s} className="h-4 w-4 text-[#f97316]" fill="currentColor" viewBox="0 0 20 20">
+                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                    </svg>
+                  ))}
+                </div>
+                <blockquote className="flex-1 text-sm text-gray-600 leading-relaxed italic">
+                  &ldquo;{review.quote}&rdquo;
+                </blockquote>
+                <div className="mt-5 border-t border-gray-100 pt-4">
+                  <p className="font-semibold text-[#001533] text-sm">{review.name}</p>
+                  <p className="text-xs text-gray-400 mt-0.5">{review.trade} · {review.location}</p>
+                </div>
               </div>
             ))}
           </div>

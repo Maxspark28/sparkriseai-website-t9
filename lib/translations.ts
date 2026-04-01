@@ -49,6 +49,32 @@ export const translations = {
       { value: '< 5 min', label: 'AI response time vs 2 days average without automation' },
       { value: '$18K+', label: 'average revenue recovered per client in first 90 days' },
     ],
+    howItWorks: {
+      heading: 'Up and Running in 5 Days',
+      sub: 'No tech headaches. No long onboarding. We handle everything.',
+      steps: [
+        {
+          number: '01',
+          title: 'Book Your Free Audit',
+          body: 'A 30-minute call where we map out exactly where your leads are leaking and what it\'s costing you every month.',
+        },
+        {
+          number: '02',
+          title: 'We Build Your System',
+          body: 'We configure your AI — trained on your trade, your service area, your voice — and connect it to your calendar and tools.',
+        },
+        {
+          number: '03',
+          title: 'Go Live in 5 Days',
+          body: 'Your AI starts answering calls, following up with leads, and booking jobs — 24/7, in English and Spanish.',
+        },
+        {
+          number: '04',
+          title: 'Track Every Result',
+          body: 'Weekly reports show every lead contacted, every job booked, and exactly how much revenue your AI recovered.',
+        },
+      ],
+    },
     services: {
       heading: 'What We Build For You',
       sub: 'Three systems. One mission: make sure every lead becomes a job.',
@@ -109,6 +135,33 @@ export const translations = {
           location: 'Prince William County, VA',
           result: '0 missed leads in 60 days',
           detail: 'AI Voice Agent answered 100% of inbound calls. Owner went from spending 2 hours/day on the phone to under 20 minutes.',
+        },
+      ],
+    },
+    testimonials: {
+      heading: 'What Contractors Are Saying',
+      sub: 'Real feedback from real business owners.',
+      items: [
+        {
+          quote: "I missed calls every weekend. Now my AI handles them, books the estimate, and I show up to close it. Best investment I\'ve made in 10 years of business.",
+          name: 'Marcus T.',
+          trade: 'HVAC Owner',
+          location: 'Fairfax, VA',
+          stars: 5,
+        },
+        {
+          quote: "My customers speak Spanish and nobody was following up properly. SparkRise set up a bilingual AI that responds in 3 minutes. My close rate went up 40%.",
+          name: 'Roberto L.',
+          trade: 'Landscaping',
+          location: 'Loudoun County, VA',
+          stars: 5,
+        },
+        {
+          quote: "I was skeptical about AI. But after the first week I had 4 new estimates booked from leads I would have never called back. Now I don\'t touch the phone unless it\'s to close.",
+          name: 'Derek W.',
+          trade: 'Plumber',
+          location: 'Manassas, VA',
+          stars: 5,
         },
       ],
     },
@@ -299,6 +352,32 @@ export const translations = {
       { value: '< 5 min', label: 'tiempo de respuesta de la IA vs 2 días promedio sin automatización' },
       { value: '$18K+', label: 'ingreso promedio recuperado por cliente en los primeros 90 días' },
     ],
+    howItWorks: {
+      heading: 'En Marcha en 5 Días',
+      sub: 'Sin dolores de cabeza técnicos. Sin onboarding largo. Nosotros manejamos todo.',
+      steps: [
+        {
+          number: '01',
+          title: 'Reserva tu Auditoría Gratis',
+          body: 'Una llamada de 30 minutos donde mapeamos exactamente dónde se están perdiendo tus leads y cuánto te cuesta cada mes.',
+        },
+        {
+          number: '02',
+          title: 'Construimos tu Sistema',
+          body: 'Configuramos tu IA — entrenada en tu oficio, tu área de servicio, tu voz — y la conectamos a tu calendario y herramientas.',
+        },
+        {
+          number: '03',
+          title: 'Activo en 5 Días',
+          body: 'Tu IA empieza a contestar llamadas, hacer seguimiento a leads y agendar trabajos — 24/7, en inglés y español.',
+        },
+        {
+          number: '04',
+          title: 'Monitorea Cada Resultado',
+          body: 'Reportes semanales que muestran cada lead contactado, cada trabajo agendado y exactamente cuántos ingresos recuperó tu IA.',
+        },
+      ],
+    },
     services: {
       heading: 'Lo Que Construimos para Ti',
       sub: 'Tres sistemas. Una misión: que cada lead se convierta en un trabajo.',
@@ -359,6 +438,33 @@ export const translations = {
           location: 'Prince William County, VA',
           result: '0 leads perdidos en 60 días',
           detail: 'El Agente de Voz IA respondió el 100% de las llamadas entrantes. El dueño pasó de 2 horas al día en el teléfono a menos de 20 minutos.',
+        },
+      ],
+    },
+    testimonials: {
+      heading: 'Lo Que Dicen los Contratistas',
+      sub: 'Opiniones reales de dueños de negocios reales.',
+      items: [
+        {
+          quote: "Perdía llamadas cada fin de semana. Ahora mi IA las atiende, agenda la estimación y yo llego a cerrar el trato. La mejor inversión que he hecho en 10 años de negocio.",
+          name: 'Marcus T.',
+          trade: 'Dueño de HVAC',
+          location: 'Fairfax, VA',
+          stars: 5,
+        },
+        {
+          quote: "Mis clientes hablan español y nadie hacía el seguimiento bien. SparkRise configuró una IA bilingüe que responde en 3 minutos. Mi tasa de cierre subió un 40%.",
+          name: 'Roberto L.',
+          trade: 'Jardinería',
+          location: 'Loudoun County, VA',
+          stars: 5,
+        },
+        {
+          quote: "Era escéptico sobre la IA. Pero después de la primera semana tenía 4 estimaciones nuevas de leads que nunca hubiera devuelto la llamada. Ya no toco el teléfono a menos que sea para cerrar.",
+          name: 'Derek W.',
+          trade: 'Plomero',
+          location: 'Manassas, VA',
+          stars: 5,
         },
       ],
     },
