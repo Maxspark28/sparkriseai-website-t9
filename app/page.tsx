@@ -21,7 +21,6 @@ import {
   TrendingUp,
   FileText,
   ChevronDown,
-  Play,
   Sparkles,
   MapPin,
 } from "lucide-react"
@@ -134,10 +133,12 @@ export default function SparkRiseAI() {
                 Book Your Free Audit
                 <ArrowRight className="ml-2 h-5 w-5" />
               </CalButton>
-              <Button size="lg" variant="outline" className="border-white/10 bg-white/5 backdrop-blur-sm text-foreground hover:bg-white/10 text-lg px-8 py-6 font-semibold rounded-full">
-                <Play className="mr-2 h-5 w-5" />
-                Watch Demo
-              </Button>
+              <a href="#how-it-works">
+                <Button size="lg" variant="outline" className="border-white/10 bg-white/5 backdrop-blur-sm text-foreground hover:bg-white/10 text-lg px-8 py-6 font-semibold rounded-full">
+                  See How It Works
+                  <ArrowRight className="ml-2 h-5 w-5" />
+                </Button>
+              </a>
             </div>
 
             <div className="flex flex-wrap justify-center gap-6 text-sm text-muted-foreground mb-6">
@@ -150,7 +151,7 @@ export default function SparkRiseAI() {
             </div>
 
             <div className="flex flex-wrap justify-center gap-3">
-              {["NJ", "DMV", "Nationwide"].map((loc) => (
+              {["Nationwide", "Bilingual AI (EN + ES)"].map((loc) => (
                 <span key={loc} className="flex items-center gap-1.5 bg-white/5 border border-white/10 rounded-full px-4 py-1.5 text-xs font-medium text-muted-foreground">
                   <MapPin className="h-3 w-3 text-accent" />
                   {loc}
@@ -174,8 +175,8 @@ export default function SparkRiseAI() {
           {/* Hero jobsite image */}
           <div className="mt-16 relative rounded-2xl overflow-hidden border border-white/[0.06] h-64 md:h-80">
             <Image
-              src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=1200&q=80"
-              alt="Contractor reviewing plans at a jobsite"
+              src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=1200&q=80"
+              alt="Construction crew working on a jobsite"
               fill
               className="object-cover opacity-60"
               unoptimized
@@ -355,8 +356,8 @@ export default function SparkRiseAI() {
           <div className="grid md:grid-cols-2 gap-6">
             <div className="relative rounded-2xl overflow-hidden border border-white/[0.06] h-52">
               <Image
-                src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80"
-                alt="Plumber working under a sink"
+                src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=800&q=80"
+                alt="Contractor reviewing work on a tablet at a jobsite"
                 fill
                 className="object-cover opacity-50"
                 unoptimized
@@ -572,11 +573,12 @@ export default function SparkRiseAI() {
               <a href="#how-it-works" className="hover:text-foreground transition-colors">How It Works</a>
               <a href="#features" className="hover:text-foreground transition-colors">Features</a>
               <a href="#faq" className="hover:text-foreground transition-colors">FAQ</a>
+              <a href="/about" className="hover:text-foreground transition-colors">About</a>
             </div>
           </div>
           <div className="mt-8 pt-8 border-t border-white/[0.06] text-center">
             <p className="text-sm text-muted-foreground mb-2">
-              Serving Bergen County, NJ — Ridgewood, Ho-Ho-Kus, Paramus, Hackensack, Wayne, Paterson — and Northern Virginia — Fairfax, Arlington, Alexandria, Loudoun, Prince William
+              Built for home service businesses across the country · Bilingual AI (EN + ES)
             </p>
             <p className="text-sm text-muted-foreground">
               © 2026 SparkRise AI. All rights reserved.

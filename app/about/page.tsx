@@ -1,5 +1,6 @@
 import { Zap, Linkedin, ArrowLeft } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import Image from "next/image"
 import Link from "next/link"
 
 export default function AboutPage() {
@@ -44,43 +45,42 @@ export default function AboutPage() {
                 SparkRise AI
               </span>
             </h1>
-            <p className="mt-4 text-muted-foreground text-sm">Based in Ho-Ho-Kus, Bergen County, NJ</p>
           </div>
 
           <div className="flex flex-col md:flex-row gap-12 items-center">
-            {/* Founder Photo Placeholder */}
+            {/* Founder Photo */}
             <div className="flex-shrink-0">
-              <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-2xl overflow-hidden border border-white/10 bg-white/[0.02]">
-                <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-primary/10 to-accent/10">
-                  <div className="text-center text-muted-foreground">
-                    <div className="w-24 h-24 mx-auto mb-4 rounded-full bg-white/5 border border-white/10 flex items-center justify-center">
-                      <Zap className="h-10 w-10 text-accent/50" />
-                    </div>
-                    <p className="text-sm">Founder Photo</p>
-                    <p className="text-xs text-muted-foreground/60">Coming Soon</p>
-                  </div>
-                </div>
+              <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-2xl overflow-hidden border border-white/10">
+                <Image
+                  src="/founder.jpeg"
+                  alt="Cristian González Rivera — Founder, SparkRise AI"
+                  fill
+                  className="object-cover"
+                  priority
+                />
                 <div className="absolute inset-0 rounded-2xl border-2 border-transparent bg-gradient-to-br from-accent/20 to-primary/20 [mask:linear-gradient(#fff_0_0)_padding-box,linear-gradient(#fff_0_0)] [mask-composite:exclude]" />
               </div>
             </div>
 
             {/* Bio Section */}
             <div className="flex-1 text-center md:text-left">
-              <h2 className="text-2xl md:text-3xl font-bold mb-2">Founder Name</h2>
-              <p className="text-accent font-medium mb-1">Founder & CEO, SparkRise AI</p>
-              <p className="text-muted-foreground text-sm mb-6">Ho-Ho-Kus, Bergen County, NJ</p>
+              <h2 className="text-2xl md:text-3xl font-bold mb-2">Cristian González Rivera</h2>
+              <p className="text-accent font-medium mb-6">Founder, SparkRise AI</p>
 
               <div className="space-y-4 text-muted-foreground leading-relaxed mb-8">
                 <p>
-                  Bio coming soon. This section will contain information about the founder&apos;s background, experience, and vision for SparkRise AI.
+                  Born in Puerto Rico and raised in Springfield, Massachusetts, Cristian is a husband, father, and problem-solver at his core. He built SparkRise AI out of a genuine obsession with figuring out how things work — and an even stronger drive to make those things useful for real people running real businesses.
                 </p>
                 <p>
-                  Learn about the journey that led to creating an AI lead automation agency for home service contractors — serving Bergen County, NJ, Northern Virginia, and trades businesses across the country.
+                  When AI first started gaining traction, Cristian was already in it — experimenting from the early days of ChatGPT, through automation workflows, and into building voice agents and backend systems from the ground up. He didn&apos;t wait for it to become mainstream. He learned it while it was still being figured out.
+                </p>
+                <p>
+                  That depth is what separates SparkRise from the noise. Cristian bridges the gap between fast-moving technology and the business owners who need it most — translating complex systems into results that are practical, bilingual, and built to last.
                 </p>
               </div>
 
               <a
-                href="https://linkedin.com"
+                href="https://linkedin.com/in/cristian-gonzalez-rivera"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -97,7 +97,7 @@ export default function AboutPage() {
       {/* Footer */}
       <footer className="border-t border-white/5 py-8 px-6">
         <div className="max-w-7xl mx-auto text-center text-sm text-muted-foreground">
-          <p className="mb-1">Serving Bergen County, NJ — Ridgewood, Ho-Ho-Kus, Paramus, Hackensack, Wayne, Paterson — and Northern Virginia</p>
+          <p className="mb-1">Built for home service businesses across the country · Bilingual AI (EN + ES)</p>
           <p>&copy; 2026 SparkRise AI. All rights reserved.</p>
         </div>
       </footer>
