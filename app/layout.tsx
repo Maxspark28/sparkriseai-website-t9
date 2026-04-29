@@ -7,6 +7,7 @@ const _geist = Geist({ subsets: ["latin"] });
 const _geistMono = Geist_Mono({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://sparkriseai.com'),
   title: 'SparkRise AI | AI Lead Automation for Home Service Contractors Nationwide',
   description: 'AI lead automation for home service contractors across the country. We build AI systems that book appointments while you work — responding to leads in under 5 minutes, 24/7. Bilingual AI (EN + ES).',
   generator: 'v0.app',

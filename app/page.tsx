@@ -23,6 +23,7 @@ import {
   ChevronDown,
   Sparkles,
   MapPin,
+  Calculator,
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
@@ -70,6 +71,118 @@ const projectedResults = [
     alt: "Construction workers at a jobsite",
   },
 ]
+
+function ROICalculator() {
+  const [leads, setLeads] = useState(50)
+  const [dealValue, setDealValue] = useState(2000)
+  const [closeRate, setCloseRate] = useState(20)
+
+  const leadsLost = Math.round(leads * 0.4)
+  const revenueRecovered = Math.round(leadsLost * (closeRate / 100) * dealValue)
+  const roiPct = Math.round(((revenueRecovered - 2500) / 2500) * 100)
+
+  return (
+    <section id="calculator" className="px-6 py-24 relative">
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-accent/5 to-transparent" />
+      <div className="relative max-w-4xl mx-auto">
+        <div className="text-center mb-12">
+          <div className="inline-flex items-center gap-2 bg-white/5 border border-white/10 rounded-full px-4 py-2 text-sm font-medium text-muted-foreground mb-4">
+            <Calculator className="h-4 w-4 text-accent" />
+            ROI Calculator
+          </div>
+          <h2 className="text-4xl md:text-5xl font-bold mb-4">How Much Are You Leaving on the Table?</h2>
+          <p className="text-xl text-muted-foreground">See your estimated revenue recovery from AI lead automation.</p>
+        </div>
+
+        <Card className="border-accent/20 bg-white/[0.02] shadow-[0_0_60px_rgba(249,115,22,0.08)]">
+          <CardContent className="p-8 md:p-12">
+            <div className="grid gap-10 md:grid-cols-2">
+              {/* Sliders */}
+              <div className="space-y-8">
+                <div className="space-y-3">
+                  <label className="flex items-center justify-between text-sm font-medium text-foreground">
+                    <span>Monthly Leads</span>
+                    <span className="text-accent font-bold text-xl">{leads}</span>
+                  </label>
+                  <input
+                    type="range"
+                    min={10}
+                    max={500}
+                    step={5}
+                    value={leads}
+                    onChange={(e) => setLeads(Number(e.target.value))}
+                    className="w-full accent-orange-500 h-2 rounded-full cursor-pointer bg-white/10"
+                  />
+                  <div className="flex justify-between text-xs text-muted-foreground">
+                    <span>10</span><span>500+</span>
+                  </div>
+                </div>
+
+                <div className="space-y-3">
+                  <label className="flex items-center justify-between text-sm font-medium text-foreground">
+                    <span>Average Deal Value</span>
+                    <span className="text-accent font-bold text-xl">${dealValue.toLocaleString()}</span>
+                  </label>
+                  <input
+                    type="range"
+                    min={500}
+                    max={20000}
+                    step={500}
+                    value={dealValue}
+                    onChange={(e) => setDealValue(Number(e.target.value))}
+                    className="w-full accent-orange-500 h-2 rounded-full cursor-pointer bg-white/10"
+                  />
+                  <div className="flex justify-between text-xs text-muted-foreground">
+                    <span>$500</span><span>$20,000+</span>
+                  </div>
+                </div>
+
+                <div className="space-y-3">
+                  <label className="flex items-center justify-between text-sm font-medium text-foreground">
+                    <span>Current Close Rate</span>
+                    <span className="text-accent font-bold text-xl">{closeRate}%</span>
+                  </label>
+                  <input
+                    type="range"
+                    min={5}
+                    max={60}
+                    step={1}
+                    value={closeRate}
+                    onChange={(e) => setCloseRate(Number(e.target.value))}
+                    className="w-full accent-orange-500 h-2 rounded-full cursor-pointer bg-white/10"
+                  />
+                  <div className="flex justify-between text-xs text-muted-foreground">
+                    <span>5%</span><span>60%</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Results */}
+              <div className="flex flex-col justify-center gap-4">
+                <div className="rounded-2xl bg-white/[0.03] border border-white/[0.08] p-5">
+                  <p className="text-sm text-muted-foreground mb-1">Cold leads you&apos;re losing monthly</p>
+                  <p className="text-3xl font-bold text-foreground">{leadsLost} leads</p>
+                </div>
+                <div className="rounded-2xl bg-accent/10 border border-accent/25 p-5">
+                  <p className="text-sm text-muted-foreground mb-1">Revenue recoverable per month</p>
+                  <p className="text-3xl font-bold text-accent">${revenueRecovered.toLocaleString()}</p>
+                </div>
+                <div className="rounded-2xl bg-green-950/40 border border-green-800/40 p-5">
+                  <p className="text-sm text-muted-foreground mb-1">Estimated 90-day ROI</p>
+                  <p className="text-3xl font-bold text-green-400">{roiPct > 0 ? `+${roiPct}%` : `${roiPct}%`}</p>
+                </div>
+                <CalButton className="w-full bg-accent hover:bg-accent/90 text-white font-semibold rounded-full shadow-[0_0_20px_rgba(249,115,22,0.3)]">
+                  Capture This Revenue
+                  <ArrowRight className="ml-2 h-5 w-5" />
+                </CalButton>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+      </div>
+    </section>
+  )
+}
 
 export default function SparkRiseAI() {
   const [openFaq, setOpenFaq] = useState<number | null>(null)
@@ -435,6 +548,9 @@ export default function SparkRiseAI() {
           </div>
         </div>
       </section>
+
+      {/* ROI Calculator */}
+      <ROICalculator />
 
       {/* What to Expect on the Call */}
       <section className="relative py-24 px-6">
